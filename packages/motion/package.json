@@ -1,0 +1,15 @@
+{
+  "name": "@ndk/motion",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./src/*": "./src/index.tsx"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "animejs": "^4.2.2",
+    "gsap": "^3.13.0",
+    "motion": "^12.23.25"
+  }
+}
