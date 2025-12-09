@@ -2,9 +2,23 @@
   "name": "@ndk/ui",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "exports": {
-    "./*": "./src/*.tsx"
+    "./components/*": "./src/components/*.tsx",
+    "./next-fonts": "./src/utils/styles/fonts/fonts.ts",
+    "./fonts": "./src/utils/styles/fonts/fonts.css",
+    "./globals.css": "./src/utils/styles/globals.css",
+    "./tokens.css": "./src/utils/styles/tokens.css",
+    "./themes/*": "./src/utils/styles/themes/*",
+    "./icons/*": "./src/icons/*.tsx",
+    "./utils": "./src/utils/lib/utils.ts",
+    "./contexts/*": "./src/contexts/*.tsx",
+    "./lib/*": "./src/utils/lib/*.ts"
   },
+  "files": [
+    "src",
+    "css"
+  ],
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
@@ -20,16 +34,26 @@
     "typescript": "5.9.2"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.4.2",
+    "lucide-react": "^0.556.0",
     "motion": "^12.23.25",
     "next-themes": "^0.4.6",
+    "postcss": "^8.5.6",
     "radix-ui": "^1.4.3",
     "react": "^19.2.0",
     "react-day-picker": "^9.12.0",
     "react-dom": "^19.2.0",
+    "react-hook-form": "^7.68.0",
+    "react-resizable-panels": "^3.0.6",
+    "recharts": "^3.5.1",
+    "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0",
+    "tailwindcss": "^4.1.17",
     "tw-animate-css": "^1.4.0",
     "zod": "^4.1.13"
   }
