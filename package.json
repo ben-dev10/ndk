@@ -4,8 +4,6 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "starter": "turbo run dev --filter=ndk-starter",
-    "docs": "turbo run dev --filter=ndk-docs",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"

@@ -4,10 +4,16 @@
     "outDir": "dist",
     "rootDir": "src",
      "baseUrl": "src",
+    //  "moduleResolution":"bundler",
+    //  "allowImportingTsExtensions": true,
+    //  "declaration":true,
+    //  "declarationMap":true,
+    //  "noEmit":false,
+    //  "jsx":"react-jsx",
     "paths": {
       "@ndk/ui/*": ["./src/*"],
     }
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

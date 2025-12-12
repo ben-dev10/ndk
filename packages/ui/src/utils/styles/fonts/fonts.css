@@ -30,7 +30,7 @@
 */
 @font-face {
   font-family: Geist;
-  src: url("./var/geist/Geist[wght].ttf"); /* variable */
+  src: url("./var/geist/Geist[wght].ttf");
   font-weight: 100 900;
   font-display: swap;
 }
@@ -50,7 +50,6 @@
 }
 
 @font-face {
-  /* a display typeface for headings */
   font-family: "Funnel Display";
   src: url("./var/FunnelDisplay-VariableFont_wght.ttf")
     format("woff2-variations");
@@ -64,15 +63,13 @@
   font-display: swap;
 }
 @font-face {
-  /* a display typeface for headings */
   font-family: "Martian Grotesk";
   src: url("./var/martian-grotesk.woff2") format("woff2-variations");
   font-weight: 100 900;
   font-display: swap;
 }
 @font-face {
-  /* a display typeface for headings */
-  font-family: "WF Sans" /*Webflow Visual Sans*/;
+  font-family: "WF Sans";
   src: url("./var/WFVisualSansVF.woff2") format("woff2-variations");
   font-weight: 100 900;
   font-display: swap;
@@ -138,51 +135,50 @@
 */
 @font-face {
   font-family: Axiforma;
-  src: url("non-var/axiforma.woff2") format("woff2");
+  src: url("./non-var/axiforma.woff2") format("woff2");
   font-weight: 400 600 900;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Seriously Nostalgic";
-  src: url("non-var/SeriouslyNostalgicItal-Reg.otf");
+  src: url("./non-var/SeriouslyNostalgicItal-Reg.otf");
   font-weight: 400 600 900;
   font-display: swap;
 }
 
 @font-face {
-  /* a display typeface for headings */
   font-family: "Cal Sans";
-  src: url("non-var/CalSans-SemiBold.woff2") format("woff2");
+  src: url("./non-var/CalSans-SemiBold.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
   font-family: "ABeeZee";
-  src: url("non-var/ABeeZee.woff2") format("woff2");
+  src: url("./non-var/ABeeZee.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Archivo";
-  src: url("non-var/archivo.woff2") format("woff2");
+  src: url("./non-var/archivo.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
   font-family: "GT Walsheim";
-  src: url("non-var/GT Walsheim.woff2") format("woff2");
+  src: url("./non-var/GT Walsheim.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Untitled Sans Bold";
-  src: url("non-var/Untitled Sans - Bold.woff2") format("woff2");
+  src: url("./non-var/Untitled Sans - Bold.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Untitled Sans Regular";
-  src: url("non-var/Untitled Sans - Regular.woff2") format("woff2");
+  src: url("./non-var/Untitled Sans - Regular.woff2") format("woff2");
   font-display: swap;
 }
