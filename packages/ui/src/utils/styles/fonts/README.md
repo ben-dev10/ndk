@@ -4,7 +4,7 @@ There are 2 major ways of consuming fonts in a web application, you can use them
 
 The CDN approach follows a very similar approach in almost any framework and the steps to set them up varies across CDN providers, so we will be focusing on the self hosting option.
 
-> NOTE: For this package, to use `next/font/local` import the individual font constants from `fonts.ts` but to use the traditional approach with CSS, import the fonts.css file in your globals.css
+> NOTE: For this package, to use `next/font/local` import the individual font configs from `fonts.ts`, to use the traditional approach with CSS, import the `fonts.css` file in your `globals.css`
 
 ## For Next.js applications
 
@@ -21,6 +21,8 @@ In this package, [fonts.css](./fonts.css) file has a number of fonts configured 
 }
 ```
 
+> ⚠️Disclaimer: Some of the fonts provided are meant for personal use only.
+
 You can also assign that to a Tailwind variable. All tokens (twcss variables) are in the @theme layer at the top of the file.
 
 ### Using `next/font/local`
@@ -30,6 +32,7 @@ Next.js provides a package for this exact purpose of hosting fonts locally.
 We will first declare some variables to store each font with the help of the `localfont()` function.
 
 ```tsx
+// ./src/fonts/fonts.ts
 import localFont from "next/font/local";
 
 export const geistSans = localFont({
@@ -85,8 +88,8 @@ The font object also provides a variable property that can come handy for use wi
 
 ```css
 /* You can assign it to a tailwindCSS variable */
-@theme{
-    --font-Geist: var(--font-geist);
-    --font-GeistMono: var(--font-geistMono);
+@theme {
+  --font-Geist: var(--font-geist);
+  --font-GeistMono: var(--font-geistMono);
 }
 ```

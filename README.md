@@ -23,3 +23,5 @@ turbo build # builds all apps and packages
 cd ./packages/ui
 turbo build # builds the ui package only
 ```
+
+See the [ui package](./packages/ui/README.md) docs, and also that of the [motion package](./packages/motion/README.md).

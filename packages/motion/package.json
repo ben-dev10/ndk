@@ -1,10 +1,22 @@
 {
   "name": "@ndk/motion",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "private": true,
   "exports": {
-    "./src/*": "./src/index.tsx"
+    "./core": "./src/index.tsx",
+    "./presets": "./src/presets.tsx"
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src/"
+  },
+  "devDependencies":{
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "typescript": "5.9.2",
+    "react": "^19.2.0",
+    "@types/react": "19.2.2"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

@@ -2,6 +2,8 @@
 
 This package contains all the building blocks needed build a fully functional UI component.
 
+Most ui-components provided by this package are just plain shadcn components bundled up into a neat small package along with other helpful tools and utilities.
+
 ## Scripts
 
 Main scripts

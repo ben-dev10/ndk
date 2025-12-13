@@ -1,5 +1,5 @@
 @import "tailwindcss";
 
 @import "@ndk/ui/styles";
-@import "@ndk/ui/fonts.css";
 @import "@ndk/ui/themes/twitter.css";
+@import "@ndk/ui/fonts.css";
