@@ -1,5 +1,10 @@
 @import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
 
-@import "@ndk/ui/styles";
-@import "@ndk/ui/themes/twitter.css";
+/* @import "@ndk/ui/styles"; */
 @import "@ndk/ui/fonts.css";
+
+:root {
+  --nav-height: 55px;
+}

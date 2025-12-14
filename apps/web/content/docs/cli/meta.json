@@ -1,0 +1,6 @@
+{
+  "root": true,
+  "title": "NDK CLI",
+  "description": "The CLI tool for UI generation automation",
+  "icon": "Terminal"
+}

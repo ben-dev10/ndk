@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@ndk/ui/contexts/theme-provider";
 import "./globals.css";
+import { RootProvider } from "fumadocs-ui/provider/next";
 
 export const metadata: Metadata = {
   title: "ndk",
@@ -14,8 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-Axiforma`}>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className={`font-Lexend`}>
+        <ThemeProvider>
+          <RootProvider>{children}</RootProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

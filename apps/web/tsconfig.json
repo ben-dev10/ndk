@@ -6,9 +6,15 @@
         "name": "next"
       }
     ],
-     "baseUrl": ".",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/.source": ["./.source/server.ts"],
+      "@/ui": ["./src/components/ui"],
+      "@/utils": ["./src/utils"],
+      "@/lib": ["./src/utils/lib"],
+      "@/mdx-components": ["./mdx-components.tsx"],
+      "fumadocs-mdx:collections": [".source/*"]
     }
   },
   "include": [
@@ -18,7 +24,5 @@
     "next.config.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

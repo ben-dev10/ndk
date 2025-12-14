@@ -1,0 +1,18 @@
+{
+  "title": "NDK UI",
+  "description": "UI Components & Logic",
+  "icon": "Building",
+  "root": true,
+  "pages": [
+    "---Introduction---",
+    "index",
+    "why-ndk",
+    "installation",
+    "---UI Primitives---",
+    "primitives",
+    "---UI Blocks---",
+    "blocks",
+    "---Motion & Effects---",
+    "motion"
+  ]
+}

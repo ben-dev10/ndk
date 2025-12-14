@@ -1,0 +1,12 @@
+// @ts-nocheck
+import { browser } from 'fumadocs-mdx/runtime/browser';
+import type * as Config from '../source.config';
+
+const create = browser<typeof Config, import("fumadocs-mdx/runtime/types").InternalTypeConfig & {
+  DocData: {
+  }
+}>();
+const browserCollections = {
+  docs: create.doc("docs", {"cli/index.mdx": () => import("../content/docs/cli/index.mdx?collection=docs"), "ui/index.mdx": () => import("../content/docs/ui/index.mdx?collection=docs"), "ui/installation.mdx": () => import("../content/docs/ui/installation.mdx?collection=docs"), "ui/why-ndk.mdx": () => import("../content/docs/ui/why-ndk.mdx?collection=docs"), "ui/blocks/heros.mdx": () => import("../content/docs/ui/blocks/heros.mdx?collection=docs"), "ui/blocks/navbars.mdx": () => import("../content/docs/ui/blocks/navbars.mdx?collection=docs"), "ui/motion/scroll-animations.mdx": () => import("../content/docs/ui/motion/scroll-animations.mdx?collection=docs"), "ui/primitives/buttons.mdx": () => import("../content/docs/ui/primitives/buttons.mdx?collection=docs"), "ui/primitives/social-share.mdx": () => import("../content/docs/ui/primitives/social-share.mdx?collection=docs"), "ui/primitives/layouts/backgrounds.mdx": () => import("../content/docs/ui/primitives/layouts/backgrounds.mdx?collection=docs"), "ui/primitives/layouts/structure.mdx": () => import("../content/docs/ui/primitives/layouts/structure.mdx?collection=docs"), }),
+};
+export default browserCollections;
