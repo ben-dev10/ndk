@@ -1,0 +1,56 @@
+@layer base {
+  :root {
+    @apply text-[14px] max-md:text-[12px];
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .debug {
+    @apply border border-red-500;
+  }
+  .debug-y {
+    @apply border border-yellow-500;
+  }
+  .debug-g {
+    @apply border border-green-500;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .container,
+  [datatype="container"] {
+    @apply mx-auto max-w-4xl;
+  }
+  .container-5xl,
+  [datatype="container-5xl"] {
+    @apply mx-auto max-w-5xl;
+  }
+  .container-6xl,
+  [datatype="container-6xl"] {
+    @apply mx-auto max-w-6xl;
+  }
+  .container-7xl,
+  [datatype="container-7xl"] {
+    @apply mx-auto max-w-7xl;
+  }
+  .container-8xl,
+  [datatype="container-8xl"] {
+    @apply mx-auto max-w-5xl;
+  }
+}

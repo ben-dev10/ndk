@@ -1,8 +1,7 @@
 {
-  "name": "@ndk/motion",
+  "name": "@_ndk/motion",
   "version": "0.0.1",
   "type": "module",
-  "private": true,
   "exports": {
     "./core": "./src/index.tsx",
     "./presets": "./src/presets.tsx"

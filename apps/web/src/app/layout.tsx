@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@ndk/ui/contexts/theme-provider";
+import { ThemeProvider } from "@_ndk/ui/contexts/theme-provider";
 import "./globals.css";
 import { RootProvider } from "fumadocs-ui/provider/next";
 

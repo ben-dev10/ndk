@@ -1,10 +1,10 @@
 import React from "react";
-import Section from "@ndk/ui/components/_ui/section";
+import Section from "@_ndk/ui/components/_ui/section";
 import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <Section.RootElement as="header" className="sticky border-b">
+    <Section.RootElement as="header" className="bg-background sticky border-b">
       <Section.Container
         container="8xl"
         className="flex h-(--nav-height) items-center justify-between px-6"

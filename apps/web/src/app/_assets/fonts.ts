@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
-import { nextFontsVar as nextv } from "@ndk/ui/next-fonts";
-import { nextFontsNonVar as nextnv } from "@ndk/ui/next-fonts";
+import { nextFontsVar as nextv } from "@_ndk/ui/next-fonts";
+import { nextFontsNonVar as nextnv } from "@_ndk/ui/next-fonts";
 
 export const geistSans = localFont({
   src: nextv.geistSans.src,

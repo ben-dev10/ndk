@@ -1,9 +1,13 @@
 @import "tailwindcss";
-@import "fumadocs-ui/css/neutral.css";
+
+@import "@_ndk/ui/tokens";
+@import "@_ndk/ui/fonts";
+
+@import "fumadocs-ui/css/dusk.css";
 @import "fumadocs-ui/css/preset.css";
 
-/* @import "@ndk/ui/styles"; */
-@import "@ndk/ui/fonts.css";
+/* theme for your app & ndk ui components: provided by @_ndk/ui  */
+@import "@_ndk/ui/themes/neutral.css";
 
 :root {
   --nav-height: 55px;

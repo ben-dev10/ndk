@@ -1,6 +1,6 @@
 import React from "react";
-import { MotionWrapper } from "@ndk/motion/core";
-import type { MotionWrapperProps, EasingType } from "@ndk/motion/core";
+import { MotionWrapper } from "@_ndk/motion/core";
+import type { MotionWrapperProps, EasingType } from "@_ndk/motion/core";
 
 // Re-export EasingType for convenience
 export type { EasingType };

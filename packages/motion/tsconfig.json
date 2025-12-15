@@ -5,7 +5,7 @@
     "rootDir": "src",
     "baseUrl": "src",
     "paths": {
-      "@_ndk/ui/*": ["./src/*"]
+      "@_ndk/motion/*": ["./src/*"]
     }
   },
   "include": ["src/**/*"],

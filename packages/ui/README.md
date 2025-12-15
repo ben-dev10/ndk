@@ -1,4 +1,4 @@
-# @ndk/ui
+# @\_ndk/ui
 
 This package contains all the building blocks needed build a fully functional UI component.
 
@@ -10,9 +10,9 @@ Main scripts
 
 ```bash
 # cd ./packages/ui
-turbo build  # builds all styles for the @ndk/ui package
-turbo dev # starts @ndk/ui dev server
-turbo dev:ui # also starts @ndk/ui dev server
+turbo build  # builds all styles for the @_ndk/ui package
+turbo dev # starts @_ndk/ui dev server
+turbo dev:ui # also starts @_ndk/ui dev server
 ```
 
 ## Getting Started
@@ -23,9 +23,9 @@ You
 @import "tailwindcss";
 
 /* core: main stylesheet for components exported by the package */
-@import "@ndk/ui/styles";
+@import "@_ndk/ui/styles";
 
 /* modular components: default theme is neutral.css */
-@import "@ndk/ui/fonts.css";
-@import "@ndk/ui/themes/twitter.css";
+@import "@_ndk/ui/fonts.css";
+@import "@_ndk/ui/themes/twitter.css";
 ```

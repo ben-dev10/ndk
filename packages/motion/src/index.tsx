@@ -2,7 +2,7 @@
 import React from "react";
 import { Easing, motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { motionPresets } from "@ndk/motion/presets";
+import { motionPresets } from "@_ndk/motion/presets";
 
 /* USAGE:
  * These motion animations only trigger when in view, by default, similar to how

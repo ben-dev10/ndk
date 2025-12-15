@@ -4,7 +4,7 @@ const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["@ndk/ui"],
+  transpilePackages: ["@_ndk/ui"],
 };
 
 export default withMDX(nextConfig);

@@ -2,13 +2,13 @@
 
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import { Button } from "@ndk/ui/components/ui/button";
+import { Button } from "@_ndk/ui/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@ndk/ui/components/ui/dropdown-menu";
+} from "@_ndk/ui/components/ui/dropdown-menu";
 import {
   Sun,
   MoonIcon,
@@ -17,7 +17,7 @@ import {
   ChevronDownIcon,
 } from "lucide-react";
 // import SpinnerRing180 from "../../icons/180-spinner";
-import SpinnerRing180 from "@ndk/ui/icons/180-spinner";
+import SpinnerRing180 from "@_ndk/ui/icons/180-spinner";
 
 /*
  * 1. Classic Toggle - Sun/Moon switch

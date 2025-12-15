@@ -17,7 +17,7 @@ turbo dev # runs all apps and packages
 turbo build # builds all apps and packages
 ```
 
-### @ndk/ui package (v0.0.2)
+### @\_ndk/ui package (v0.0.2)
 
 ```bash
 cd ./packages/ui

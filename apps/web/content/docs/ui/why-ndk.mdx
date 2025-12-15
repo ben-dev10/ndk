@@ -1,20 +1,30 @@
 ---
 title: Why ndk?
-description: ndk was built to speedup development by providing useful tools and fully styled shadcn components.
+description: Why yet another UI library (toolkit preferably) ?
 icon: CircleQuestionMark
 ---
 
-## Code Block
+## The problem
+More often than not when starting a new web project we reach for a CLI tool to quickly scaffold one for us. But sadly this isn't enough these days. 
+You would have to spend the next 30mins or so adding more and more packages (UI packages especially) to complete the setup. Then you have to test if the packages fit perfectly,
+fix any errors (if any) before you even start work on the project. 
 
-```js
-console.log('Hello World');
-```
+## The solution
+What if there was package that had all these necessities at the ready with just a few clicks? That is the problem this package aims to fix - bring along all the
+shiny new tools that we can't build a website without these days - shadcn components, tailwindcss plugins and themes, free fonts, motion presets and components, 
+hooks .etc...plus a few extra custom ones you might find useful.
 
-## Cards
+Note that, this library isn't meant to replace your existing UI setup, it comes with components pre-styled, just plug-in and use any of it's exports when you need. The components are plain
+components from Shadcn, `cn()`, `use-mobile` etc. and largely unmodified, just packaged up into a neat, small package which is also 
+<Link href="https://ben-dev10/ndk" className="text-fd-primary">open-sourced</Link> so you can check out the code on GitHub, modify them as you please, submit a request or provide feedback if you wish.
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+
+You must be wondering, a *ui template* can easily solve this problem right?, and to that I say you are right. But this library is meant to be another tool in your template. It is helpful to think of 
+this as pieces of lego blocks to build an app, and though encapsulated in the `node_modules` folder during development (which violates the **"Shadcn Law"),** it is the same familiar files and 
+concepts you know and a few others I would be explaining in this documentation, so there is usually no need for any modifications, but if you want to make any changes, I exported the source files 
+too in the package which you can find in your app's `node_modules` folder, but don't edit them directly there (it will not work) so copy it to a new file and import that one instead after making your changes.
+
+
+
 
 

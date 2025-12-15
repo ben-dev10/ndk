@@ -1,4 +1,4 @@
-/* This is the next.js version of the @ndk/ui fonts library.
+/* This is the next.js version of the @_ndk/ui fonts library.
  * It is intended for use with next/fonts/local
  */
 

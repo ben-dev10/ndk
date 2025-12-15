@@ -1,13 +1,14 @@
 {
   "title": "NDK UI",
-  "description": "UI Components & Logic",
-  "icon": "Building",
+  "description": "UI Components, themes utilities and more.",
+  "icon": "Layers2",
   "root": true,
   "pages": [
     "---Introduction---",
     "index",
     "why-ndk",
     "installation",
+    "quick-start",
     "---UI Primitives---",
     "primitives",
     "---UI Blocks---",
