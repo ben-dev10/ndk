@@ -4,4 +4,49 @@ description: Get started with NDK.
 icon: BookCopy
 ---
 
-You can be 
+## Prerequisites
+Before we get started, make sure you have a `react` app ready with `tailwindcss` configured. 
+
+<section id="setup-section">
+    <div className="fd-steps [&_h3]:fd-step">
+
+    ### Install packages
+        ```npm
+        npm install @_ndk/ui @_ndk/motion
+        ```
+    ### Import core styles to your globals.css (@_ndk/ui)
+        ```css title="globals.css"
+        @import "tailwindcss";
+
+        /* main stylesheets */
+        @import "@_ndk/ui/tokens"; 
+        @import "@_ndk/ui/themes/neutral.css";
+
+        /* modules */
+        @import "@_ndk/ui/fonts";
+        @import "@_ndk/ui/typography";
+
+        /* rest of styles */
+        ```
+    <Callout title="The order of imports matter" type='info' className="mt-4">
+         If you don't want the `themes` import interfering with yours, move it above your theme imports, but if you want it to be the main theme for your entire app
+         move it further below all imports. Note that without the `theme` import, the components provided by the library won't be styled.
+    </Callout>
+
+
+
+    ### Animate your elements with "motion-wrappers" (@_ndk/motion)
+        ```tsx title="page.tsx"
+        <MotionStagger preset="blurIn" once={true} staggerDelay={0.5}>
+            <div className="text-muted-foreground">
+                Test out these components from the library.
+            </div>
+        </MotionStagger>
+        ```
+
+    ### Explore
+    These are the main features for the time being. There are some other handy utilities and tools you can use:
+    - Themes
+    - Hooks
+    </div>
+</section>

@@ -1,36 +1,62 @@
 {
   "name": "@_ndk/ui",
-  "version": "0.0.2",
+  "version": "0.0.8",
   "type": "module",
   "sideEffects": [
     "**/*.css"
   ],
+  "files":["dist"],
   "exports": {
     "./styles": "./dist/styles.css",
-    "./tokens": "./src/styles/tokens.css",
-    "./themes/*": "./src/utils/styles/themes/*",
-    "./fonts": "./src/utils/styles/fonts/fonts.css",
-    "./typography": "./src/utils/styles/typography.css",
+    "./tokens": "./dist/styles/tokens.css",
+    "./themes/*": "./dist/utils/styles/themes/*",
+    "./fonts": "./dist/utils/styles/fonts/fonts.css",
+    "./typography": "./dist/utils/styles/typography.css",
 
-    "./next-fonts": "./src/utils/styles/fonts/fonts.ts",
+    "./next-fonts": {
+      "import": "./dist/utils/styles/fonts/fonts.js",
+      "types": "./dist/utils/styles/fonts/fonts.d.ts"
+    },
+    "./utils.ts": {
+      "import": "./dist/utils/lib/utils.js",
+      "types": "./dist/utils/lib/utils.d.ts"
+    },
+    "./utils/*": {
+      "import": "./dist/utils/*.js",
+      "types": "./dist/utils/*.d.ts"
+    },
+    "./lib/*": {
+      "import": "./dist/utils/lib/*.js",
+      "types": "./dist/utils/lib/*.d.ts",
+      "default": "./dist/utils/lib/*.js"
+    },
 
-    "./utils.ts": "./src/utils/lib/utils.ts",
-    "./utils/*": "./src/utils/*",
-    "./lib/*": "./src/utils/lib/*.ts",
-    
     "./components/*": {
       "import": "./dist/components/*.js",
       "types": "./dist/components/*.d.ts",
       "default": "./dist/components/*.js"
     },
-    "./icons/*": "./src/icons/*.tsx",
-    "./contexts/*": "./src/contexts/*.tsx",
-    "./hooks/*": "./src/hooks/*.ts"
+    "./icons/*": {
+      "import": "./dist/icons/*.js",
+      "types": "./dist/icons/*.d.ts",
+      "default": "./dist/icons/*.js"
+    },
+    "./contexts/*": {
+      "import": "./dist/contexts/*.js",
+      "types": "./dist/contexts/*.d.ts",
+      "default": "./dist/contexts/*.js"
+    },
+    "./hooks/*": {
+      "import": "./dist/hooks/*.js",
+      "types": "./dist/hooks/*.d.ts",
+      "default": "./dist/hooks/*.js"
+    }
   },
   "scripts": {
     "build:types": "tsc",
     "build:components": "tsc",
-    "build": "npm run build:styles && npm run build:types",
+    "build:copy-css": "node scripts/copy-css.js",
+    "build": "npm run build:styles && npm run build:copy-css && npm run build:types",
     "build:styles": "tailwindcss -i ./src/styles/globals.css -o ./dist/styles.css --minify",
 
     "dev": "npm run dev:styles",

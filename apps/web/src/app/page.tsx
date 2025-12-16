@@ -9,33 +9,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@_ndk/ui/components/ui/dialog";
-import Image, { ImageProps } from "next/image";
 import Navbar from "./_components/navbar";
 import Link from "next/link";
-
-type Props = Omit<ImageProps, "src"> & {
-  srcLight: string;
-  srcDark: string;
-};
-
-const ThemeImage = (props: Props) => {
-  const { srcLight, srcDark, ...rest } = props;
-
-  return (
-    <>
-      <Image
-        {...rest}
-        src={srcLight}
-        className="imgLight block w-full dark:hidden"
-      />
-      <Image
-        {...rest}
-        src={srcDark}
-        className="imgDark hidden w-full dark:block"
-      />
-    </>
-  );
-};
+import ThemeImage from "@/components/_ui/theme-image";
 
 export default function Home() {
   return (
@@ -44,7 +20,17 @@ export default function Home() {
       <main className="bg-background grid min-h-[calc(100dvh-var(--nav-height)-1px)] grid-cols-1 place-items-center overflow-hidden p-20">
         <div className="_contents min-w-[300px] p-4 lg:min-w-lg">
           <MotionStagger preset="blurIn">
-            <h4 className="mb-2 text-5xl font-extrabold">ndk</h4>
+            <h4 className="mb-2 flex items-center gap-2 text-5xl font-extrabold">
+              <ThemeImage
+                width={31}
+                height={31}
+                alt="ndk logo"
+                srcDark="/svgs/ndk-dark.svg"
+                srcLight="/svgs/ndk-light.svg"
+                className="-mb-2 w-8"
+              />
+              ndk
+            </h4>
             <p className="text-muted-foreground mb-10">
               A mini toolkit for frontend development.
             </p>
@@ -80,6 +66,7 @@ export default function Home() {
                         <ThemeImage
                           srcLight="/imgs/ndk-banner--light.webp"
                           srcDark="/imgs/ndk-banner--dark.webp"
+                          className="w-full"
                           alt="Turborepo logo"
                           width={180}
                           height={38}
