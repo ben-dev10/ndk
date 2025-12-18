@@ -3,7 +3,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@_ndk/ui/components/ui/popover";
-import React from "react";
 
 export const Trigger01 = () => {
   return (
@@ -40,15 +39,31 @@ export const Trigger02 = () => {
 
 export default function PopoverUI({
   content = "Popover",
+  className,
+  trigger,
+  align,
+  asChild,
+  side,
+  disabled,
 }: {
   content?: React.ReactNode;
+  className?: string;
+  trigger?: React.ReactNode;
+  align?: "center" | "start" | "end" | undefined;
+  asChild?: boolean | undefined;
+  side?: "top" | "right" | "bottom" | "left" | undefined;
+  disabled?: boolean | undefined;
 }) {
   return (
     <Popover>
-      <PopoverTrigger>
-        <Trigger02 />
+      <PopoverTrigger asChild={asChild} disabled={disabled}>
+        {trigger ? trigger : <Trigger02 />}
       </PopoverTrigger>
-      <PopoverContent className="w-[170px] max-w-max rounded-[10px] p-1.5 px-2.5 text-[0.8rem]">
+      <PopoverContent
+        align={align}
+        side={side}
+        className={`${className} w-[170px] max-w-max rounded-[10px] p-1.5 px-2.5 text-[0.8rem]`}
+      >
         {content}
       </PopoverContent>
     </Popover>

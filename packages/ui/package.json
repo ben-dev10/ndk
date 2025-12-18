@@ -13,10 +13,6 @@
     "./fonts": "./dist/utils/styles/fonts/fonts.css",
     "./typography": "./dist/utils/styles/typography.css",
 
-    "./next-fonts": {
-      "import": "./dist/utils/styles/fonts/fonts.js",
-      "types": "./dist/utils/styles/fonts/fonts.d.ts"
-    },
     "./utils.ts": {
       "import": "./dist/utils/lib/utils.js",
       "types": "./dist/utils/lib/utils.d.ts"
@@ -70,7 +66,11 @@
   },
   "peerDependencies":{
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.17",
+    "lucide-react": "^0.556.0",
+    "@tailwindcss/postcss": "^4.1.17",
+    "postcss": "^8.5.6"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
@@ -79,10 +79,7 @@
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
-    "@tailwindcss/postcss": "^4.1.17",
     "eslint": "^9.39.1",
-    "tailwindcss": "^4.1.17",
-    "postcss": "^8.5.6",
     "typescript": "5.9.2"
   },
   "dependencies": {
@@ -93,7 +90,6 @@
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
-    "lucide-react": "^0.556.0",
     "motion": "^12.23.25",
     "next-themes": "^0.4.6",
     "radix-ui": "^1.4.3",

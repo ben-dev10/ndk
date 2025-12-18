@@ -1,14 +1,31 @@
 import localFont from "next/font/local";
-import { nextFontsVar as nextv } from "@_ndk/ui/next-fonts";
-import { nextFontsNonVar as nextnv } from "@_ndk/ui/next-fonts";
+
+/* USAGE: An alternative approach to hosting files locally (next.js specific)
+ *
+ * import { geistSansVar, geistMonoVar } from "./fonts"
+ * <body className={`${geistSansVar.className} ${geistMonoVar.className}`}></body>
+ */
 
 export const geistSans = localFont({
-  src: nextv.geistSans.src,
-  variable: nextv.geistSans.variable,
-  weight: nextv.geistSans.weight,
+  src: [
+    {
+      path: "../../../public/fonts/Geist[wght].ttf",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-geist-var-sans",
+  display: "swap",
 });
 
-export const aBeeZee = localFont({
-  src: nextnv.AbeeZee.src,
-  variable: nextnv.AbeeZee.variable,
+export const geistMono = localFont({
+  src: [
+    {
+      path: "../../../public/fonts/GeistMono[wght].ttf",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-geist-var-mono",
+  display: "swap",
 });

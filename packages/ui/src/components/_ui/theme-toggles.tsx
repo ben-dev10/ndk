@@ -16,13 +16,19 @@ import {
   MonitorIcon,
   ChevronDownIcon,
 } from "lucide-react";
-// import SpinnerRing180 from "../../icons/180-spinner";
 import SpinnerRing180 from "@_ndk/ui/icons/180-spinner";
+import { cn } from "@_ndk/ui/utils.ts";
 
 /*
  * 1. Classic Toggle - Sun/Moon switch
  */
-export function ClassicThemeToggle() {
+export function ClassicThemeToggle({
+  size = 14,
+  className,
+}: {
+  size?: number;
+  className?: string;
+}) {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -32,9 +38,8 @@ export function ClassicThemeToggle() {
   if (!mounted) {
     return (
       <Button variant="outline" size="icon" disabled>
-        <Sun className="size-[6.2rem]" />
         <span className="sr-only">
-          <SpinnerRing180 className="debug w-2" />
+          <SpinnerRing180 className="w-2" />
         </span>
       </Button>
     );
@@ -53,10 +58,13 @@ export function ClassicThemeToggle() {
   return (
     <button
       onClick={handleToggle}
-      className="hover:bg-secondary/10 max-w-max rounded-full border p-2 transition-colors"
+      className={cn(
+        "hover:bg-secondary/10 max-w-max rounded-full border p-1.5 transition-colors",
+        className,
+      )}
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
     >
-      {isDark ? <MoonIcon size={16} /> : <SunIcon size={16} />}
+      {isDark ? <MoonIcon size={size} /> : <SunIcon size={size} />}
     </button>
   );
 }

@@ -1,10 +1,8 @@
 # Web Fonts
 
-There are 2 major ways of consuming fonts in a web application, you can use them over a CDN or you can host them locally in your application.
+There are 2 major ways of consuming fonts in a web application; you can use them over a CDN or you can host them locally in your application.
 
-The CDN approach follows a very similar approach in almost any framework and the steps to set them up varies across CDN providers, so we will be focusing on the self hosting option.
-
-> NOTE: For this package, to use `next/font/local` import the individual font configs from `fonts.ts`, to use the traditional approach with CSS, import the `fonts.css` file in your `globals.css`
+The CDN approach is carried out in very similar ways in almost any framework so we will be focusing on the self hosting option.
 
 ## For Next.js applications
 
@@ -30,6 +28,8 @@ You can also assign that to a Tailwind variable. All tokens (twcss variables) ar
 Next.js provides a package for this exact purpose of hosting fonts locally.
 
 We will first declare some variables to store each font with the help of the `localfont()` function.
+
+> ℹ️NOTE: `next/font/local` is a next.js specific module.
 
 ```tsx
 // ./src/fonts/fonts.ts
@@ -70,7 +70,7 @@ export const geistMono = localFont({
 });
 ```
 
-Next, pass the `className` property of the font object to the root wrapper of your application, or any element.
+Next, pass the `className` property of `geistMono` or `geistSans` to any element you wish to apply the font to.
 
 ```tsx
 <body className={`${geistSans.className} ${geistMono.className}`}>
@@ -78,7 +78,7 @@ Next, pass the `className` property of the font object to the root wrapper of yo
 </body>
 ```
 
-The font object also provides a variable property that can come handy for use with tailwind classes. First add the variable to your root wrapper.
+The font object also provides a variable property that can come in handy for use with tailwind classes. First add the variable to your root wrapper.
 
 ```tsx
 <body className={`${geistSans.variable} ${geistMono.variable}`}>

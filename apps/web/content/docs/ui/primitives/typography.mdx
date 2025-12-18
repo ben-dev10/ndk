@@ -1,0 +1,74 @@
+---
+title: Typography
+description: A new modern set of UI components.
+---
+
+## Font styles
+
+TailwindCSS comes with a set of reset styles that strips away all default styling for most elements. ndk provides a little
+typography module that provides basic styling to "text" elements:
+- `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `p`, `caption`.
+
+It adds back sensible default font weights, sizes and line heights to these elements. To use this, import it into your `globals.css` file
+and add a `_ui` classname to an element or area you want this to affect.
+
+```css title="globals.css"
+@import "tailwindcss";
+
+/* should come after the "tokens" import */
+@import "@_ndk/ui/typography";
+```
+```tsx
+// the typography styles will only apply to children of an element with class "_ui"
+<body className="_ui ..."></body>
+```
+
+
+## Typefaces
+
+I have collected a bunch of font files (mostly Google fonts and some free variable fonts I found on the internet), that is intended for local use in your application, 
+no need for a CDN link.
+
+To use, import the css file in your main css file and apply them using tailwind variables or with their font family names.
+
+```css title="globals.css"
+@import "tailwindcss";
+
+/* should come after the "tokens" import */
+@import "@_ndk/ui/typography";
+```
+```tsx
+<div className="font-InterV"></div>
+```
+
+This is a list of all the font variables and their font-family names.
+```css title="globals.css"
+ @theme {
+/* --variable: "fontFamilyName" */
+  --font-Geist: "Geist";
+  --font-GeistMono: "Geist Mono";
+  --font-InterV: "InterV";
+  --font-Axiforma: "Axiforma";
+  --font-FKGrotesk: "FKGrotesk";
+  --font-FKGroteskNeue: "FKGrotesk Neue";
+  --font-Lexend: "Lexend";
+  --font-PPEditorialItalic: "PPEditorial Italic";
+  --font-PPEditorialVar: "PPEditorial Var";
+  --font-ABeeZee: "ABeeZee";
+  --font-SohneVar: "Sohne Var";
+  --font-Archivo: "Archivo";
+  --font-GTWalsheim: "GT Walsheim";
+  --font-UntitledSansB: "Untitled Sans Bold";
+  --font-UntitledSansR: "Untitled Sans Regular";
+  --font-MSaans: "M Saans";
+  --fontCabinetGrotesk: "Cabinet Grotesk";
+  --font-CalSans: "Cal Sans";
+  --font-FunnelDisplay: "Funnel Display";
+  --font-SeriouslyNostalgic: "Seriously Nostalgic";
+  --font-JetBrainsMono: "JetBrains Mono";
+  --font-MartianGrotesk: "Martian Grotesk";
+  --font-WFSans: "WF Sans";
+  }
+
+```
+

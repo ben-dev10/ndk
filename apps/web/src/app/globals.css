@@ -2,6 +2,7 @@
 
 @import "@_ndk/ui/tokens";
 @import "@_ndk/ui/fonts";
+@import "@_ndk/ui/typography";
 
 @import "fumadocs-ui/css/dusk.css";
 @import "fumadocs-ui/css/preset.css";
@@ -11,4 +12,5 @@
 
 :root {
   --nav-height: 48px;
+  --gutter-x: 2rem;
 }
