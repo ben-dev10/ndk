@@ -10,9 +10,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/.source": ["./.source/server.ts"],
-      "@/ui": ["./src/components/ui"],
-      "@/utils": ["./src/utils"],
-      "@/lib": ["./src/utils/lib"],
+      "@/ui/*": ["./src/components/ui/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/lib/*": ["./src/utils/lib/*"],
       "@/mdx-components": ["./mdx-components.tsx"],
       "fumadocs-mdx:collections": [".source/*"]
     }

@@ -15,3 +15,5 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Link,
   } satisfies MDXComponents;
 }
+
+export const useMDXComponents = getMDXComponents;

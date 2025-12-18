@@ -3,7 +3,8 @@ import {
   defineConfig,
   defineDocs,
   frontmatterSchema,
-  metaSchema
+  metaSchema,
+  defineCollections
 } from "fumadocs-mdx/config";
 import { z } from "zod";
 var docs = defineDocs({
@@ -26,9 +27,22 @@ var docs = defineDocs({
 });
 var source_config_default = defineConfig({
   // lastModifiedTime: "git",
-  mdxOptions: {}
+  mdxOptions: {
+    providerImportSource: "@/mdx-components"
+  }
+});
+var blogPosts = defineCollections({
+  type: "doc",
+  dir: "content/blog",
+  schema: frontmatterSchema.extend({
+    title: z.string(),
+    description: z.string(),
+    author: z.string().optional(),
+    date: z.iso.date().or(z.date())
+  })
 });
 export {
+  blogPosts,
   source_config_default as default,
   docs
 };

@@ -30,9 +30,9 @@ export default function Navbar() {
           <div className="_links flex gap-3">
             {[
               { name: "Docs", url: "/docs/ui" },
-              { name: "Roadmap", url: "/changelog" },
               { name: "Blocks", url: "/blocks" },
-              // { name: "Blog", url: "/blog/v12" },
+              { name: "Roadmap", url: "/changelog" },
+              { name: "Blog", url: "/blog" },
             ].map((item, index) => (
               <Link
                 key={index}
