@@ -19,7 +19,9 @@ export default function RootLayout({
       <body className={`font-Lexend`}>
         <ThemeProvider>
           <RootProvider>
-            <Banner variant="rainbow">Site is a work in progress.</Banner>
+            <Banner id="wip" variant="rainbow">
+              Site is a work in progress.
+            </Banner>
             {children}
           </RootProvider>
         </ThemeProvider>

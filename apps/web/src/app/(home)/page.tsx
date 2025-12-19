@@ -12,10 +12,15 @@ import {
 import Link from "next/link";
 import ThemeImage from "@/components/_ui/theme-image";
 
+export const contentHeight =
+  "min-h-[calc(100dvh-var(--nav-height)-var(--footer-height)-var(--banner-height)-1px)]";
+
 export default function Home() {
   return (
     <>
-      <main className="bg-background grid min-h-[calc(100dvh-var(--nav-height)-1px-42px)] grid-cols-1 place-items-center overflow-hidden p-20">
+      <main
+        className={`_homepage ${contentHeight} bg-background grid grid-cols-1 place-items-center overflow-hidden p-20`}
+      >
         <div className="_contents min-w-[300px] p-4 lg:min-w-lg">
           <MotionStagger preset="blurIn">
             <h4 className="mb-2 flex items-center gap-2 text-5xl font-extrabold">

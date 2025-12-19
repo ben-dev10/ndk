@@ -1,3 +1,4 @@
+import Footer from "../_components/footer";
 import Navbar from "../_components/navbar";
 import "./app.module.css";
 
@@ -10,6 +11,7 @@ export default function HomeLayout({
     <div className="_ui">
       <Navbar />
       {children}
+      <Footer />
     </div>
   );
 }

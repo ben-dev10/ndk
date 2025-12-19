@@ -4,7 +4,7 @@
 @import "@_ndk/ui/fonts";
 @import "@_ndk/ui/typography";
 
-@import "fumadocs-ui/css/dusk.css";
+@import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
 
 /* theme for your app & ndk ui components: provided by @_ndk/ui  */
@@ -12,5 +12,7 @@
 
 :root {
   --nav-height: 48px;
+  --banner-height: 42px;
+  --footer-height: 40px;
   --gutter-x: 2rem;
 }

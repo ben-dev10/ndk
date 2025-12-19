@@ -37,7 +37,7 @@ var blogPosts = defineCollections({
   schema: frontmatterSchema.extend({
     title: z.string(),
     description: z.string(),
-    author: z.string().optional(),
+    author: z.string(),
     date: z.iso.date().or(z.date())
   })
 });
