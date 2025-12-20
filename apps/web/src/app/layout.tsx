@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@_ndk/ui/contexts/theme-provider";
 import "./globals.css";
 import { RootProvider } from "fumadocs-ui/provider/next";
-import { Banner } from "fumadocs-ui/components/banner";
+import Banner from "./_components/banner";
 
 export const metadata: Metadata = {
   title: "ndk",
@@ -19,9 +19,7 @@ export default function RootLayout({
       <body className={`font-Lexend`}>
         <ThemeProvider>
           <RootProvider>
-            <Banner id="wip" variant="rainbow">
-              Site is a work in progress.
-            </Banner>
+            <Banner />
             {children}
           </RootProvider>
         </ThemeProvider>

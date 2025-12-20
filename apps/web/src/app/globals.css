@@ -12,7 +12,14 @@
 
 :root {
   --nav-height: 48px;
-  --banner-height: 42px;
-  --footer-height: 40px;
+  --banner-height: 3rem;
+  --footer-height: 45px;
   --gutter-x: 2rem;
+}
+
+@layer base {
+  p > code,
+  li > code {
+    @apply text-[0.88rem]!;
+  }
 }

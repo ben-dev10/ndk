@@ -8,7 +8,10 @@ import { ClassicThemeToggle } from "@_ndk/ui/components/_ui/theme-toggles";
 
 export default function Navbar() {
   return (
-    <Section.RootElement as="header" className="bg-background sticky border-b">
+    <Section.RootElement
+      as="header"
+      className="bg-background sticky top-(--banner-height) border-b"
+    >
       <Section.Container
         container="8xl"
         className="flex h-(--nav-height) items-center justify-between px-6"

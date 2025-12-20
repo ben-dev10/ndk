@@ -1,4 +1,5 @@
 export const NDK_SITE = "https://ndk-ui.vercel.app/";
+export const NARDSTUDIOS_SITE = "https://nard-studios.vercel.app/";
 
 export const GITHUB_LINK = "https://github.com/ben-dev10";
 export const LINKEDIN_LINK =

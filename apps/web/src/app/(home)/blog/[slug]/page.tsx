@@ -25,28 +25,35 @@ export default async function Page(props: {
   const page = blog.getPage([params.slug]);
   if (!page) notFound();
   const Mdx = page.data.body;
+
+  const TOC_OFFSET = "top-[calc(var(--banner-height)+var(--nav-height)+1rem)]";
+
   return (
     <>
       <Section.RootElement>
         <Section.Container container="8xl" className="px-(--gutter-x)">
-          <Link
-            href="/blog"
-            className="text-muted-foreground mt-5 flex items-center gap-1"
-          >
-            <ArrowLeft size={15} /> <span>Back</span>
-          </Link>
-          <div className="py-12">
-            <h1 className="mb-2 text-3xl font-bold">{page.data.title}</h1>
-            <p className="text-fd-muted-foreground mb-4">
+          <div className="_page-header mt-8 mb-4 border-b pb-4">
+            <Link
+              href="/blog"
+              className="_back-btn text-muted-foreground mt-5 mb-4 flex items-center gap-1"
+            >
+              <ArrowLeft size={15} /> <span>Back</span>
+            </Link>
+
+            <h1 className="_blog-title mb-2 text-3xl font-bold">
+              {page.data.title}
+            </h1>
+            <p className="_blog-description text-fd-muted-foreground mb-18">
               {page.data.description}
             </p>
 
             <div className="_data mt-5 flex gap-4 text-sm">
-              <div>
+              <div className="_written-by">
                 <p className="text-fd-muted-foreground mb-1">Written by</p>
                 <p className="font-medium">{page.data.author}</p>
               </div>
-              <div>
+
+              <div className="_date">
                 <p className="text-fd-muted-foreground mb-1 text-sm">At</p>
                 <p className="font-medium">
                   {new Date(page.data.date).toDateString()}
@@ -55,9 +62,12 @@ export default async function Page(props: {
             </div>
           </div>
 
-          <article className="flex min-h-[80dvh] flex-col">
-            <div className="prose min-w-0">
-              <InlineTOC className="mb-10" items={page.data.toc} />
+          <article className="_article-body flex min-h-[80dvh] flex-col pb-20">
+            <div className="_article-wrapper prose min-w-0">
+              <InlineTOC
+                className={`sticky ${TOC_OFFSET} mb-10`}
+                items={page.data.toc}
+              />
               <Mdx components={defaultMdxComponents} />
             </div>
           </article>

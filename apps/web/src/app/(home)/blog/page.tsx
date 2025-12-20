@@ -8,27 +8,28 @@ export default function Home() {
 
   return (
     <main
-      className={`mx-auto ${contentHeight} w-full max-w-[1400px] flex-1 px-4 py-8`}
+      className={`mx-auto ${contentHeight} container-8xl w-full flex-1 px-4 py-8`}
     >
-      <h1 className="mb-8 text-4xl font-bold">Latest Blog Posts</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3">
+      <h1 className="my-8 text-4xl font-bold">Latest Blog Posts</h1>
+
+      <div className="_card-list grid gap-4 md:grid-cols-2">
         {posts.map((post) => (
           <Link
             key={post.url}
             href={post.url}
-            className="hover:bg-secondary/60 block overflow-hidden p-6"
+            className="_post-card bg-secondary/40 hover:bg-secondary/70 block overflow-hidden rounded-md p-6 transition-colors duration-300"
           >
-            <h3 className="mb-2 opacity-85">{post.data.title}</h3>
+            <h4 className="_card-title mb-2 opacity-85">{post.data.title}</h4>
             <p className="text-muted-foreground mb-4">
               {post.data.description}
             </p>
 
-            <div className="_footer mt-8 flex items-center justify-between">
+            <div className="_card-footer mt-8 flex items-center justify-between">
               <div className="flex gap-2">
-                <div className="_avatar size-6 rounded-full bg-linear-to-bl from-pink-400 to-sky-200" />
+                <div className="_avatar size-6 rounded-full bg-linear-to-bl from-neutral-400 to-sky-100 opacity-90" />
                 <p className="text-muted-foreground">{post.data.author}</p>
               </div>
-              <div className="_date">
+              <div className="_date opacity-90">
                 <p>{`${post.data.date.toLocaleString().split(",")[0]}`}</p>
               </div>
             </div>

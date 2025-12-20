@@ -34,7 +34,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
 
       <div className="_github-edit my-4 border-y px-3 py-4">
         <a
-          href={`https://github.com/ben-dev10/ndk/blob/main/apps/web/content/docs/ui/${page.path}`}
+          href={`https://github.com/ben-dev10/ndk/blob/main/apps/web/content/docs/${page.path}`}
           rel="noreferrer noopener"
           target="_blank"
           className="text-fd-secondary-foreground/70 hover:text-fd-accent-foreground flex w-fit items-center p-2 text-sm font-medium transition-colors hover:underline"

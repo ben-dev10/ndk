@@ -1,5 +1,5 @@
 import Section from "@_ndk/ui/components/_ui/section";
-import { GITHUB_LINK } from "../_assets/constants";
+import { GITHUB_LINK, NARDSTUDIOS_SITE } from "../_assets/constants";
 import Link from "next/link";
 
 export default function footer() {
@@ -17,7 +17,7 @@ export default function footer() {
           , source code available on{" "}
           <Link
             className="text-muted-foreground underline"
-            href={`${GITHUB_LINK}/ndk`}
+            href={NARDSTUDIOS_SITE}
           >
             Github
           </Link>{" "}
