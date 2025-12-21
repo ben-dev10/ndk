@@ -30,7 +30,7 @@ export default function Navbar() {
         </div>
 
         <div className="_left flex items-center gap-3">
-          <div className="_links flex gap-3">
+          <div className="_links flex gap-4">
             {[
               { name: "Docs", url: "/docs/ui" },
               { name: "Blog", url: "/blog" },
