@@ -8,11 +8,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings 0",
-    "check-types": "next typegen && tsc --noEmit"
+    "check-types": "next typegen && tsc --noEmit",
+    "registry:build-shadcn": "npm format:write && tsx ./scripts/build-shadcn.mts && npm format:write",
+    "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
-    "@_ndk/ui": "*",
     "@_ndk/motion": "*",
+    "@_ndk/ui": "*",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/mdx": "^2.0.13",
     "fumadocs-core": "^16.2.5",
@@ -29,10 +32,12 @@
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",
+    "prettier": "^3.7.4",
     "typescript": "5.9.2"
   }
 }

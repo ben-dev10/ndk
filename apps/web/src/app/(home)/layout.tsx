@@ -8,7 +8,7 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="_ui">
+    <div className="_ui _homelayout">
       <Navbar />
       {children}
       <Footer />

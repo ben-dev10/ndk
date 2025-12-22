@@ -13,7 +13,7 @@
       "@/ui/*": ["./src/components/ui/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/lib/*": ["./src/utils/lib/*"],
-      "@/registry/*": ["./src/registry/*"],
+      "@/registry/*": ["registry/*"],
       "@/mdx-components": ["./mdx-components.tsx"],
       "fumadocs-mdx:collections": [".source/*"]
     }

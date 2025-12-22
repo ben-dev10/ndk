@@ -39,9 +39,16 @@ export default function Home() {
               A mini toolkit for frontend development.
             </p>
 
-            <Link href="/docs/ui">
-              <Button className="mb-5 w-full">Get Started</Button>
-            </Link>
+            <div className="flex gap-2">
+              <Link href="/docs/ui">
+                <Button className="mb-5 w-full">Get Started</Button>
+              </Link>
+              <Link href="/blocks">
+                <Button variant="secondary" className="mb-5 w-full">
+                  See blocks
+                </Button>
+              </Link>
+            </div>
 
             <hr className="mt-10 mb-3" />
 
@@ -55,7 +62,7 @@ export default function Home() {
 
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="">Show modal!</Button>
+                    <Button variant="ghost">Show modal!</Button>
                   </DialogTrigger>
                   <DialogContent>
                     <DialogHeader>

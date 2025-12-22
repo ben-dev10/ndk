@@ -1,13 +1,13 @@
 import { cn } from "@_ndk/ui/lib/utils";
 
 type SVGProps = React.SVGProps<SVGSVGElement> & {
-  link?: string;
+  url?: string;
   className?: string;
 };
 
-export function TikTokIcon({ className, link, ...props }: SVGProps) {
+export function TikTokIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,9 @@ export function TikTokIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function GithubIcon({ className, link, ...props }: SVGProps) {
+export function GithubIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -41,9 +41,9 @@ export function GithubIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function WhatsappIcon({ className, link, ...props }: SVGProps) {
+export function WhatsappIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -62,9 +62,9 @@ export function WhatsappIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function XTwitterIcon({ className, link, ...props }: SVGProps) {
+export function XTwitterIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -80,9 +80,9 @@ export function XTwitterIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function YoutubeIcon({ className, link, ...props }: SVGProps) {
+export function YoutubeIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -98,9 +98,9 @@ export function YoutubeIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function TelegramIcon({ className, link, ...props }: SVGProps) {
+export function TelegramIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -119,9 +119,9 @@ export function TelegramIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function ThreadsIcon({ className, link, ...props }: SVGProps) {
+export function ThreadsIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -137,9 +137,9 @@ export function ThreadsIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function InstagramIcon({ className, link, ...props }: SVGProps) {
+export function InstagramIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -155,9 +155,9 @@ export function InstagramIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function DiscordIcon({ className, link, ...props }: SVGProps) {
+export function DiscordIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -173,9 +173,9 @@ export function DiscordIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function FacebookIcon({ className, link, ...props }: SVGProps) {
+export function FacebookIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -191,9 +191,9 @@ export function FacebookIcon({ className, link, ...props }: SVGProps) {
   );
 }
 
-export function LinkedinIcon({ className, link, ...props }: SVGProps) {
+export function LinkedinIcon({ className, url, ...props }: SVGProps) {
   return (
-    <a href={link}>
+    <a href={url}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 32 32"

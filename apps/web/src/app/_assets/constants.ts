@@ -11,3 +11,11 @@ export const XTWITTER_LINK =
 export const IG_LINK = "";
 
 export const NARD_EMAIL = "nard.studios.hq@gmail.com";
+
+// alternative convenient export format
+export const socialLinks = {
+  github: GITHUB_LINK,
+  linkedin: LINKEDIN_LINK,
+  whatsapp: WHATSAPP_LINK,
+  twitter: XTWITTER_LINK,
+};

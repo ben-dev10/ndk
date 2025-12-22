@@ -114,7 +114,7 @@ export const MintlifyLinks = [
               </p>
             ),
             desc: "Join our growing team",
-            url: "#",
+            url: "/blocks",
           },
         ],
       },

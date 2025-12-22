@@ -1,8 +1,9 @@
-import { NavLinks } from "@/registry/blocks/_data/basic-links";
-import { BasicSheet } from "@/registry/blocks/sheets/basic-sheet";
-import { MintlifySheet } from "@/registry/blocks/sheets/mintlify-sheet";
+import { NavLinks } from "@/registry/_data/basic-links";
+import NavbarStartEnd from "@/registry/ndk/blocks/navbars/start-end";
+import { BasicSheet } from "@/registry/ndk/blocks/sheets/basic-sheet";
+import { MintlifySheet } from "@/registry/ndk/blocks/sheets/mintlify-sheet";
 import Section from "@_ndk/ui/components/_ui/section";
-import { cn } from "@_ndk/ui/utils.ts";
+import { cn } from "@_ndk/ui/utils";
 
 export const Hero = () => {
   return (
@@ -26,7 +27,7 @@ const ComponentPreview = ({
 }) => {
   return (
     <div className={cn("_component-preview", className)}>
-      <h5 className="mb-4 opacity-80">{title}</h5>
+      <h5 className="text-muted-foreground mb-4">{title}</h5>
       <div className="_component-preview w-full rounded-lg border p-2">
         {children}
       </div>
@@ -38,13 +39,24 @@ export const SheetBlocks = () => {
   return (
     <Section.RootElement>
       <Section.Container className="container-8xl px-(--gutter-x) py-6">
-        <ComponentPreview title="Basic sheet">
-          <BasicSheet mobileOnly={false} navLinks={NavLinks} side="right" />
-        </ComponentPreview>
+        <div className="mb-10">
+          <h4 className="mb-2">Sheets</h4>
 
-        <ComponentPreview className="mt-8" title="Mintlify sheet">
-          <MintlifySheet mobileOnly={false} side="left" />
-        </ComponentPreview>
+          <ComponentPreview title="Basic sheet">
+            <BasicSheet mobileOnly={false} navLinks={NavLinks} side="right" />
+          </ComponentPreview>
+
+          <ComponentPreview className="mt-8" title="Mintlify sheet">
+            <MintlifySheet mobileOnly={false} side="left" />
+          </ComponentPreview>
+        </div>
+
+        <div className="mb-10">
+          <h4 className="mb-2">Navbars</h4>
+          <ComponentPreview title="Start-End">
+            <NavbarStartEnd />
+          </ComponentPreview>
+        </div>
       </Section.Container>
     </Section.RootElement>
   );

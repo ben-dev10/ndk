@@ -9,23 +9,24 @@ import {
 } from "@_ndk/ui/components/ui/sheet";
 import Link from "next/link";
 import { Button } from "@_ndk/ui/components/ui/button";
-import { usePathName } from "@/registry/blocks/_hooks/use-pathname";
-import { useOpen } from "@/registry/blocks/_hooks/use-open";
-import type { NavLinksProps } from "@/registry/blocks/_data/basic-links";
+import { usePathName } from "@/registry/_hooks/use-pathname";
+import { useOpen } from "@/registry/_hooks/use-open";
+import type { NavLinksProps } from "@/registry/_data/basic-links";
 import {
   FacebookIcon,
   GithubIcon,
   InstagramIcon,
+  LinkedinIcon,
   XTwitterIcon,
 } from "@_ndk/ui/components/_ui/social-icons";
+import { socialLinks as slinks } from "@/app/_assets/constants";
 
 const SocialIcons = () => {
   return (
     <div className="_icon-list my-5 flex items-center justify-center gap-3">
-      <GithubIcon className="text-neutral-500" />
-      <XTwitterIcon className="text-neutral-500" />
-      <FacebookIcon className="text-neutral-500" />
-      <InstagramIcon className="text-neutral-500" />
+      <GithubIcon url={slinks.github} className="text-neutral-500" />
+      <XTwitterIcon url={slinks.twitter} className="text-neutral-500" />
+      <LinkedinIcon url={slinks.linkedin} className="text-neutral-500" />
     </div>
   );
 };
@@ -77,7 +78,7 @@ export function BasicSheet({
       </SheetTrigger>
       <SheetContent
         side={side}
-        className={`_sheet-content-wrapper bg-background text-foreground p-5 pt-3 pl-5 backdrop-blur-2xl ${mobileOnly ? "md:hidden" : ""}`}
+        className={`_sheet-content _ui bg-background text-foreground p-5 pt-3 pl-5 ${mobileOnly ? "md:hidden" : ""}`}
       >
         <SheetHeader aria-hidden className="">
           <SheetTitle className="text-xl">Basic Sheet</SheetTitle>
@@ -93,9 +94,9 @@ export function BasicSheet({
                   <Link
                     href={link.url}
                     id="navLink"
-                    className={`sheet-link hover:bg-primary dark:hover:bg-primary/15 flex items-center gap-1 rounded-md p-2 px-3 hover:text-white ${
+                    className={`sheet-link hover:bg-primary/50 dark:hover:bg-primary/15 flex items-center gap-1 rounded-md p-2 px-3 hover:text-white ${
                       isActive(link.url)
-                        ? "active bg-violet-500 font-[600] text-white"
+                        ? "bg-primary dark:bg-primary/20 font-[600] text-white"
                         : ""
                     }`}
                   >
@@ -107,7 +108,7 @@ export function BasicSheet({
             </ul>
           </nav>
 
-          <div className="mt-15 flex flex-col">
+          <div className="_social-icons mt-15 flex flex-col">
             <hr className="mt-3" />
             <SocialIcons />
           </div>

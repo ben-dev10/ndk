@@ -9,15 +9,19 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@_ndk/ui/components/ui/dropdown-menu";
-import {
-  Sun,
-  MoonIcon,
-  SunIcon,
-  MonitorIcon,
-  ChevronDownIcon,
-} from "lucide-react";
+import { MoonIcon, SunIcon, MonitorIcon, ChevronDownIcon } from "lucide-react";
 import SpinnerRing180 from "@_ndk/ui/icons/180-spinner";
-import { cn } from "@_ndk/ui/utils.ts";
+import { cn } from "@_ndk/ui/utils";
+
+export const DisabledSpinner = () => {
+  return (
+    <Button variant="outline" className="rounded-full text-foreground" size="icon" disabled>
+      <span className="sr-only">
+        <SpinnerRing180 className="w-2" />
+      </span>
+    </Button>
+  );
+};
 
 /*
  * 1. Classic Toggle - Sun/Moon switch
@@ -35,15 +39,7 @@ export function ClassicThemeToggle({
   useEffect(() => setMounted(true), []);
 
   // Prevent hydration mismatch by rendering a disabled placeholder button
-  if (!mounted) {
-    return (
-      <Button variant="outline" size="icon" disabled>
-        <span className="sr-only">
-          <SpinnerRing180 className="w-2" />
-        </span>
-      </Button>
-    );
-  }
+  if (!mounted) return <DisabledSpinner />;
 
   const handleToggle = () => {
     if (theme === "system") {
@@ -78,8 +74,7 @@ export function ButtonGroupThemeToggle({ className }: { className?: string }) {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted)
-    return <div className="bg-background h-10 w-48 rounded-lg border" />;
+  if (!mounted) return <DisabledSpinner />;
 
   const options = [
     { value: "light", icon: <SunIcon size={18} />, label: "Light" },
@@ -117,14 +112,7 @@ export function DropdownThemeToggle() {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) {
-    return (
-      <Button variant="outline" size="icon" disabled>
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
-        <span className="sr-only">Loading theme</span>
-      </Button>
-    );
-  }
+  if (!mounted) return <DisabledSpinner />;
 
   const options = [
     { value: "light", icon: <SunIcon size={16} />, label: "Light" },

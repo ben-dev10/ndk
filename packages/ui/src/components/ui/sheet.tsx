@@ -55,9 +55,6 @@ function SheetContent({
   return (
     <SheetPortal>
       <SheetOverlay />
-      {/* Note: sm:max-w-sm on lines 64 & 66 controls the width of the side bar beyond the md: breakpoint 
-      to a max width of 384px, if you don't want this behavior, you can omit it
-      */}
       <SheetPrimitive.Content
         data-slot="sheet-content"
         className={cn(

@@ -23,8 +23,8 @@ export const NavLinks = [
     icon: <Component size={16} />,
   },
   {
-    name: "Company",
-    url: "#",
+    name: "Blocks",
+    url: "/blocks",
     icon: <Building2 size={16} />,
   },
   {

@@ -1,6 +1,13 @@
+import { cn } from "@_ndk/ui/utils";
 import type { IconProps } from "./icon-types.js";
 
-function SpinnerRing180({ title = "", ...props }: IconProps) {
+function SpinnerRing180({
+  className,
+  title = "",
+  ...props
+}: IconProps & {
+  className?: string;
+}) {
   const css = `@keyframes spinner_StKS { 100% { transform: rotate(360deg); } }`;
 
   return (
@@ -11,9 +18,10 @@ function SpinnerRing180({ title = "", ...props }: IconProps) {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
+      className={cn("size-6", className)}
     >
       <title>{title}</title>
-      <g fill="#ffffff">
+      <g fill="currentColor">
         <style>{css}</style>
         <path
           d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"

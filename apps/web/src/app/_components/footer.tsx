@@ -7,18 +7,18 @@ export default function footer() {
     <Section.RootElement className="">
       <Section.Container
         container="8xl"
-        className="flex items-center justify-center"
+        className="flex h-(--footer-height) items-center justify-center"
       >
         <div className="opacity-80">
           Built by{" "}
-          <Link href={GITHUB_LINK} className="text-muted-foreground underline">
+          <Link
+            href={NARDSTUDIOS_SITE}
+            className="text-muted-foreground underline"
+          >
             nard
           </Link>
           , source code available on{" "}
-          <Link
-            className="text-muted-foreground underline"
-            href={NARDSTUDIOS_SITE}
-          >
+          <Link className="text-muted-foreground underline" href={GITHUB_LINK}>
             Github
           </Link>{" "}
         </div>

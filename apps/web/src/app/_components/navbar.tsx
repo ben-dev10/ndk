@@ -5,6 +5,14 @@ import ThemeImage from "@/components/_ui/theme-image";
 import GithubLogoIcon from "@_ndk/ui/icons/github-icon";
 import { GITHUB_LINK } from "../_assets/constants";
 import { ClassicThemeToggle } from "@_ndk/ui/components/_ui/theme-toggles";
+import { NavLinks } from "./nav/nav-links";
+import { NavSheet } from "./nav/nav-sheet";
+
+export const navLinks = [
+  { name: "Docs", url: "/docs/ui" },
+  { name: "Blog", url: "/blog" },
+  { name: "Blocks", url: "/blocks" },
+];
 
 export default function Navbar() {
   return (
@@ -30,27 +38,18 @@ export default function Navbar() {
         </div>
 
         <div className="_left flex items-center gap-3">
-          <div className="_links flex gap-4">
-            {[
-              { name: "Docs", url: "/docs/ui" },
-              { name: "Blog", url: "/blog" },
-              { name: "Blocks", url: "/blocks" },
-            ].map((item, index) => (
-              <Link
-                key={index}
-                href={item.url}
-                className="transition-opacity duration-300 hover:opacity-80"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
+          <NavLinks links={navLinks} />
+
           <div className="_utilities ml-3 flex items-center gap-3">
             <Link href={`${GITHUB_LINK}/ndk`}>
               <GithubLogoIcon className="size-6.5 dark:fill-white" />
             </Link>
 
             <ClassicThemeToggle className="border-border/40" />
+
+            <div className="ml-1">
+              <NavSheet navLinks={navLinks} side="top" />
+            </div>
           </div>
         </div>
       </Section.Container>
