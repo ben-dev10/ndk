@@ -1,0 +1,26 @@
+---
+title: Basic Sheet
+description: A basic mobile navigation menu.
+---
+
+import BasicSheetDemo from "../../../../../registry/_demo/ndk/blocks/sheets/basic-sheet-demo";
+
+### Navbar Components
+
+<ComponentPreview
+  title="basic-sheet.tsx"
+  preview={<BasicSheetDemo />}
+  code={`import { NavLinks } from "@/components/_ui/_data/basic-links";
+import { BasicSheet } from "@/components/_ui/basic-sheet";
+
+export default function BasicSheetDemo() {
+    return (
+        <div className="p-3">
+            <BasicSheet mobileOnly={false} navLinks={NavLinks} side="right" />
+        </div>
+    );
+}
+`}
+/>
+
+## Installation
