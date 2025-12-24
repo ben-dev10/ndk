@@ -18,6 +18,7 @@ import { CopyButton } from "@/components/buttons/copy";
 
 export type CodeBlockProps = HTMLAttributes<HTMLElement> & {
   icon?: ReactNode;
+  height?: string;
   allowCopy?: boolean;
   viewportProps?: ScrollAreaPrimitive.ScrollAreaViewportProps;
   onCopy?: () => void;
@@ -43,6 +44,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
   (
     {
       title,
+      height = "max-h-[315px] min-h-[315px]",
       allowCopy = true,
       icon,
       viewportProps,
@@ -124,8 +126,9 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
               {...viewportProps}
               data-slot="codeblock-viewport"
               className={cn(
-                "bg-background max-h-[315px] min-h-[315px] rounded-md leading-5 [&_code]:text-[0.85rem]! [&_code_.line]:px-0!",
+                "bg-background rounded-md leading-5 [&_code]:text-[0.85rem]! [&_code_.line]:px-0!",
                 viewportProps?.className,
+                height,
               )}
             >
               {props.children}

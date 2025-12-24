@@ -1,15 +1,14 @@
 "use client";
 
 import { index } from "@/__registry__";
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from "@_ndk/ui/lib/utils";
 import {
   Tabs,
   TabsList,
   TabsTrigger,
   TabsContent,
-  TabsContents,
-} from "@/components/radix/tabs";
-import { CodeTabs } from "@/components/docs/code-tabs";
+} from "@_ndk/ui/components/ui/tabs";
+import CodeTabs from "@/components/docs/code-tabs";
 import { ComponentManualInstallation } from "./component-manual-installation";
 
 interface ComponentInstallationProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -38,13 +37,13 @@ export function ComponentInstallation({
       )}
       {...props}
     >
-      <Tabs defaultValue="cli" className="relative mr-auto w-full">
+      <Tabs defaultValue="manual" className="relative mr-auto w-full">
         <TabsList>
           <TabsTrigger value="cli">CLI</TabsTrigger>
           <TabsTrigger value="manual">Manual</TabsTrigger>
         </TabsList>
 
-        <TabsContents>
+        <>
           <TabsContent value="cli">
             <CodeTabs codes={commands} />
           </TabsContent>
@@ -57,7 +56,7 @@ export function ComponentInstallation({
               code={component.files[0].content}
             />
           </TabsContent>
-        </TabsContents>
+        </>
       </Tabs>
     </div>
   );

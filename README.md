@@ -11,13 +11,13 @@ similar to the approach of "no-code" tools.
 > Good to have: A global `turborepo` installation may be needed.
 
 ```bash
-npm i
+npm i # install dependencies
 
-turbo dev # runs all apps and packages
+turbo dev # runs all apps and packages, or turbo --filter=web to launch only the web app's dev server
 turbo build # builds all apps and packages
 ```
 
-### @\_ndk/ui package (v0.0.2)
+### @\_ndk/ui package (v0.1.0)
 
 ```bash
 cd ./packages/ui
@@ -25,3 +25,10 @@ turbo build # builds the ui package only
 ```
 
 See the [ui package](./packages/ui/README.md) docs, and also that of the [motion package](./packages/motion/README.md).
+
+## Credits
+
+ This project was heavily inspired by:
+
+- [Shadcn/ui](https://ui.shadcn.com/)
+- [Animate UI](https://animate-ui.com/)

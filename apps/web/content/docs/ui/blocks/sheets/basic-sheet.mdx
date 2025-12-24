@@ -3,11 +3,33 @@ title: Basic Sheet
 description: A basic mobile navigation menu.
 ---
 
-### Navbar Components
+## Preview
 
 <ComponentPreview
   name="demo-components-ndk-sheets-basic-sheet"
-  title="basic-sheet.tsx"
+  title="basic-sheet-demo.tsx"
 />
 
 ## Installation
+
+<ComponentInstallation name="components-ndk-sheets-basic-sheet" />
+
+## Props
+
+<TypeTable
+  type={{
+    mobileOnly: {
+      description:
+        "Determines if the sheet will still be visible above mobile breakpoints (:md)",
+      type: "Boolean",
+      required: false,
+      default: false,
+    },
+    side: {
+      description: "Controls the orientation of the sheet",
+      type: '"left" | "top" | "right" | "bottom" | undefined',
+      required: false,
+      default: "left",
+    },
+  }}
+/>

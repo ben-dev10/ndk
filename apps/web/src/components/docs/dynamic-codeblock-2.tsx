@@ -1,25 +1,23 @@
 "use client";
 
-import { CodeBlock, Pre } from "@/components/docs/code-block";
 import type {
   HighlightOptionsCommon,
   HighlightOptionsThemes,
 } from "fumadocs-core/highlight";
 import { useShiki } from "fumadocs-core/highlight/client";
 import { cn } from "@_ndk/ui/lib/utils";
+import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
 
 const getComponents = ({
   title,
   icon,
   onCopy,
   className,
-  height,
 }: {
   title?: string;
   icon?: React.ReactNode;
   onCopy?: () => void;
   className?: string;
-  height?: string;
 }) =>
   ({
     pre(props) {
@@ -29,10 +27,9 @@ const getComponents = ({
           title={title}
           icon={icon}
           onCopy={onCopy}
-          className={cn("my-0", props.className, className)}
-          height={height}
+          className={cn("_codetab-block my-0 border-0 bg-transparent", props.className, className)}
         >
-          <Pre>{props.children}</Pre>
+          <Pre className="">{props.children}</Pre>
         </CodeBlock>
       );
     },
@@ -40,7 +37,6 @@ const getComponents = ({
 
 export type DynamicCodeBlockProps = {
   lang: string;
-  height?: string;
   code: string;
   title?: string;
   icon?: React.ReactNode;
@@ -49,8 +45,7 @@ export type DynamicCodeBlockProps = {
   className?: string;
 };
 
-export function DynamicCodeBlock({
-  height,
+export function DynamicCodeBlock2({
   lang,
   code,
   options,
@@ -59,7 +54,7 @@ export function DynamicCodeBlock({
   onCopy,
   className,
 }: DynamicCodeBlockProps) {
-  const components = getComponents({ title, height, icon, onCopy, className });
+  const components = getComponents({ title, icon, onCopy, className });
 
   return useShiki(code, {
     lang,

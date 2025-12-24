@@ -17,15 +17,14 @@ turbo dev:ui # also starts @_ndk/ui dev server
 
 ## Getting Started
 
-You
-
 ```css
 @import "tailwindcss";
 
 /* core: main stylesheet for components exported by the package */
-@import "@_ndk/ui/styles";
+@import "@_ndk/ui/tokens";
 
 /* modular components: default theme is neutral.css */
-@import "@_ndk/ui/fonts.css";
+@import "@_ndk/ui/fonts";
 @import "@_ndk/ui/themes/twitter.css";
+@import "@_ndk/ui/typography";
 ```
