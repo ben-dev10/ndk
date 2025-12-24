@@ -1,16 +1,5 @@
 import { Building2, Component, ShoppingBag, ToolCase } from "lucide-react";
 
-interface LinkProps {
-  name: string;
-  url: string;
-  icon?: React.ReactNode;
-}
-
-export interface NavLinksProps {
-  navLinks: LinkProps[];
-  side?: "top" | "right" | "bottom" | "left";
-}
-
 export const NavLinks = [
   {
     name: "Services",

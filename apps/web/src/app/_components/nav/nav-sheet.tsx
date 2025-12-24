@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import { Button } from "@_ndk/ui/components/ui/button";
-import { usePathName } from "@/registry/_hooks/use-pathname";
-import { useOpen } from "@/registry/_hooks/use-open";
-import type { NavLinksProps } from "@/registry/_data/basic-links";
+import { usePathName } from "@/registry/hooks/use-pathname";
+import { useOpen } from "@/registry/hooks/use-open";
+import type { NavLinksProps } from "@/registry/components/ndk/block--sheet-basic/basic-links";
 import {
   GithubIcon,
   LinkedinIcon,

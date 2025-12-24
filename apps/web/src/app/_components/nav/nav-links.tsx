@@ -1,5 +1,5 @@
 "use client";
-import { usePathName } from "@/registry/_hooks/use-pathname";
+import { usePathName } from "@/registry/hooks/use-pathname";
 import Link from "next/link";
 
 interface LinkProps {

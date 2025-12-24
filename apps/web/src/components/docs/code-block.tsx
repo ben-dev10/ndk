@@ -76,7 +76,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
         ref={ref}
         {...props}
         className={cn(
-          "not-prose group fd-codeblock [&.shiki]:bg-accent! rounded-lg text-[0.85rem]  _ui relative my-6 overflow-hidden",
+          "not-prose group fd-codeblock [&.shiki]:bg-accent! _ui relative my-6 overflow-hidden rounded-lg text-[0.85rem]",
           props.className,
         )}
       >
@@ -124,7 +124,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
               {...viewportProps}
               data-slot="codeblock-viewport"
               className={cn(
-                "bg-background max-h-[315px] min-h-[315px] rounded-md [&_code]:text-[0.85rem]! leading-5 [&_code_.line]:px-0!",
+                "bg-background max-h-[315px] min-h-[315px] rounded-md leading-5 [&_code]:text-[0.85rem]! [&_code_.line]:px-0!",
                 viewportProps?.className,
               )}
             >

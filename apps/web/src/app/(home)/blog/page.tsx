@@ -27,9 +27,11 @@ export default function Home() {
             <div className="_card-footer mt-8 flex items-center justify-between">
               <div className="flex gap-2">
                 <div className="_avatar size-6 rounded-full bg-linear-to-bl from-neutral-400 to-sky-100 opacity-90" />
-                <p className="_author text-muted-foreground text-[0.9rem]">{post.data.author}</p>
+                <p className="_author text-muted-foreground text-[0.9rem]">
+                  {post.data.author}
+                </p>
               </div>
-              <div className="_date opacity-90 text-[0.9rem]">
+              <div className="_date text-[0.9rem] opacity-90">
                 <p>{`${post.data.date.toLocaleString().split(",")[0]}`}</p>
               </div>
             </div>

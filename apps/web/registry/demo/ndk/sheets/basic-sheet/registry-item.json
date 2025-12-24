@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-ndk-sheets-basic-sheet",
+  "type": "registry:ui",
+  "title": "Basic Sheet",
+  "description": "A basic mobile navigation (sheet).",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/demo/ndk/sheets/basic-sheet/index.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/demo/basic-sheet.tsx"
+    }
+  ],
+  "meta": {
+    "demoProps": {
+      "BasicSheet": {
+        "mobileOnly": {
+          "value": false
+        },
+        "side": {
+          "value": "right"
+        }
+      }
+    }
+  }
+}

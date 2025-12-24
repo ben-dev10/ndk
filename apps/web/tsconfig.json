@@ -15,7 +15,8 @@
       "@/lib/*": ["./src/utils/lib/*"],
       "@/registry/*": ["registry/*"],
       "@/mdx-components": ["./mdx-components.tsx"],
-      "fumadocs-mdx:collections": [".source/*"]
+      "fumadocs-mdx:collections": [".source/*"],
+      "@/__registry__":["./__registry__"]
     }
   },
   "include": [

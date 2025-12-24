@@ -4,8 +4,8 @@ import { ArrowRightIcon } from "lucide-react";
 import { ClassicThemeToggle } from "@_ndk/ui/components/_ui/theme-toggles";
 import Background from "@_ndk/ui/components/_ui/background";
 import Section from "@_ndk/ui/components/_ui/section";
-import { BasicSheet } from "@/registry/ndk/blocks/sheets/basic-sheet";
-import { NavLinks } from "@/registry/_data/basic-links";
+import { BasicSheet } from "@/registry/components/ndk/sheets/basic-sheet";
+import { NavLinks } from "./links";
 import Link from "next/link";
 
 export default function NavbarStartEnd() {
@@ -63,7 +63,7 @@ export default function NavbarStartEnd() {
         </div>
 
         <div className={`_nav-menu md:hidden`}>
-          <BasicSheet navLinks={NavLinks} side="left" />
+          <BasicSheet side="left" />
         </div>
       </Section.Container>
     </Section.RootElement>

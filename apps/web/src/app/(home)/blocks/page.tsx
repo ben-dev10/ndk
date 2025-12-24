@@ -1,4 +1,4 @@
-import { NavLinks } from "@/registry/_data/basic-links";
+import { NavLinks } from "@/registry/components/ndk/block--sheet-basic/basic-links";
 import NavbarStartEnd from "@/registry/ndk/blocks/navbars/start-end";
 import { BasicSheet } from "@/registry/ndk/blocks/sheets/basic-sheet";
 import { MintlifySheet } from "@/registry/ndk/blocks/sheets/mintlify-sheet";

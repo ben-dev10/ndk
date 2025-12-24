@@ -17,9 +17,9 @@ import {
   AccordionTrigger,
 } from "@_ndk/ui/components/ui/accordion";
 import { AcmeLogoSimple } from "@/components/_ui/acme-logo";
-import { MintlifyLinks } from "@/registry/_data/mintlify-links";
-import { usePathName } from "@/registry/_hooks/use-pathname";
-import { useOpen } from "@/registry/_hooks/use-open";
+import { MintlifyLinks } from "./mintlify-links";
+import { usePathName } from "@/registry/hooks/use-pathname";
+import { useOpen } from "@/registry/hooks/use-open";
 
 export function MintlifySheet({
   side = "left",

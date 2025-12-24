@@ -9,9 +9,10 @@
     "start": "next start",
     "lint": "eslint --max-warnings 0",
     "check-types": "next typegen && tsc --noEmit",
-    "registry:build-shadcn": "npm format:write && tsx ./scripts/build-shadcn.mts && npm format:write",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
+    "build:registry": "tsx ./scripts/build-registry.mts",
+    "build:shadcn": "npm run format:write && tsx ./scripts/build-shadcn.mts && npm run format:write"
   },
   "dependencies": {
     "@_ndk/motion": "*",
@@ -28,6 +29,7 @@
     "postcss": "^8.5.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "rimraf": "^6.1.2",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
@@ -39,6 +41,7 @@
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",
     "prettier": "^3.7.4",
+    "tsx": "^4.21.0",
     "typescript": "5.9.2"
   }
 }

@@ -1,3 +1,5 @@
+"use client";
+import { index } from "@/__registry__";
 import {
   Tabs,
   TabsContent,
@@ -5,19 +7,83 @@ import {
   TabsTrigger,
 } from "@_ndk/ui/components/ui/tabs";
 import { Loader } from "lucide-react";
-import React, { Suspense } from "react";
+import React, { Suspense, useMemo, useState } from "react";
 import { DynamicCodeBlock } from "./dynamic-codeblock";
 import ReactIcon from "@_ndk/ui/icons/react-icon";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function flattenFirstLevel<T>(input: Record<string, any>): T {
+  return Object.values(input).reduce((acc, current) => {
+    return { ...acc, ...current };
+  }, {} as T);
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function unwrapValues(obj: Record<string, any>): Record<string, any> {
+  if (obj !== null && typeof obj === "object" && !Array.isArray(obj)) {
+    if ("value" in obj) {
+      return obj.value;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const result: Record<string, any> = {};
+    for (const key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        result[key] = unwrapValues(obj[key]);
+      }
+    }
+    return result;
+  }
+  return obj;
+}
+
+// main component
 export default function ComponentPreview({
-  preview,
-  code,
+  name,
   title,
 }: {
-  preview: React.ReactNode;
-  code: string;
+  name: string;
   title?: string;
 }) {
+  const [componentProps, setComponentProps] = useState<Record<
+    string,
+    unknown
+  > | null>(null);
+
+  const code = useMemo(() => {
+    const code = index[name]?.files?.[0]?.content;
+
+    if (!code) {
+      console.error(`Component with name "${name}" not found in registry.`);
+      return null;
+    }
+
+    return code;
+  }, [name]);
+
+  const preview = useMemo(() => {
+    const Component = index[name]?.component;
+
+    if (Object.keys(Component?.demoProps ?? {}).length !== 0) {
+      if (componentProps === null)
+        setComponentProps(unwrapValues(Component?.demoProps));
+    }
+
+    if (!Component) {
+      console.error(`Component with name "${name}" not found in registry.`);
+      return (
+        <p className="text-muted-foreground text-sm">
+          Component{" "}
+          <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
+            {name}
+          </code>{" "}
+          not found in registry.
+        </p>
+      );
+    }
+
+    return <Component {...flattenFirstLevel(componentProps ?? {})} />;
+  }, [name, componentProps]);
+
   return (
     <section className="_component-preview">
       <Tabs defaultValue="preview" className="relative mr-auto w-full">

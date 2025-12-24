@@ -14,7 +14,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...TabsComponents,
     ...FilesComponents,
     ComponentPreview,
-     pre: ({ ref: _ref, ...props }) => (
+    pre: ({ ref: _ref, ...props }) => (
       <CodeBlock {...props}>
         <Pre>{props.children}</Pre>
       </CodeBlock>
