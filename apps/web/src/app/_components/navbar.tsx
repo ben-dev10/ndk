@@ -48,7 +48,7 @@ export default function Navbar() {
             <ClassicThemeToggle className="border-border/40" />
 
             <div className="ml-1">
-              <NavSheet navLinks={navLinks} side="top" />
+              <NavSheet />
             </div>
           </div>
         </div>

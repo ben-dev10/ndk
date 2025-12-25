@@ -11,7 +11,7 @@
     "check-types": "next typegen && tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "build:registry": "tsx ./scripts/build-registry-v2.mts",
+    "build:registry": "tsx ./scripts/build-registry.mts",
     "build:shadcn": "npm run format:write && tsx ./scripts/build-shadcn.mts && npm run format:write"
   },
   "dependencies": {

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Button } from "@_ndk/ui/components/ui/button";
 import { usePathName } from "@/registry/hooks/use-pathname";
 import { useOpen } from "@/registry/hooks/use-open";
-import type { NavLinksProps } from "@/registry/components/ndk/block--sheet-basic/basic-links";
 import {
   GithubIcon,
   LinkedinIcon,
@@ -15,6 +14,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@_ndk/ui/components/ui/popover";
+import { navLinks } from "../navbar";
 
 const SocialIcons = () => {
   return (
@@ -26,12 +26,7 @@ const SocialIcons = () => {
   );
 };
 
-export function NavSheet({
-  navLinks,
-  mobileOnly = true,
-}: NavLinksProps & {
-  mobileOnly?: boolean;
-}) {
+export function NavSheet({ mobileOnly = true }: { mobileOnly?: boolean }) {
   const isActive = usePathName();
   const { handleClick, open, setOpen } = useOpen();
 
@@ -91,7 +86,6 @@ export function NavSheet({
                         : ""
                     }`}
                   >
-                    <span className="mr-2">{link.icon}</span>
                     {link.name}
                   </Link>
                 </li>

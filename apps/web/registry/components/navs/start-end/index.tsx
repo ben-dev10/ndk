@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { ClassicThemeToggle } from "@_ndk/ui/components/_ui/theme-toggles";
 import Background from "@_ndk/ui/components/_ui/background";
 import Section from "@_ndk/ui/components/_ui/section";
-import { BasicSheet } from "@/registry/components/ndk/sheets/basic-sheet";
+import { BasicSheet } from "@/registry/components/sheets/basic-sheet";
 import { NavLinks } from "./links";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ export default function NavbarStartEnd() {
   return (
     <Section.RootElement
       as="header"
-      className="_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center px-5 text-[0.95rem]"
+      className="_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]"
     >
       <Section.Container
         container="8xl"

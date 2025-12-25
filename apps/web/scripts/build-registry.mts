@@ -1,10 +1,8 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import { promises as fs } from "fs";
+import path from "path";
 
-// _TODO: resolve unexpected any lint warnings
-
-const REGISTRY_PATH = path.join(process.cwd(), 'registry');
-const OUTPUT_PATH = path.join(process.cwd(), '__registry__', 'index.tsx');
+const REGISTRY_PATH = path.join(process.cwd(), "registry");
+const OUTPUT_PATH = path.join(process.cwd(), "__registry__", "index.tsx");
 
 interface RegistryFile {
   path: string;
@@ -23,33 +21,66 @@ interface RegistryItem {
   files?: Array<{ path: string; type?: string; target?: string }>;
   meta?: {
     keywords?: string[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    demoProps?: Record<string, any>;
+    demoProps?: Record<string, unknown>;
   };
 }
 
 /**
- * Replace registry paths with component paths for imports
+ * Path replacement configuration
+ * Add or modify path replacements here
+ */
+const PATH_REPLACEMENTS = [
+  {
+    from: "@_ndk/ui/components/",
+    to: "@/components/",
+    description: "NDK UI components package",
+  },
+  {
+    from: "@_ndk/ui/",
+    to: "@/",
+    description: "NDK UI base package",
+  },
+  {
+    from: "@_ndk/motion/",
+    to: "@/motion/",
+    description: "NDK Motion package",
+  },
+  {
+    from: "@/registry/lib/",
+    to: "@/lib/",
+    description: "Registry lib paths",
+  },
+  {
+    from: "@/registry/hooks/",
+    to: "@/hooks/",
+    description: "Registry hooks paths",
+  },
+  {
+    from: "@/registry/components/",
+    to: "@/components/",
+    description: "Registry components paths",
+  },
+  {
+    from: "@/registry/",
+    to: "@/components/",
+    description: "Default registry paths",
+  },
+] as const;
+
+/**
+ * Replace import/export paths based on configuration
+ * Processes strings within quotes (single, double, or backticks)
  */
 function replaceRegistryPaths(inputStr: string): string {
   return inputStr.replace(/(['"`])([\s\S]*?)\1/g, (match, quote, content) => {
-    // Replace @/registry/ with appropriate paths
-    if (content.startsWith('@/registry/')) {
-      const rest = content.slice('@/registry/'.length);
-      
-      if (rest.startsWith('lib/')) {
-        return `${quote}@/${rest}${quote}`;
+    // Try each replacement rule in order
+    for (const rule of PATH_REPLACEMENTS) {
+      if (content.startsWith(rule.from)) {
+        const rest = content.slice(rule.from.length);
+        return `${quote}${rule.to}${rest}${quote}`;
       }
-      if (rest.startsWith('hooks/')) {
-        return `${quote}@/${rest}${quote}`;
-      }
-      if (rest.startsWith('components/')) {
-        return `${quote}@/${rest}${quote}`;
-      }
-      
-      return `${quote}@/components/${rest}${quote}`;
     }
-    
+
     return match;
   });
 }
@@ -59,30 +90,30 @@ function replaceRegistryPaths(inputStr: string): string {
  */
 async function findRegistryItems(dir: string): Promise<RegistryItem[]> {
   const items: RegistryItem[] = [];
-  
+
   try {
     const entries = await fs.readdir(dir, { withFileTypes: true });
-    
+
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
-      
+
       if (entry.isDirectory()) {
         // Check if this directory contains a registry-item.json
-        const registryItemPath = path.join(fullPath, 'registry-item.json');
-        
+        const registryItemPath = path.join(fullPath, "registry-item.json");
+
         try {
           await fs.access(registryItemPath);
-          
+
           // Read and parse the registry item
-          const content = await fs.readFile(registryItemPath, 'utf-8');
+          const content = await fs.readFile(registryItemPath, "utf-8");
           const item: RegistryItem = JSON.parse(content);
-          
+
           // Remove $schema if it exists
-          if ('$schema' in item) {
+          if ("$schema" in item) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             delete (item as any).$schema;
           }
-          
+
           items.push(item);
         } catch {
           // No registry-item.json in this directory, recurse into subdirectories
@@ -94,7 +125,7 @@ async function findRegistryItems(dir: string): Promise<RegistryItem[]> {
   } catch (error) {
     console.error(`Error reading directory ${dir}:`, error);
   }
-  
+
   return items;
 }
 
@@ -103,53 +134,54 @@ async function findRegistryItems(dir: string): Promise<RegistryItem[]> {
  */
 async function readFileContent(filePath: string): Promise<string> {
   try {
-    const content = await fs.readFile(filePath, 'utf-8');
+    const content = await fs.readFile(filePath, "utf-8");
     return replaceRegistryPaths(content).trim();
   } catch (error) {
     console.error(`Error reading file ${filePath}:`, error);
-    return '';
+    return "";
   }
 }
 
 /**
  * Process registry items and read their file contents
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function processRegistryItems(items: RegistryItem[]): Promise<Map<string, any>> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const processedItems = new Map<string, any>();
-  
+async function processRegistryItems(
+  items: RegistryItem[],
+): Promise<Map<string, Record<string, unknown>>> {
+  const processedItems = new Map<string, Record<string, unknown>>();
+
   for (const item of items) {
     console.log(`Processing item: ${item.name}`);
-    
+
     // Read file contents
     const filesWithContent: RegistryFile[] = [];
-    
+
     if (item.files && item.files.length > 0) {
       for (const file of item.files) {
-        const filePath = typeof file === 'string' ? file : file.path;
+        const filePath = typeof file === "string" ? file : file.path;
         const resolvedPath = path.resolve(filePath);
-        
+
         const content = await readFileContent(resolvedPath);
-        
+
         filesWithContent.push({
           path: filePath,
-          type: (typeof file === 'object' ? file.type : undefined) || 'registry:ui',
-          target: typeof file === 'object' ? file.target : undefined,
+          type:
+            (typeof file === "object" ? file.type : undefined) || "registry:ui",
+          target: typeof file === "object" ? file.target : undefined,
           content,
         });
       }
     }
-    
+
     // Determine component path from first file
-    const componentPath = filesWithContent[0]?.path 
-      ? `@/${filesWithContent[0].path}` 
-      : '';
-    
+    const componentPath = filesWithContent[0]?.path
+      ? `@/${filesWithContent[0].path}`
+      : "";
+
     processedItems.set(item.name, {
       name: item.name,
-      description: item.description || '',
-      type: item.type || 'registry:ui',
+      description: item.description || "",
+      type: item.type || "registry:ui",
       dependencies: item.dependencies || [],
       devDependencies: item.devDependencies,
       registryDependencies: item.registryDependencies || [],
@@ -159,15 +191,16 @@ async function processRegistryItems(items: RegistryItem[]): Promise<Map<string, 
       demoProps: item.meta?.demoProps || {},
     });
   }
-  
+
   return processedItems;
 }
 
 /**
  * Generate the index.tsx file content
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function generateIndexFile(processedItems: Map<string, any>): string {
+function generateIndexFile(
+  processedItems: Map<string, Record<string, unknown>>,
+): string {
   let output = `/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // @ts-nocheck
@@ -176,7 +209,7 @@ function generateIndexFile(processedItems: Map<string, any>): string {
 import * as React from "react"
 
 export const index: Record<string, any> = {`;
-  
+
   // Add index entry
   output += `
   "index": {
@@ -191,10 +224,10 @@ export const index: Record<string, any> = {`;
     component: null,
     command: "@ndk-ui/index",
   },`;
-  
+
   // Add all processed items
   for (const [name, item] of processedItems.entries()) {
-    const componentImport = item.componentPath 
+    const componentImport = item.componentPath
       ? `(function() {
       const LazyComp = React.lazy(async () => {
         const mod = await import("${item.componentPath}");
@@ -210,8 +243,8 @@ export const index: Record<string, any> = {`;
       LazyComp.demoProps = ${JSON.stringify(item.demoProps)};
       return LazyComp;
     })()`
-      : 'null';
-    
+      : "null";
+
     output += `
   "${name}": {
     name: ${JSON.stringify(name)},
@@ -226,10 +259,10 @@ export const index: Record<string, any> = {`;
     command: "@ndk-ui/${name}",
   },`;
   }
-  
+
   output += `
 }`;
-  
+
   return output;
 }
 
@@ -238,40 +271,41 @@ export const index: Record<string, any> = {`;
  */
 async function buildRegistryIndex() {
   try {
-    console.log('🔍 Finding registry items...');
-    
+    console.log("🔍 Finding registry items...");
+
     // Find all registry-item.json files
     const registryItems = await findRegistryItems(REGISTRY_PATH);
-    
+
     console.log(`✅ Found ${registryItems.length} registry items`);
-    
+
     // Process items and read file contents
-    console.log('📄 Processing registry items...');
+    console.log("📄 Processing registry items...");
     const processedItems = await processRegistryItems(registryItems);
-    
+
     // Generate the index file content
-    console.log('📝 Generating index file...');
+    console.log("📝 Generating index file...");
     const indexContent = generateIndexFile(processedItems);
-    
+
     // Ensure output directory exists
     const outputDir = path.dirname(OUTPUT_PATH);
     await fs.mkdir(outputDir, { recursive: true });
-    
+
     // Remove old file if it exists
     try {
       await fs.access(OUTPUT_PATH);
       await fs.unlink(OUTPUT_PATH);
-      console.log('🗑️  Removed old index file');
+      console.log("🗑️  Removed old index file");
     } catch {
       // File doesn't exist, that's fine
     }
-    
+
     // Write the new index file
-    await fs.writeFile(OUTPUT_PATH, indexContent, 'utf-8');
-    
-    console.log('✅ Successfully built __registry__/index.tsx');
+    await fs.writeFile(OUTPUT_PATH, indexContent, "utf-8");
+
+    console.log("✅ Successfully built __registry__/index.tsx");
+    console.log(`📦 Processed ${processedItems.size} components`);
   } catch (error) {
-    console.error('❌ Error building registry index:', error);
+    console.error("❌ Error building registry index:", error);
     throw error;
   }
 }

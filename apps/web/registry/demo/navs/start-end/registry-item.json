@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "demo-components-ndk-navs-start-end",
+  "name": "demo-components-navs-start-end",
   "type": "registry:ui",
   "title": "Start-End Nav",
   "description": "A basic start-end layout navbar.",
@@ -8,7 +8,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "registry/demo/ndk/navs/start-end/index.tsx",
+      "path": "registry/demo/navs/start-end/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/demo/start-end-nav.tsx"
     }

@@ -1,4 +1,4 @@
-import { MintlifySheet } from "@/registry/components/ndk/sheets/mintlify-sheet";
+import { MintlifySheet } from "@/registry/components/sheets/mintlify-sheet";
 
 export const MintlifySheetDemo = () => {
   return (

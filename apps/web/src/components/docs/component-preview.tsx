@@ -10,6 +10,7 @@ import { Loader } from "lucide-react";
 import React, { Suspense, useMemo, useState } from "react";
 import { DynamicCodeBlock } from "./dynamic-codeblock";
 import ReactIcon from "@_ndk/ui/icons/react-icon";
+import { ComponentWrapper } from "./component-wrapper";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function flattenFirstLevel<T>(input: Record<string, any>): T {
@@ -40,9 +41,13 @@ function unwrapValues(obj: Record<string, any>): Record<string, any> {
 export default function ComponentPreview({
   name,
   title,
+  iframe = false,
+  bigScreen = false,
 }: {
   name: string;
   title?: string;
+  iframe?: boolean;
+  bigScreen?: boolean;
 }) {
   const [componentProps, setComponentProps] = useState<Record<
     string,
@@ -99,18 +104,20 @@ export default function ComponentPreview({
 
         <TabsContent
           value="preview"
-          className="border-accent relative max-h-[350px] min-h-[350px] rounded-lg border-[6px]"
+          className="relative rounded-lg"
         >
-          <Suspense
-            fallback={
-              <div className="text-muted-foreground flex items-center text-sm">
-                <Loader className="mr-2 size-4 animate-spin" />
-                Loading...
-              </div>
-            }
-          >
-            {preview}
-          </Suspense>
+          <ComponentWrapper name={name} iframe={iframe} bigScreen={bigScreen}>
+            <Suspense
+              fallback={
+                <div className="text-muted-foreground flex items-center text-sm">
+                  <Loader className="mr-2 size-4 animate-spin" />
+                  Loading...
+                </div>
+              }
+            >
+              {preview}
+            </Suspense>
+          </ComponentWrapper>
         </TabsContent>
 
         <TabsContent value="code" className="rounded-lg">

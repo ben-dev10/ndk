@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "components-ndk-sheets-basic-sheet",
+  "name": "components-sheets-basic-sheet",
   "type": "registry:ui",
   "title": "Basic Sheet",
   "description": "A basic mobile navigation (sheet).",
@@ -8,7 +8,7 @@
   "registryDependencies": ["@_ndk/ui/components/ui/sheet","@_ndk/ui/components/_ui/social-icons"],
   "files": [
     {
-      "path": "registry/components/ndk/sheets/basic-sheet/index.tsx",
+      "path": "registry/components/sheets/basic-sheet/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/basic-sheet.tsx"
     }

@@ -1,4 +1,4 @@
-import { BasicSheet } from "@/registry/components/ndk/sheets/basic-sheet";
+import { BasicSheet } from "@/registry/components/sheets/basic-sheet";
 
 export default function BasicSheetDemo() {
   return (

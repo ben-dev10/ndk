@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "demo-components-ndk-sheets-mintlify-sheet",
+  "name": "components-sheets-mintlify-sheet",
   "type": "registry:ui",
   "title": "Mintlify Sheet",
   "description": "A mintlify inspired mobile navigation (sheet).",
@@ -8,7 +8,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "registry/demo/ndk/sheets/mintlify-sheet/index.tsx",
+      "path": "registry/components/sheets/mintlify-sheet/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/mintlify-sheet.tsx"
     }

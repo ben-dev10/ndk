@@ -18,28 +18,28 @@ export const index: Record<string, any> = {
     component: null,
     command: "@ndk-ui/index",
   },
-  "components-ndk-navs-start-end": {
-    name: "components-ndk-navs-start-end",
+  "components-navs-start-end": {
+    name: "components-navs-start-end",
     description: "A basic start-end layout navbar.",
     type: "registry:ui",
-    dependencies: [],
+    dependencies: ["lucide-react"],
     devDependencies: undefined,
-    registryDependencies: [],
+    registryDependencies: ["@_ndk/ui/components/_ui/theme-toggles"],
     files: [
   {
-    "path": "registry/components/ndk/navs/start-end/index.tsx",
+    "path": "registry/components/navs/start-end/index.tsx",
     "type": "registry:ui",
-    "target": "components/ndk/components/start-end-nav.tsx",
-    "content": "import { AcmeLogoSimple } from \"@/components/_ui/acme-logo\";\nimport { Button } from \"@/components/ui/button\";\nimport { ArrowRightIcon } from \"lucide-react\";\nimport { ClassicThemeToggle } from \"@/components/_ui/theme-toggles\";\nimport Background from \"@/components/_ui/background\";\nimport Section from \"@/components/_ui/section\";\nimport { BasicSheet } from \"@/components/ndk/sheets/basic-sheet\";\nimport { NavLinks } from \"./links\";\nimport Link from \"next/link\";\n\nexport default function NavbarStartEnd() {\n  return (\n    <Section.RootElement\n      as=\"header\"\n      className=\"_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center px-5 text-[0.95rem]\"\n    >\n      <Section.Container\n        container=\"8xl\"\n        className={`_navbar-wrapper relative flex w-full items-center gap-2`}\n      >\n        <Background>\n          <Background.Img\n            opacity={0.25}\n            className=\"fixed top-0 -left-[60px] h-[55px] w-full md:left-0\"\n            style={{\n              background: `url(/imgs/.svg)`,\n              backgroundRepeat: \"no-repeat\",\n            }}\n          />\n        </Background>\n\n        <div className=\"_logo mr-3 max-md:mr-auto\">\n          <AcmeLogoSimple className=\"size-6\" />\n        </div>\n\n        <div className=\"_menu-links mr-auto hidden items-center gap-3 md:flex\">\n          {NavLinks.map((link) => (\n            <Link\n              href={link.url}\n              key={link.name}\n              className=\"hover:text-primary\"\n            >\n              {link.name}\n            </Link>\n          ))}\n        </div>\n\n        <div className=\"_utilities flex items-center gap-1\">\n          <Button\n            variant={\"link\"}\n            className=\"_login+btn hidden items-center gap-[2px] transition-all duration-300 hover:underline md:flex\"\n          >\n            Login\n            <ArrowRightIcon size={16} />\n          </Button>\n          <Button className=\"_login+btn flex items-center gap-[2px]\">\n            Signup\n          </Button>\n\n          <div className=\"_theme-toggle-btn theme-toggle ml-2\">\n            <ClassicThemeToggle className=\"border-border/50 hover:bg-primary/5\" />\n          </div>\n        </div>\n\n        <div className={`_nav-menu md:hidden`}>\n          <BasicSheet side=\"left\" />\n        </div>\n      </Section.Container>\n    </Section.RootElement>\n  );\n}"
+    "target": "components/ndk/start-end-nav.tsx",
+    "content": "import { AcmeLogoSimple } from \"@/components/_ui/acme-logo\";\nimport { Button } from \"@/components/ui/button\";\nimport { ArrowRightIcon } from \"lucide-react\";\nimport { ClassicThemeToggle } from \"@/components/_ui/theme-toggles\";\nimport Background from \"@/components/_ui/background\";\nimport Section from \"@/components/_ui/section\";\nimport { BasicSheet } from \"@/components/sheets/basic-sheet\";\nimport { NavLinks } from \"./links\";\nimport Link from \"next/link\";\n\nexport default function NavbarStartEnd() {\n  return (\n    <Section.RootElement\n      as=\"header\"\n      className=\"_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]\"\n    >\n      <Section.Container\n        container=\"8xl\"\n        className={`_navbar-wrapper relative flex w-full items-center gap-2`}\n      >\n        <Background>\n          <Background.Img\n            opacity={0.25}\n            className=\"fixed top-0 -left-[60px] h-[55px] w-full md:left-0\"\n            style={{\n              background: `url(/imgs/.svg)`,\n              backgroundRepeat: \"no-repeat\",\n            }}\n          />\n        </Background>\n\n        <div className=\"_logo mr-3 max-md:mr-auto\">\n          <AcmeLogoSimple className=\"size-6\" />\n        </div>\n\n        <div className=\"_menu-links mr-auto hidden items-center gap-3 md:flex\">\n          {NavLinks.map((link) => (\n            <Link\n              href={link.url}\n              key={link.name}\n              className=\"hover:text-primary\"\n            >\n              {link.name}\n            </Link>\n          ))}\n        </div>\n\n        <div className=\"_utilities flex items-center gap-1\">\n          <Button\n            variant={\"link\"}\n            className=\"_login+btn hidden items-center gap-[2px] transition-all duration-300 hover:underline md:flex\"\n          >\n            Login\n            <ArrowRightIcon size={16} />\n          </Button>\n          <Button className=\"_login+btn flex items-center gap-[2px]\">\n            Signup\n          </Button>\n\n          <div className=\"_theme-toggle-btn theme-toggle ml-2\">\n            <ClassicThemeToggle className=\"border-border/50 hover:bg-primary/5\" />\n          </div>\n        </div>\n\n        <div className={`_nav-menu md:hidden`}>\n          <BasicSheet side=\"left\" />\n        </div>\n      </Section.Container>\n    </Section.RootElement>\n  );\n}"
   }
 ],
     keywords: [],
     component: (function() {
       const LazyComp = React.lazy(async () => {
-        const mod = await import("@/registry/components/ndk/navs/start-end/index.tsx");
+        const mod = await import("@/registry/components/navs/start-end/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "components-ndk-navs-start-end";
+        ) || "components-navs-start-end";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -49,10 +49,10 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/components-ndk-navs-start-end",
+    command: "@ndk-ui/components-navs-start-end",
   },
-  "components-ndk-sheets-basic-sheet": {
-    name: "components-ndk-sheets-basic-sheet",
+  "components-sheets-basic-sheet": {
+    name: "components-sheets-basic-sheet",
     description: "A basic mobile navigation (sheet).",
     type: "registry:ui",
     dependencies: ["lucide-react"],
@@ -60,7 +60,7 @@ export const index: Record<string, any> = {
     registryDependencies: ["@_ndk/ui/components/ui/sheet","@_ndk/ui/components/_ui/social-icons"],
     files: [
   {
-    "path": "registry/components/ndk/sheets/basic-sheet/index.tsx",
+    "path": "registry/components/sheets/basic-sheet/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/basic-sheet.tsx",
     "content": "\"use client\";\nimport {\n  Sheet,\n  SheetContent,\n  SheetHeader,\n  SheetTitle,\n  SheetDescription,\n  SheetTrigger,\n} from \"@/components/ui/sheet\";\nimport Link from \"next/link\";\nimport { Button } from \"@/components/ui/button\";\nimport { usePathName } from \"@/hooks/use-pathname\";\nimport { useOpen } from \"@/hooks/use-open\";\nimport {\n  GithubIcon,\n  LinkedinIcon,\n  XTwitterIcon,\n} from \"@/components/_ui/social-icons\";\nimport { socialLinks as slinks } from \"@/app/_assets/constants\";\nimport { NavLinks } from \"./links\";\n\nconst SocialIcons = () => {\n  return (\n    <div className=\"_icon-list my-5 flex items-center justify-center gap-3\">\n      <GithubIcon url={slinks.github} className=\"text-neutral-500\" />\n      <XTwitterIcon url={slinks.twitter} className=\"text-neutral-500\" />\n      <LinkedinIcon url={slinks.linkedin} className=\"text-neutral-500\" />\n    </div>\n  );\n};\n\nexport function BasicSheet({\n  side = \"left\",\n  mobileOnly = true,\n}: {\n  side?: \"left\" | \"top\" | \"right\" | \"bottom\" | undefined;\n  mobileOnly?: boolean;\n}) {\n  const isActive = usePathName();\n  const { handleClick, open, setOpen } = useOpen();\n\n  return (\n    <Sheet open={open} onOpenChange={setOpen}>\n      <SheetTrigger asChild>\n        <Button\n          className={`group size-8 ${mobileOnly ? \"md:hidden\" : \"\"}`}\n          variant=\"ghost\"\n          size=\"icon\"\n        >\n          <svg\n            className=\"pointer-events-none\"\n            width={16}\n            height={16}\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"M4 12L20 12\"\n              className=\"origin-center -translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315\"\n            />\n            <path\n              d=\"M4 12H20\"\n              className=\"origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45\"\n            />\n            <path\n              d=\"M4 12H20\"\n              className=\"origin-center translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135\"\n            />\n          </svg>\n        </Button>\n      </SheetTrigger>\n      <SheetContent\n        side={side}\n        className={`_sheet-content _ui bg-background text-foreground p-5 pt-3 pl-5 ${mobileOnly ? \"md:hidden\" : \"\"}`}\n      >\n        <SheetHeader aria-hidden className=\"\">\n          <SheetTitle className=\"text-xl\">Basic Sheet</SheetTitle>\n          <SheetDescription>A simple shadcn/ui sheet.</SheetDescription>\n        </SheetHeader>\n        <div className=\"sheet-content mx-auto mb-auto flex w-[90%] max-w-[450px] flex-col gap-3 text-[13px]\">\n          <hr className=\"_line absolute left-0 mt-8 h-1 w-full\" />\n\n          <nav className=\"_sheet-links mt-15\">\n            <ul onClick={handleClick} className=\"space-y-3\">\n              {NavLinks.map((link) => (\n                <li key={link.name.toString().slice(0, 5)}>\n                  <Link\n                    href={link.url}\n                    id=\"navLink\"\n                    className={`sheet-link hover:bg-primary/50 dark:hover:bg-primary/15 flex items-center gap-1 rounded-md p-2 px-3 hover:text-white ${\n                      isActive(link.url)\n                        ? \"bg-primary dark:bg-primary/20 font-[600] text-white\"\n                        : \"\"\n                    }`}\n                  >\n                    <span className=\"mr-2\">{link.icon}</span>\n                    {link.name}\n                  </Link>\n                </li>\n              ))}\n            </ul>\n          </nav>\n\n          <div className=\"_social-icons mt-15 flex flex-col\">\n            <hr className=\"mt-3\" />\n            <SocialIcons />\n          </div>\n        </div>\n      </SheetContent>\n    </Sheet>\n  );\n}"
@@ -69,10 +69,10 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function() {
       const LazyComp = React.lazy(async () => {
-        const mod = await import("@/registry/components/ndk/sheets/basic-sheet/index.tsx");
+        const mod = await import("@/registry/components/sheets/basic-sheet/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "components-ndk-sheets-basic-sheet";
+        ) || "components-sheets-basic-sheet";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -82,10 +82,10 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/components-ndk-sheets-basic-sheet",
+    command: "@ndk-ui/components-sheets-basic-sheet",
   },
-  "components-ndk-sheets-mintlify-sheet": {
-    name: "components-ndk-sheets-mintlify-sheet",
+  "components-sheets-mintlify-sheet": {
+    name: "components-sheets-mintlify-sheet",
     description: "A mintlify inspired mobile navigation (sheet).",
     type: "registry:ui",
     dependencies: [],
@@ -93,7 +93,7 @@ export const index: Record<string, any> = {
     registryDependencies: [],
     files: [
   {
-    "path": "registry/components/ndk/sheets/mintlify-sheet/index.tsx",
+    "path": "registry/components/sheets/mintlify-sheet/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/mintlify-sheet.tsx",
     "content": "\"use client\";\nimport {\n  Sheet,\n  SheetContent,\n  SheetHeader,\n  SheetTitle,\n  SheetDescription,\n  SheetTrigger,\n  SheetFooter,\n} from \"@/components/ui//sheet\";\nimport { Button } from \"@/components/ui/button\";\nimport Link from \"next/link\";\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\";\nimport { AcmeLogoSimple } from \"@/components/_ui/acme-logo\";\nimport { MintlifyLinks } from \"./mintlify-links\";\nimport { usePathName } from \"@/hooks/use-pathname\";\nimport { useOpen } from \"@/hooks/use-open\";\n\nexport function MintlifySheet({\n  side = \"left\",\n  mobileOnly = true,\n  defaultOpen = false,\n}: {\n  side?: \"top\" | \"right\" | \"bottom\" | \"left\";\n  mobileOnly?: boolean;\n  defaultOpen?: boolean;\n}) {\n  const isActive = usePathName();\n  const { handleClick, open, setOpen } = useOpen();\n\n  return (\n    <Sheet open={open} onOpenChange={setOpen}>\n      <SheetTrigger asChild>\n        <Button\n          className={`_sheet-trigger group size-8 ${mobileOnly ? \"md:hidden\" : \"\"}`}\n          variant=\"ghost\"\n          size=\"icon\"\n        >\n          <svg\n            className=\"pointer-events-none\"\n            width={16}\n            height={16}\n            viewBox=\"0 0 24 24\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            strokeWidth=\"2\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"M4 12L20 12\"\n              className=\"origin-center -translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-315\"\n            />\n            <path\n              d=\"M4 12H20\"\n              className=\"origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45\"\n            />\n            <path\n              d=\"M4 12H20\"\n              className=\"origin-center translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-135\"\n            />\n          </svg>\n        </Button>\n      </SheetTrigger>\n      <SheetContent\n        side={side}\n        className={`_sheet _ui bg-background/90 h-dvh w-screen backdrop-blur-2xl sm:max-w-full ${mobileOnly ? \"md:hidden\" : \"\"}`}\n      >\n        <div className=\"_sheet-content\">\n          <SheetHeader aria-hidden className=\"h-[70px]\">\n            <SheetTitle className=\"flex items-center gap-3 text-2xl\">\n              <AcmeLogoSimple className=\"size-6\" />\n              Acme\n            </SheetTitle>\n            <SheetDescription className=\"hidden\">\n              a mintlify inspired mobile nav\n            </SheetDescription>\n          </SheetHeader>\n\n          <nav className=\"_sheet-links h-[calc(100vh-170px)] overflow-auto px-6 pb-[80px]\">\n            <Accordion\n              type=\"multiple\"\n              className=\"w-full\"\n              defaultValue={defaultOpen ? [\"item-0\", \"item-1\"] : [\"\"]} // toggle the default state of accordion items: opened, or collapsed\n            >\n              {MintlifyLinks.map((accordion, index) => (\n                <AccordionItem\n                  key={accordion.accordionTitle}\n                  value={`item-${index}`}\n                >\n                  <AccordionTrigger className=\"opacity-80 hover:no-underline hover:opacity-100\">\n                    <h6 className=\"\">{accordion.accordionTitle}</h6>\n                  </AccordionTrigger>\n                  <AccordionContent>\n                    {accordion.accordionCategories.map((category) => (\n                      <div key={category.categoryTitle} className=\"\">\n                        <p className=\"category-title mb-2 text-[0.9rem] font-bold text-neutral-500 uppercase\">\n                          {category.categoryTitle}\n                        </p>\n                        <div className=\"category-links mt-3 mb-4\">\n                          {category.categoryLinks.map((link) => (\n                            <Link\n                              key={link.desc.slice(1, 6)}\n                              onClick={handleClick}\n                              href={link.url}\n                              id=\"navLink\"\n                              className={`_sheet-link group mb-1 flex flex-col gap-1 rounded-[8px] p-2 px-3 hover:bg-neutral-200/60 dark:hover:bg-neutral-900 dark:hover:text-white ${\n                                isActive(link.url)\n                                  ? \"bg-neutral-500/10 font-[600]\"\n                                  : \"\"\n                              }`}\n                            >\n                              {link.header}\n                              <p className=\"text-foreground/50 mt-1 text-[0.9rem]\">\n                                {link.desc}\n                              </p>\n                            </Link>\n                          ))}\n                        </div>\n                      </div>\n                    ))}\n                  </AccordionContent>\n                </AccordionItem>\n              ))}\n\n              <AccordionItem value=\"item-2\">\n                <AccordionTrigger className=\"opacity-80 hover:no-underline hover:opacity-100\">\n                  <Link\n                    onClick={handleClick}\n                    href=\"#\"\n                    id=\"navLink\"\n                    className={`sheet-link w-full py-2 ${\n                      isActive(\"#\") ? \"font-[800]\" : \"\"\n                    }`}\n                  >\n                    <h6 className=\"\">Customers</h6>\n                  </Link>\n                </AccordionTrigger>\n              </AccordionItem>\n\n              <AccordionItem value=\"item-3\">\n                <AccordionTrigger className=\"opacity-80 hover:no-underline hover:opacity-100\">\n                  <Link\n                    onClick={handleClick}\n                    href=\"#\"\n                    id=\"navLink\"\n                    className={`sheet-link w-full py-2 ${\n                      isActive(\"#\") ? \"font-[800]\" : \"\"\n                    }`}\n                  >\n                    <h6 className=\"\">Blocks</h6>\n                  </Link>\n                </AccordionTrigger>\n              </AccordionItem>\n            </Accordion>\n          </nav>\n        </div>\n\n        <SheetFooter className=\"_sheet-footer bg-background fixed bottom-0 left-0 z-2 flex h-[100px] w-full flex-col gap-2 p-4\">\n          <Button className=\"w-full bg-neutral-200 text-black hover:bg-neutral-300 dark:bg-[#151616] dark:text-white\">\n            Contact Sales\n          </Button>\n          <Button className=\"w-full bg-[#151616] text-white dark:bg-white dark:text-black\">\n            Start for free\n          </Button>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  );\n}"
@@ -102,10 +102,10 @@ export const index: Record<string, any> = {
     keywords: [],
     component: (function() {
       const LazyComp = React.lazy(async () => {
-        const mod = await import("@/registry/components/ndk/sheets/mintlify-sheet/index.tsx");
+        const mod = await import("@/registry/components/sheets/mintlify-sheet/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "components-ndk-sheets-mintlify-sheet";
+        ) || "components-sheets-mintlify-sheet";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -115,10 +115,10 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/components-ndk-sheets-mintlify-sheet",
+    command: "@ndk-ui/components-sheets-mintlify-sheet",
   },
-  "demo-components-ndk-navs-start-end": {
-    name: "demo-components-ndk-navs-start-end",
+  "demo-components-navs-start-end": {
+    name: "demo-components-navs-start-end",
     description: "A basic start-end layout navbar.",
     type: "registry:ui",
     dependencies: [],
@@ -126,19 +126,19 @@ export const index: Record<string, any> = {
     registryDependencies: [],
     files: [
   {
-    "path": "registry/demo/ndk/navs/start-end/index.tsx",
+    "path": "registry/demo/navs/start-end/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/demo/start-end-nav.tsx",
-    "content": "import NavbarStartEnd from \"@/components/ndk/navs/start-end\";\n\nexport default function NavbarStartEndDemo() {\n  return (\n    <div className=\"p-3\">\n      <NavbarStartEnd />\n    </div>\n  );\n}"
+    "content": "import NavbarStartEnd from \"@/components/navs/start-end\";\n\nexport default function NavbarStartEndDemo() {\n  return (\n    <div className=\"\">\n      <NavbarStartEnd />\n    </div>\n  );\n}"
   }
 ],
     keywords: [],
     component: (function() {
       const LazyComp = React.lazy(async () => {
-        const mod = await import("@/registry/demo/ndk/navs/start-end/index.tsx");
+        const mod = await import("@/registry/demo/navs/start-end/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "demo-components-ndk-navs-start-end";
+        ) || "demo-components-navs-start-end";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -148,10 +148,10 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/demo-components-ndk-navs-start-end",
+    command: "@ndk-ui/demo-components-navs-start-end",
   },
-  "demo-components-ndk-sheets-basic-sheet": {
-    name: "demo-components-ndk-sheets-basic-sheet",
+  "demo-components-sheets-basic-sheet": {
+    name: "demo-components-sheets-basic-sheet",
     description: "A basic mobile navigation (sheet).",
     type: "registry:ui",
     dependencies: ["lucide-react"],
@@ -159,19 +159,19 @@ export const index: Record<string, any> = {
     registryDependencies: ["@_ndk/ui/components/ui/sheet","@_ndk/ui/components/_ui/social-icons"],
     files: [
   {
-    "path": "registry/demo/ndk/sheets/basic-sheet/index.tsx",
+    "path": "registry/demo/sheets/basic-sheet/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/demo/basic-sheet.tsx",
-    "content": "import { BasicSheet } from \"@/components/ndk/sheets/basic-sheet\";\n\nexport default function BasicSheetDemo() {\n  return (\n    <div className=\"p-3\">\n      <BasicSheet mobileOnly={false} side=\"right\" />\n    </div>\n  );\n}"
+    "content": "import { BasicSheet } from \"@/components/sheets/basic-sheet\";\n\nexport default function BasicSheetDemo() {\n  return (\n    <div className=\"p-3\">\n      <BasicSheet mobileOnly={false} side=\"right\" />\n    </div>\n  );\n}"
   }
 ],
     keywords: [],
     component: (function() {
       const LazyComp = React.lazy(async () => {
-        const mod = await import("@/registry/demo/ndk/sheets/basic-sheet/index.tsx");
+        const mod = await import("@/registry/demo/sheets/basic-sheet/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "demo-components-ndk-sheets-basic-sheet";
+        ) || "demo-components-sheets-basic-sheet";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -181,10 +181,10 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {"BasicSheet":{"mobileOnly":{"value":false},"side":{"value":"right"}}};
       return LazyComp;
     })(),
-    command: "@ndk-ui/demo-components-ndk-sheets-basic-sheet",
+    command: "@ndk-ui/demo-components-sheets-basic-sheet",
   },
-  "demo-components-ndk-sheets-mintlify-sheet": {
-    name: "demo-components-ndk-sheets-mintlify-sheet",
+  "demo-components-sheets-mintlify-sheet": {
+    name: "demo-components-sheets-mintlify-sheet",
     description: "A mintlify inspired mobile navigation (sheet).",
     type: "registry:ui",
     dependencies: [],
@@ -192,19 +192,19 @@ export const index: Record<string, any> = {
     registryDependencies: [],
     files: [
   {
-    "path": "registry/demo/ndk/sheets/mintlify-sheet/index.tsx",
+    "path": "registry/demo/sheets/mintlify-sheet/index.tsx",
     "type": "registry:ui",
-    "target": "components/ndk/mintlify-sheet.tsx",
-    "content": "import { MintlifySheet } from \"@/components/ndk/sheets/mintlify-sheet\";\n\nexport const MintlifySheetDemo = () => {\n  return (\n    <div>\n      <MintlifySheet />\n    </div>\n  );\n};"
+    "target": "components/ndk/demo/mintlify-sheet.tsx",
+    "content": "import { MintlifySheet } from \"@/components/sheets/mintlify-sheet\";\n\nexport const MintlifySheetDemo = () => {\n  return (\n    <div>\n      <MintlifySheet />\n    </div>\n  );\n};"
   }
 ],
     keywords: [],
     component: (function() {
       const LazyComp = React.lazy(async () => {
-        const mod = await import("@/registry/demo/ndk/sheets/mintlify-sheet/index.tsx");
+        const mod = await import("@/registry/demo/sheets/mintlify-sheet/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "demo-components-ndk-sheets-mintlify-sheet";
+        ) || "demo-components-sheets-mintlify-sheet";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -214,6 +214,6 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/demo-components-ndk-sheets-mintlify-sheet",
+    command: "@ndk-ui/demo-components-sheets-mintlify-sheet",
   },
 }

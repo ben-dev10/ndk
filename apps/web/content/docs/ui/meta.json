@@ -6,7 +6,6 @@
   "pages": [
     "---Introduction---",
     "index",
-    "why-ndk",
     "installation",
     "---UI Primitives---",
     "primitives",

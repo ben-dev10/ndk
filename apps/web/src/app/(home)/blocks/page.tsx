@@ -1,9 +1,9 @@
-import { NavLinks } from "@/registry/components/ndk/block--sheet-basic/basic-links";
-import NavbarStartEnd from "@/registry/ndk/blocks/navbars/start-end";
-import { BasicSheet } from "@/registry/ndk/blocks/sheets/basic-sheet";
-import { MintlifySheet } from "@/registry/ndk/blocks/sheets/mintlify-sheet";
+import NavbarStartEnd from "@/registry/components/navs/start-end";
+import { BasicSheet } from "@/registry/components/sheets/basic-sheet";
+import { MintlifySheet } from "@/registry/components/sheets/mintlify-sheet";
 import Section from "@_ndk/ui/components/_ui/section";
 import { cn } from "@_ndk/ui/utils";
+import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -20,14 +20,26 @@ const ComponentPreview = ({
   children,
   title,
   className,
+  url,
 }: {
   children: React.ReactNode;
   title?: string;
   className?: string;
+  url?: string;
 }) => {
   return (
     <div className={cn("_component-preview", className)}>
-      <h5 className="text-muted-foreground mb-4">{title}</h5>
+      <div className="flex items-center justify-between">
+        <h5 className="text-muted-foreground mb-4">{title}</h5>
+        {url && (
+          <Link
+            href={`${url}`}
+            className="text-primary text-sm underline opacity-80 hover:opacity-100"
+          >
+            Go to docs
+          </Link>
+        )}
+      </div>
       <div className="_component-preview w-full rounded-lg border p-2">
         {children}
       </div>
@@ -42,8 +54,11 @@ export const SheetBlocks = () => {
         <div className="mb-10">
           <h4 className="mb-2">Sheets</h4>
 
-          <ComponentPreview title="Basic sheet">
-            <BasicSheet mobileOnly={false} navLinks={NavLinks} side="right" />
+          <ComponentPreview
+            title="Basic sheet"
+            url="/docs/ui/blocks/sheets/basic-sheet"
+          >
+            <BasicSheet mobileOnly={false} side="right" />
           </ComponentPreview>
 
           <ComponentPreview className="mt-8" title="Mintlify sheet">

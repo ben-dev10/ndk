@@ -8,27 +8,39 @@ Welcome to the **ndk** (nard development kit) docs!
 
 ## What is ndk?
 
-It is a small open-source library of UI components, styles (themes), react hooks, TailwindCSS plugins, icons and several mini utilities (like `cn` and the likes). If you
-are wondering what "nard" means, it is the last for 4 characters of my first name, "BerNARD".
+`ndk` is an open-source library of UI components and a development kit. The kit is composed of styles (themes), react hooks, TailwindCSS plugins, icons and other mini utilities. "nard" is
+the last for 4 characters of my first name, "BerNARD", if you were wondering.
+
+<Cards className="my-12">
+  <Card icon={<Box className="text-pink-300" />} title="UI Library">
+    A collection of UI blocks and templates built on top of shadcn/ui.
+  </Card>
+  <Card
+    icon={<Terminal className="text-blue-900 dark:text-blue-500" />}
+    title="Toolkit"
+  >
+    A growing library of npm packages with handy tools for frontend development.
+  </Card>
+</Cards>
 
 The toolkit for now consists of 2 packages - `@_ndk/ui` and `@_ndk/motion`, see <Link href="/docs/ui/installation" className="text-fd-primary">installation guides</Link>.
-If you'd like to know the rationale behind this project, see <Link href="/docs/ui/why-ndk" className="text-fd-primary">Why ndk?</Link>.
 
-These packages basically build on top of (and extends) many amazing open-source frontend libraries and frameworks including Next.js, Shadcn UI, TailwindCSS, Lucide-react and many more.
+The packages basically build on top of (and extends) many amazing open-source frontend libraries and frameworks including Next.js, Shadcn UI, TailwindCSS, Lucide-react and many more.
 
 ## Resources.
 
 This project would'nt have been possible without the help of these free, amazing web technologies:
 
+{/* prettier-ignore */}
 <div className="ml-8">
-  - <Link href="https://nextjs.org/" className="text-fd-primary">Next.js</Link> <Link href="https://react.dev/" className="text-fd-primary">(react.js)</Link>
+  - <Link href="https://nextjs.org/" className="text-fd-primary"> Next.js </Link> <Link href="https://react.dev/" className="text-fd-primary">(react.js)</Link>
   - <Link href="https://tailwindcss.com/" className="text-fd-primary">TailwindCSS</Link>
-  - <Link href="https://motion.dev/" className="text-fd-primary">Motion</Link> (formerly framer motion) 
-  - <Link href="https://fumadocs.dev/" className="text-fd-primary">Fumadocs</Link>{" "} (for documentation) 
+  - <Link href="https://motion.dev/" className="text-fd-primary">Motion</Link> (formerly framer-motion) 
+  - <Link href="https://fumadocs.dev/" className="text-fd-primary">Fumadocs</Link> (for documentation) 
   - ...and many others
 </div>
 
-<Cards>
+<Cards className="mt-12">
   <Card title="Learn more about Next.js" href="https://nextjs.org/learn" />
   <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
 </Cards>
