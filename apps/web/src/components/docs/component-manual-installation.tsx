@@ -11,6 +11,7 @@ import { cn } from "@_ndk/ui/lib/utils";
 import { useRef, useState } from "react";
 import ReactIcon from "@_ndk/ui/icons/react-icon";
 import { NDK_SITE } from "@/app/_assets/constants";
+import { motion } from "motion/react";
 
 const getDepsCommands = (dependencies?: string[]) => {
   if (!dependencies) return undefined;
@@ -100,7 +101,11 @@ export const ComponentManualInstallation = ({
             <div ref={collapsibleRef} className="relative overflow-hidden">
               <CollapsibleContent
                 forceMount
-                className={cn("overflow-hidden", !isOpened && "max-h-32")}
+                className={cn(
+                  // data-[state=open]:animate-collapsible-down! data-[state=closed]:animate-collapsible-up!
+                  "overflow-hidden",
+                  !isOpened && "max-h-32",
+                )}
               >
                 <div
                   className={cn(
@@ -111,7 +116,7 @@ export const ComponentManualInstallation = ({
                   )}
                 >
                   <DynamicCodeBlock
-                    height="max-h[550px]"
+                    height="max-h-[550px]"
                     code={code}
                     lang="tsx"
                     title={path}

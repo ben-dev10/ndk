@@ -1,0 +1,137 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "dnk",
+  "homepage": "https://ndk-ui.vercel.app",
+  "items": [
+    {
+      "name": "index",
+      "type": "registry:style",
+      "dependencies": [
+        "tw-animate-css",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "cssVars": {},
+      "files": []
+    },
+    {
+      "name": "components-navs-start-end",
+      "type": "registry:ui",
+      "title": "Start-End Nav",
+      "description": "A basic start-end layout navbar.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@_ndk/ui/components/_ui/theme-toggles"
+      ],
+      "files": [
+        {
+          "path": "registry/components/navs/start-end/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/start-end-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-sheets-basic-sheet",
+      "type": "registry:ui",
+      "title": "Basic Sheet",
+      "description": "A basic mobile navigation (sheet).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@_ndk/ui/components/ui/sheet",
+        "@_ndk/ui/components/_ui/social-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/components/sheets/basic-sheet/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/basic-sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-sheets-mintlify-sheet",
+      "type": "registry:ui",
+      "title": "Mintlify Sheet",
+      "description": "A mintlify inspired mobile navigation (sheet).",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/components/sheets/mintlify-sheet/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/mintlify-sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-navs-start-end",
+      "type": "registry:ui",
+      "title": "Start-End Nav",
+      "description": "A basic start-end layout navbar.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/demo/navs/start-end/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/demo/start-end-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-sheets-basic-sheet",
+      "type": "registry:ui",
+      "title": "Basic Sheet",
+      "description": "A basic mobile navigation (sheet).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@_ndk/ui/components/ui/sheet",
+        "@_ndk/ui/components/_ui/social-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/sheets/basic-sheet/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/demo/basic-sheet.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "BasicSheet": {
+            "mobileOnly": {
+              "value": false
+            },
+            "side": {
+              "value": "right"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "demo-components-sheets-mintlify-sheet",
+      "type": "registry:ui",
+      "title": "Mintlify Sheet",
+      "description": "A mintlify inspired mobile navigation (sheet).",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/demo/sheets/mintlify-sheet/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/demo/mintlify-sheet.tsx"
+        }
+      ]
+    }
+  ]
+}

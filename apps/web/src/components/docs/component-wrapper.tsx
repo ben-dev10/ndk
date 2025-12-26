@@ -2,8 +2,8 @@
 
 import { Button } from "@_ndk/ui/components/ui/button";
 import { cn } from "@_ndk/ui/lib/utils";
-import { Fullscreen, Loader, RotateCcw } from "lucide-react";
-import { Suspense, useState } from "react";
+import { Fullscreen, RotateCcw } from "lucide-react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import Iframe from "./iframe";
 import {
@@ -11,7 +11,10 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@_ndk/ui/components/ui/resizable";
+import useMounted from "@/hooks/use-mounted";
+import { Loader } from "@/components/_ui/loader";
 
+const WRAPPER_HEIGHT = "max-h-[380px] min-h-[380px]";
 interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
   iframe?: boolean;
@@ -26,9 +29,10 @@ export const ComponentWrapper = ({
   bigScreen = false,
 }: ComponentWrapperProps) => {
   const [key, setKey] = useState(0);
+  const mounted = useMounted();
 
   return (
-    <div className="bg-accent overflow-hidden rounded-xl p-1.5">
+    <div className="bg-accent rounded-lg p-1.5">
       <motion.div
         id="component-wrapper"
         className={cn(
@@ -75,36 +79,37 @@ export const ComponentWrapper = ({
           </div>
 
           {iframe ? (
-            <div className="_iframe-wrapper overflow-clip rounded-xl">
-              <ResizablePanelGroup
-                direction="horizontal"
-                className="min-h-[350px]"
-              >
-                <ResizablePanel defaultSize={100} minSize={45}>
-                  <Suspense
-                    fallback={
-                      <div className="text-muted-foreground flex items-center text-sm">
-                        <Loader className="mr-2 size-4 animate-spin" />
-                        Loading...
-                      </div>
-                    }
-                  >
+            <div className={`_iframe-wrapper rounded-lg`}>
+              {!mounted && (
+                <div className="h-full w-full rounded-xl">
+                  <Loader
+                    className={`grid h-full place-items-center ${WRAPPER_HEIGHT}`}
+                  />
+                </div>
+              )}
+              {mounted && (
+                <ResizablePanelGroup
+                  direction="horizontal"
+                  className="min-h-[350px] rounded-lg"
+                >
+                  <ResizablePanel defaultSize={100} minSize={45}>
                     <Iframe key={key} name={name} bigScreen={bigScreen} />
-                  </Suspense>
-                </ResizablePanel>
-                <ResizableHandle withHandle className="hidden w-px md:flex" />
-                <ResizablePanel>
-                  <div className="_empty h-full rounded-tr-lg rounded-br-lg bg-transparent" />
-                </ResizablePanel>
-                <ResizableHandle />
-              </ResizablePanelGroup>
+                  </ResizablePanel>
+                  <ResizableHandle withHandle className="hidden w-px md:flex" />
+
+                  <ResizablePanel>
+                    <div className="_empty h-full rounded-tr-lg rounded-br-lg bg-transparent" />
+                  </ResizablePanel>
+                </ResizablePanelGroup>
+              )}
             </div>
           ) : (
             <div
               key={key}
-              className="_normal-preview-wrapper flex max-h-[380px] min-h-[350px] w-full items-center justify-center px-10 py-16"
+              className={`_normal-preview-wrapper ${WRAPPER_HEIGHT} flex w-full items-center justify-center px-10 py-16`}
             >
-              {children}
+              {!mounted && <Loader className="" />}
+              {mounted && <>{children}</>}
             </div>
           )}
         </motion.div>

@@ -6,11 +6,11 @@ import {
   TabsList,
   TabsTrigger,
 } from "@_ndk/ui/components/ui/tabs";
-import { Loader } from "lucide-react";
 import React, { Suspense, useMemo, useState } from "react";
 import { DynamicCodeBlock } from "./dynamic-codeblock";
 import ReactIcon from "@_ndk/ui/icons/react-icon";
 import { ComponentWrapper } from "./component-wrapper";
+import { Loader } from "@/components/_ui/loader";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function flattenFirstLevel<T>(input: Record<string, any>): T {
@@ -102,21 +102,9 @@ export default function ComponentPreview({
           </TabsList>
         </div>
 
-        <TabsContent
-          value="preview"
-          className="relative rounded-lg"
-        >
+        <TabsContent value="preview">
           <ComponentWrapper name={name} iframe={iframe} bigScreen={bigScreen}>
-            <Suspense
-              fallback={
-                <div className="text-muted-foreground flex items-center text-sm">
-                  <Loader className="mr-2 size-4 animate-spin" />
-                  Loading...
-                </div>
-              }
-            >
-              {preview}
-            </Suspense>
+            <Suspense fallback={<Loader />}>{preview}</Suspense>
           </ComponentWrapper>
         </TabsContent>
 

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-sheets-mintlify-sheet",
+  "title": "Mintlify Sheet",
+  "description": "A mintlify inspired mobile navigation (sheet).",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/demo/sheets/mintlify-sheet/index.tsx",
+      "content": "import { MintlifySheet } from \"@/components/animate-ui/components/sheets/mintlify-sheet\";\n\nexport const MintlifySheetDemo = () => {\n  return (\n    <div>\n      <MintlifySheet />\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/ndk/demo/mintlify-sheet.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

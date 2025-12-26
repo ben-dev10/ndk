@@ -10,13 +10,13 @@ export const index: Record<string, any> = {
     name: "index",
     description: "",
     type: "registry:style",
-    dependencies: [],
+    dependencies: ["tw-animate-css","class-variance-authority","lucide-react"],
     devDependencies: undefined,
-    registryDependencies: [],
+    registryDependencies: ["utils"],
     files: [],
     keywords: [],
     component: null,
-    command: "@ndk-ui/index",
+    command: '@animate-ui/index',
   },
   "components-navs-start-end": {
     name: "components-navs-start-end",
@@ -30,7 +30,7 @@ export const index: Record<string, any> = {
     "path": "registry/components/navs/start-end/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/start-end-nav.tsx",
-    "content": "import { AcmeLogoSimple } from \"@/components/_ui/acme-logo\";\nimport { Button } from \"@/components/ui/button\";\nimport { ArrowRightIcon } from \"lucide-react\";\nimport { ClassicThemeToggle } from \"@/components/_ui/theme-toggles\";\nimport Background from \"@/components/_ui/background\";\nimport Section from \"@/components/_ui/section\";\nimport { BasicSheet } from \"@/components/sheets/basic-sheet\";\nimport { NavLinks } from \"./links\";\nimport Link from \"next/link\";\n\nexport default function NavbarStartEnd() {\n  return (\n    <Section.RootElement\n      as=\"header\"\n      className=\"_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]\"\n    >\n      <Section.Container\n        container=\"8xl\"\n        className={`_navbar-wrapper relative flex w-full items-center gap-2`}\n      >\n        <Background>\n          <Background.Img\n            opacity={0.25}\n            className=\"fixed top-0 -left-[60px] h-[55px] w-full md:left-0\"\n            style={{\n              background: `url(/imgs/.svg)`,\n              backgroundRepeat: \"no-repeat\",\n            }}\n          />\n        </Background>\n\n        <div className=\"_logo mr-3 max-md:mr-auto\">\n          <AcmeLogoSimple className=\"size-6\" />\n        </div>\n\n        <div className=\"_menu-links mr-auto hidden items-center gap-3 md:flex\">\n          {NavLinks.map((link) => (\n            <Link\n              href={link.url}\n              key={link.name}\n              className=\"hover:text-primary\"\n            >\n              {link.name}\n            </Link>\n          ))}\n        </div>\n\n        <div className=\"_utilities flex items-center gap-1\">\n          <Button\n            variant={\"link\"}\n            className=\"_login+btn hidden items-center gap-[2px] transition-all duration-300 hover:underline md:flex\"\n          >\n            Login\n            <ArrowRightIcon size={16} />\n          </Button>\n          <Button className=\"_login+btn flex items-center gap-[2px]\">\n            Signup\n          </Button>\n\n          <div className=\"_theme-toggle-btn theme-toggle ml-2\">\n            <ClassicThemeToggle className=\"border-border/50 hover:bg-primary/5\" />\n          </div>\n        </div>\n\n        <div className={`_nav-menu md:hidden`}>\n          <BasicSheet side=\"left\" />\n        </div>\n      </Section.Container>\n    </Section.RootElement>\n  );\n}"
+    "content": "import { AcmeLogoSimple } from \"@/components/_ui/acme-logo\";\nimport { Button } from \"@/components/ui/button\";\nimport { ArrowRightIcon } from \"lucide-react\";\nimport { ClassicThemeToggle } from \"@/components/_ui/theme-toggles\";\nimport Background from \"@/components/_ui/background\";\nimport Section from \"@/components/_ui/section\";\nimport { BasicSheet } from \"@/components/animate-ui/components/sheets/basic-sheet\";\nimport { NavLinks } from \"./links\";\nimport Link from \"next/link\";\n\nexport default function NavbarStartEnd() {\n  return (\n    <Section.RootElement\n      as=\"header\"\n      className=\"_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]\"\n    >\n      <Section.Container\n        container=\"8xl\"\n        className={`_navbar-wrapper relative flex w-full items-center gap-2`}\n      >\n        <Background>\n          <Background.Img\n            opacity={0.25}\n            className=\"fixed top-0 -left-[60px] h-[55px] w-full md:left-0\"\n            style={{\n              background: `url(/imgs/.svg)`,\n              backgroundRepeat: \"no-repeat\",\n            }}\n          />\n        </Background>\n\n        <div className=\"_logo mr-3 max-md:mr-auto\">\n          <AcmeLogoSimple className=\"size-6\" />\n        </div>\n\n        <div className=\"_menu-links mr-auto hidden items-center gap-3 md:flex\">\n          {NavLinks.map((link) => (\n            <Link\n              href={link.url}\n              key={link.name}\n              className=\"hover:text-primary\"\n            >\n              {link.name}\n            </Link>\n          ))}\n        </div>\n\n        <div className=\"_utilities flex items-center gap-1\">\n          <Button\n            variant={\"link\"}\n            className=\"_login+btn hidden items-center gap-[2px] transition-all duration-300 hover:underline md:flex\"\n          >\n            Login\n            <ArrowRightIcon size={16} />\n          </Button>\n          <Button className=\"_login+btn flex items-center gap-[2px]\">\n            Signup\n          </Button>\n\n          <div className=\"_theme-toggle-btn theme-toggle ml-2\">\n            <ClassicThemeToggle className=\"border-border/50 hover:bg-primary/5\" />\n          </div>\n        </div>\n\n        <div className={`_nav-menu md:hidden`}>\n          <BasicSheet side=\"left\" />\n        </div>\n      </Section.Container>\n    </Section.RootElement>\n  );\n}"
   }
 ],
     keywords: [],
@@ -49,7 +49,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/components-navs-start-end",
+    command: '@animate-ui/components-navs-start-end',
   },
   "components-sheets-basic-sheet": {
     name: "components-sheets-basic-sheet",
@@ -82,7 +82,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/components-sheets-basic-sheet",
+    command: '@animate-ui/components-sheets-basic-sheet',
   },
   "components-sheets-mintlify-sheet": {
     name: "components-sheets-mintlify-sheet",
@@ -115,7 +115,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/components-sheets-mintlify-sheet",
+    command: '@animate-ui/components-sheets-mintlify-sheet',
   },
   "demo-components-navs-start-end": {
     name: "demo-components-navs-start-end",
@@ -129,7 +129,7 @@ export const index: Record<string, any> = {
     "path": "registry/demo/navs/start-end/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/demo/start-end-nav.tsx",
-    "content": "import NavbarStartEnd from \"@/components/navs/start-end\";\n\nexport default function NavbarStartEndDemo() {\n  return (\n    <div className=\"\">\n      <NavbarStartEnd />\n    </div>\n  );\n}"
+    "content": "import NavbarStartEnd from \"@/components/animate-ui/components/navs/start-end\";\n\nexport default function NavbarStartEndDemo() {\n  return (\n    <div className=\"\">\n      <NavbarStartEnd />\n    </div>\n  );\n}"
   }
 ],
     keywords: [],
@@ -148,7 +148,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/demo-components-navs-start-end",
+    command: '@animate-ui/demo-components-navs-start-end',
   },
   "demo-components-sheets-basic-sheet": {
     name: "demo-components-sheets-basic-sheet",
@@ -162,7 +162,7 @@ export const index: Record<string, any> = {
     "path": "registry/demo/sheets/basic-sheet/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/demo/basic-sheet.tsx",
-    "content": "import { BasicSheet } from \"@/components/sheets/basic-sheet\";\n\nexport default function BasicSheetDemo() {\n  return (\n    <div className=\"p-3\">\n      <BasicSheet mobileOnly={false} side=\"right\" />\n    </div>\n  );\n}"
+    "content": "import { BasicSheet } from \"@/components/animate-ui/components/sheets/basic-sheet\";\n\nexport default function BasicSheetDemo() {\n  return (\n    <div className=\"p-3\">\n      <BasicSheet mobileOnly={false} side=\"right\" />\n    </div>\n  );\n}"
   }
 ],
     keywords: [],
@@ -181,7 +181,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {"BasicSheet":{"mobileOnly":{"value":false},"side":{"value":"right"}}};
       return LazyComp;
     })(),
-    command: "@ndk-ui/demo-components-sheets-basic-sheet",
+    command: '@animate-ui/demo-components-sheets-basic-sheet',
   },
   "demo-components-sheets-mintlify-sheet": {
     name: "demo-components-sheets-mintlify-sheet",
@@ -195,7 +195,7 @@ export const index: Record<string, any> = {
     "path": "registry/demo/sheets/mintlify-sheet/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/demo/mintlify-sheet.tsx",
-    "content": "import { MintlifySheet } from \"@/components/sheets/mintlify-sheet\";\n\nexport const MintlifySheetDemo = () => {\n  return (\n    <div>\n      <MintlifySheet />\n    </div>\n  );\n};"
+    "content": "import { MintlifySheet } from \"@/components/animate-ui/components/sheets/mintlify-sheet\";\n\nexport const MintlifySheetDemo = () => {\n  return (\n    <div>\n      <MintlifySheet />\n    </div>\n  );\n};"
   }
 ],
     keywords: [],
@@ -214,6 +214,6 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: "@ndk-ui/demo-components-sheets-mintlify-sheet",
+    command: '@animate-ui/demo-components-sheets-mintlify-sheet',
   },
-}
+  }

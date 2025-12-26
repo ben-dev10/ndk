@@ -20,9 +20,16 @@ export default function Iframe({
   if (!iframeUrl) return null;
 
   return (
-    <iframe
-      src={iframeUrl}
-      className={cn("h-[400px] w-full rounded-md", bigScreen && "w-[1600px]")}
-    />
+    <>
+      <div className="_iframe-wrapper rounded-lg">
+        <iframe
+          src={iframeUrl}
+          className={cn(
+            "h-[380px] w-full rounded-md",
+            bigScreen && "w-[600px]",
+          )}
+        />
+      </div>
+    </>
   );
 }

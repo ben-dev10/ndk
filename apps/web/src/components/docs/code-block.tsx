@@ -44,7 +44,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
   (
     {
       title,
-      height = "max-h-[315px] min-h-[315px]",
+      height = "max-h-[355px] min-h-[355px]",
       allowCopy = true,
       icon,
       viewportProps,

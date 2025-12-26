@@ -5,7 +5,7 @@
   "title": "Start-End Nav",
   "description": "A basic start-end layout navbar.",
   "dependencies": ["lucide-react"],
-  "registryDependencies": ["@_ndk/ui/components/_ui/theme-toggles"],
+  "registryDependencies": ["@_ndk/ui/components/_ui/theme-toggles","button"],
   "files": [
     {
       "path": "registry/components/navs/start-end/index.tsx",

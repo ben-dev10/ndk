@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-sheets-basic-sheet",
+  "title": "Basic Sheet",
+  "description": "A basic mobile navigation (sheet).",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@_ndk/ui/components/ui/sheet",
+    "@_ndk/ui/components/_ui/social-icons"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/sheets/basic-sheet/index.tsx",
+      "content": "import { BasicSheet } from \"@/components/animate-ui/components/sheets/basic-sheet\";\n\nexport default function BasicSheetDemo() {\n  return (\n    <div className=\"p-3\">\n      <BasicSheet mobileOnly={false} side=\"right\" />\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/ndk/demo/basic-sheet.tsx"
+    }
+  ],
+  "meta": {
+    "demoProps": {
+      "BasicSheet": {
+        "mobileOnly": {
+          "value": false
+        },
+        "side": {
+          "value": "right"
+        }
+      }
+    }
+  },
+  "type": "registry:ui"
+}
