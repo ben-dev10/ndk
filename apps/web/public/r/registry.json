@@ -18,26 +18,35 @@
       "files": []
     },
     {
-      "name": "components-navs-start-end",
-      "type": "registry:ui",
+      "name": "components-start-end",
+      "type": "registry:block",
       "title": "Start-End Nav",
       "description": "A basic start-end layout navbar.",
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
-        "@_ndk/ui/components/_ui/theme-toggles"
+        "button",
+        "@ndk/components-theme-toggles",
+        "@ndk/components-background",
+        "@ndk/components-section",
+        "@ndk/icons-acme-logo"
       ],
       "files": [
         {
           "path": "registry/components/navs/start-end/index.tsx",
           "type": "registry:ui",
-          "target": "components/ndk/start-end-nav.tsx"
+          "target": "components/ndk/nav-start-end.tsx"
+        },
+        {
+          "path": "registry/components/navs/start-end/links.tsx",
+          "type": "registry:file",
+          "target": "components/ndk/links.tsx"
         }
       ]
     },
     {
-      "name": "components-sheets-basic-sheet",
+      "name": "components-basic-sheet",
       "type": "registry:ui",
       "title": "Basic Sheet",
       "description": "A basic mobile navigation (sheet).",
@@ -45,8 +54,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@_ndk/ui/components/ui/sheet",
-        "@_ndk/ui/components/_ui/social-icons"
+        ""
       ],
       "files": [
         {
@@ -57,7 +65,7 @@
       ]
     },
     {
-      "name": "components-sheets-mintlify-sheet",
+      "name": "components-mintlify-sheet",
       "type": "registry:ui",
       "title": "Mintlify Sheet",
       "description": "A mintlify inspired mobile navigation (sheet).",
@@ -72,7 +80,117 @@
       ]
     },
     {
-      "name": "demo-components-navs-start-end",
+      "name": "components-background",
+      "type": "registry:ui",
+      "title": "Background",
+      "description": "A utility component for handling background elements for a given component.",
+      "files": [
+        {
+          "path": "registry/components/_ui/background/background.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/_ui/background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-popover-ui",
+      "type": "registry:ui",
+      "title": "PopoverUI",
+      "description": "A light wrapper for the shadcn/ui popover component.",
+      "files": [
+        {
+          "path": "registry/components/_ui/popover-ui/popover-ui.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/_ui/popover-ui.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-section",
+      "type": "registry:ui",
+      "title": "Background",
+      "description": "A utility component for providing structure to a group of elements.",
+      "files": [
+        {
+          "path": "registry/components/_ui/section/section.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/_ui/section.tsx"
+        }
+      ],
+      "css": {
+        "@layer utilities": {
+          ".container, [datatype='container']": {
+            "@apply mx-auto max-w-4xl": ""
+          },
+          ".container-5xl, [datatype='container-5xl']": {
+            "@apply mx-auto max-w-5xl": ""
+          },
+          ".container-6xl, [datatype='container-6xl']": {
+            "@apply mx-auto max-w-6xl": ""
+          },
+          ".container-7xl, [datatype='container-7xl']": {
+            "@apply mx-auto max-w-7xl": ""
+          },
+          ".container-8xl, [datatype='container-8xl']": {
+            "@apply mx-auto max-w-8xl": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "components-social-icons",
+      "type": "registry:ui",
+      "title": "Social Icons",
+      "description": "A collection of popular social media icons.",
+      "files": [
+        {
+          "path": "registry/components/_ui/social-icons/social-icons.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/_ui/social-icons.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-theme-img",
+      "type": "registry:ui",
+      "title": "Theme Image",
+      "description": "A simple utility component for managing images based on current theme - light or dark.",
+      "files": [
+        {
+          "path": "registry/components/_ui/theme-img/theme-img.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/_ui/theme-img.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-theme-toggles",
+      "type": "registry:ui",
+      "title": "Theme Toggles",
+      "description": "A set of three commonly used theme switcher components.",
+      "files": [
+        {
+          "path": "registry/components/_ui/theme-toggles/theme-toggles.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/_ui/theme-toggles.tsx"
+        }
+      ]
+    },
+    {
+      "name": "components-tooltip-ui",
+      "type": "registry:ui",
+      "title": "TooltipUI",
+      "description": "A light wrapper for the shadcn/ui tooltip component.",
+      "files": [
+        {
+          "path": "registry/components/_ui/tooltip-ui/tooltip-ui.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/_ui/tooltip-ui.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-start-end",
       "type": "registry:ui",
       "title": "Start-End Nav",
       "description": "A basic start-end layout navbar.",
@@ -87,7 +205,7 @@
       ]
     },
     {
-      "name": "demo-components-sheets-basic-sheet",
+      "name": "demo-components-basic-sheet",
       "type": "registry:ui",
       "title": "Basic Sheet",
       "description": "A basic mobile navigation (sheet).",
@@ -119,7 +237,7 @@
       }
     },
     {
-      "name": "demo-components-sheets-mintlify-sheet",
+      "name": "demo-components-mintlify-sheet",
       "type": "registry:ui",
       "title": "Mintlify Sheet",
       "description": "A mintlify inspired mobile navigation (sheet).",
@@ -130,6 +248,32 @@
           "path": "registry/demo/sheets/mintlify-sheet/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/demo/mintlify-sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-background",
+      "type": "registry:ui",
+      "title": "Background Demo",
+      "description": "A utility component for handling background elements for a given component.",
+      "files": [
+        {
+          "path": "registry/demo/_ui/background/demo-background.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/_ui/demo-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icons-acme-logo",
+      "type": "registry:ui",
+      "title": "ACME Logo",
+      "description": "A logo for ACME Corp (a placeholder company used in UIs).",
+      "files": [
+        {
+          "path": "registry/icons/acme-logo/acme-logo.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/icons/acme-logo.tsx"
         }
       ]
     }

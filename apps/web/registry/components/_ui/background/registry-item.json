@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-background",
+  "type": "registry:ui",
+  "title": "Background",
+  "description": "A utility component for handling background elements for a given component.",
+  "files": [
+    {
+      "path": "registry/components/_ui/background/background.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/background.tsx"
+    }
+  ]
+}

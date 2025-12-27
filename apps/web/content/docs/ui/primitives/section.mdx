@@ -1,0 +1,60 @@
+---
+title: Section
+description: A utility for setting structure on a group of elements.
+---
+
+## Definition and Usage
+
+The `section` component basically and wrapper for a group of related elements. A simple example is a header or navbar.
+Wrap the elements in `Section.RootElement` and an inner wrapper `Section.Container` which applies a max width to its
+content and centers them horizontally.
+
+```tsx title="section-demo.tsx"
+import Section from "@_ndk/ui/components/_ui/section";
+
+export default function Navbar() {
+  return (
+    <Section.RootElement className="">
+      <Section.Container container="8xl" className="">
+        <div className="">
+          <h2> A simple section </h2>
+        </div>
+      </Section.Container>
+    </Section.RootElement>
+  );
+}
+```
+
+## Installation
+
+<ComponentInstallation name="components-section" />
+
+## Props
+
+### Background.RootElement
+
+<TypeTable
+  type={{
+    as: {
+      description:
+        "Picks what the root wrapper element will be rendered as, defaults to 'section'",
+      type: '"section" | "div" | "footer" | "header" | "main" | "nav"',
+      required: false,
+      default: "section",
+    },
+  }}
+/>
+
+### Background.Container
+
+<TypeTable
+  type={{
+    container: {
+      description:
+        "Sets the max-width of the container wrapper - defaults to 7xl",
+      type: '"5xl" | "6xl" | "7xl" | "8xl" | "none"',
+      required: false,
+      default: "7xl",
+    },
+  }}
+/>

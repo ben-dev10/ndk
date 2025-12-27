@@ -11,7 +11,6 @@ import { cn } from "@_ndk/ui/lib/utils";
 import { useRef, useState } from "react";
 import ReactIcon from "@_ndk/ui/icons/react-icon";
 import { NDK_SITE } from "@/app/_assets/constants";
-import { motion } from "motion/react";
 
 const getDepsCommands = (dependencies?: string[]) => {
   if (!dependencies) return undefined;

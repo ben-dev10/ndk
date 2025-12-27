@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "components-sheets-mintlify-sheet",
+  "name": "components-mintlify-sheet",
   "title": "Mintlify Sheet",
   "description": "A mintlify inspired mobile navigation (sheet).",
   "dependencies": [],

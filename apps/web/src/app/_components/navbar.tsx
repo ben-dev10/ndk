@@ -11,7 +11,7 @@ import { NavSheet } from "./nav/nav-sheet";
 export const navLinks = [
   { name: "Docs", url: "/docs/ui" },
   { name: "Blog", url: "/blog" },
-  { name: "Blocks", url: "/blocks" },
+  // { name: "Blocks", url: "/blocks" },
 ];
 
 export default function Navbar() {

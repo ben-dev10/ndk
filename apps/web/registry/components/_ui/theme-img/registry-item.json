@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-theme-img",
+  "type": "registry:ui",
+  "title": "Theme Image",
+  "description": "A simple utility component for managing images based on current theme - light or dark.",
+  "files": [
+    {
+      "path": "registry/components/_ui/theme-img/theme-img.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/theme-img.tsx"
+    }
+  ]
+}

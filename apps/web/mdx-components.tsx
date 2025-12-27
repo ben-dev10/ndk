@@ -10,6 +10,7 @@ import { ComponentInstallation } from "@/components/docs/component-installation"
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { createGenerator } from "fumadocs-typescript";
 import { TypeTable } from "fumadocs-ui/components/type-table";
+import ComponentCodeTabs from "@/components/docs/component-code-tabs";
 
 const generator = createGenerator();
 
@@ -21,6 +22,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...FilesComponents,
     ComponentPreview,
     ComponentInstallation,
+    ComponentCodeTabs,
     pre: ({ ref: _ref, ...props }) => (
       <CodeBlock {...props}>
         <Pre>{props.children}</Pre>

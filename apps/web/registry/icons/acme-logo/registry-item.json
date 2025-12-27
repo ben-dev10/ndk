@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icons-acme-logo",
+  "type": "registry:ui",
+  "title": "ACME Logo",
+  "description": "A logo for ACME Corp (a placeholder company used in UIs).",
+  "files": [
+    {
+      "path": "registry/icons/acme-logo/acme-logo.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/icons/acme-logo.tsx"
+    }
+  ]
+}

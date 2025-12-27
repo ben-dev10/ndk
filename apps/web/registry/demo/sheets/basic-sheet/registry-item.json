@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "demo-components-sheets-basic-sheet",
+  "name": "demo-components-basic-sheet",
   "type": "registry:ui",
   "title": "Basic Sheet",
   "description": "A basic mobile navigation (sheet).",

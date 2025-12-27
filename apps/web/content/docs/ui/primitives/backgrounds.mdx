@@ -1,0 +1,62 @@
+---
+title: Background
+description: A primitive for handling background elements on a page.
+---
+
+## Definition and Usage
+
+The `Background` component attaches itself to the background of a component where background assets like images, and non-interactive graphical elements are meant to be placed.
+
+## Preview
+
+<ComponentPreview
+  name="demo-components-background"
+  title="background-demo.tsx"
+/>
+
+Summary of features:
+
+{/* prettier-ignore */}
+<div className="ml-8">
+  - It is composed of 4 complementary layers: `Background.Img`, `Background.Gradient`, `Background.Texture` and `Background.Layer` that can be used in any
+    variation to easily compose unique backgrounds.
+  - The main `Background` component is absolutely positioned with `inset-0`, and so it requires its parent to be relatively positioned.
+  - All components have `pointer-events` set to none so they don't interfere or overlap with the main contents.
+</div>
+
+## Installation
+
+<ComponentInstallation name="components-background" />
+
+## Props
+
+### Background.Gradient
+
+<TypeTable
+  type={{
+    gradient: {
+      description:
+        "Gradients presets that will be applied to the background `Background.Gradient`",
+      type: '"crimson" | "ocean" | "sunset" | "forest" | midnight | gradientHorizonGlow | cosmicAurora | auroraDreams |  dreamyPink | flurryBlue',
+      required: false,
+      default: "crimson",
+    },
+    opacity: {
+      description: "Controls the opacity of the component.",
+      type: "number",
+      required: false,
+      default: 1,
+    },
+    blendMode: {
+      description: "CSS mix-blend-mode property",
+      type: 'React.CSSProperties["mixBlendMode"]',
+      required: false,
+    },
+    zIndex: {
+      description: "CSS z-index property",
+      type: "number",
+      required: false,
+      default: 1,
+    },
+  }}
+/>

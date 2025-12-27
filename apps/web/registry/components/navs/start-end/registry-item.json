@@ -1,16 +1,27 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "components-navs-start-end",
-  "type": "registry:ui",
+  "name": "components-start-end",
+  "type": "registry:block",
   "title": "Start-End Nav",
   "description": "A basic start-end layout navbar.",
   "dependencies": ["lucide-react"],
-  "registryDependencies": ["@_ndk/ui/components/_ui/theme-toggles","button"],
+  "registryDependencies": [
+    "button",
+    "@ndk/components-theme-toggles",
+    "@ndk/components-background",
+    "@ndk/components-section",
+    "@ndk/icons-acme-logo"
+  ],
   "files": [
     {
       "path": "registry/components/navs/start-end/index.tsx",
       "type": "registry:ui",
-      "target": "components/ndk/start-end-nav.tsx"
+      "target": "components/ndk/nav-start-end.tsx"
+    },
+    {
+      "path": "registry/components/navs/start-end/links.tsx",
+      "type": "registry:file",
+      "target": "components/ndk/links.tsx"
     }
   ]
 }

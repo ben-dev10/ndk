@@ -1,11 +1,11 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "components-sheets-basic-sheet",
+  "name": "components-basic-sheet",
   "type": "registry:ui",
   "title": "Basic Sheet",
   "description": "A basic mobile navigation (sheet).",
   "dependencies": ["lucide-react"],
-  "registryDependencies": ["@_ndk/ui/components/ui/sheet","@_ndk/ui/components/_ui/social-icons"],
+  "registryDependencies": [""],
   "files": [
     {
       "path": "registry/components/sheets/basic-sheet/index.tsx",

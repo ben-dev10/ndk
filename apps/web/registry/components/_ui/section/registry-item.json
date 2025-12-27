@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-section",
+  "type": "registry:ui",
+  "title": "Background",
+  "description": "A utility component for providing structure to a group of elements.",
+  "files": [
+    {
+      "path": "registry/components/_ui/section/section.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/section.tsx"
+    }
+  ],
+   "css": {
+    "@layer utilities": {
+      ".container, [datatype='container']": {
+        "@apply mx-auto max-w-4xl": ""
+      },
+      ".container-5xl, [datatype='container-5xl']": {
+        "@apply mx-auto max-w-5xl": ""
+      },
+      ".container-6xl, [datatype='container-6xl']": {
+        "@apply mx-auto max-w-6xl": ""
+      },
+      ".container-7xl, [datatype='container-7xl']": {
+        "@apply mx-auto max-w-7xl": ""
+      },
+      ".container-8xl, [datatype='container-8xl']": {
+        "@apply mx-auto max-w-8xl": ""
+      }
+    }
+}
+}

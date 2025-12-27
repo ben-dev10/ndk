@@ -16,21 +16,27 @@ export const index: Record<string, any> = {
     files: [],
     keywords: [],
     component: null,
-    command: '@animate-ui/index',
+    command: '@ndk/index',
   },
-  "components-navs-start-end": {
-    name: "components-navs-start-end",
+  "components-start-end": {
+    name: "components-start-end",
     description: "A basic start-end layout navbar.",
-    type: "registry:ui",
+    type: "registry:block",
     dependencies: ["lucide-react"],
     devDependencies: undefined,
-    registryDependencies: ["@_ndk/ui/components/_ui/theme-toggles"],
+    registryDependencies: ["button","@ndk/components-theme-toggles","@ndk/components-background","@ndk/components-section","@ndk/icons-acme-logo"],
     files: [
   {
     "path": "registry/components/navs/start-end/index.tsx",
     "type": "registry:ui",
-    "target": "components/ndk/start-end-nav.tsx",
+    "target": "components/ndk/nav-start-end.tsx",
     "content": "import { AcmeLogoSimple } from \"@/components/_ui/acme-logo\";\nimport { Button } from \"@/components/ui/button\";\nimport { ArrowRightIcon } from \"lucide-react\";\nimport { ClassicThemeToggle } from \"@/components/_ui/theme-toggles\";\nimport Background from \"@/components/_ui/background\";\nimport Section from \"@/components/_ui/section\";\nimport { BasicSheet } from \"@/components/animate-ui/components/sheets/basic-sheet\";\nimport { NavLinks } from \"./links\";\nimport Link from \"next/link\";\n\nexport default function NavbarStartEnd() {\n  return (\n    <Section.RootElement\n      as=\"header\"\n      className=\"_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]\"\n    >\n      <Section.Container\n        container=\"8xl\"\n        className={`_navbar-wrapper relative flex w-full items-center gap-2`}\n      >\n        <Background>\n          <Background.Img\n            opacity={0.25}\n            className=\"fixed top-0 -left-[60px] h-[55px] w-full md:left-0\"\n            style={{\n              background: `url(/imgs/.svg)`,\n              backgroundRepeat: \"no-repeat\",\n            }}\n          />\n        </Background>\n\n        <div className=\"_logo mr-3 max-md:mr-auto\">\n          <AcmeLogoSimple className=\"size-6\" />\n        </div>\n\n        <div className=\"_menu-links mr-auto hidden items-center gap-3 md:flex\">\n          {NavLinks.map((link) => (\n            <Link\n              href={link.url}\n              key={link.name}\n              className=\"hover:text-primary\"\n            >\n              {link.name}\n            </Link>\n          ))}\n        </div>\n\n        <div className=\"_utilities flex items-center gap-1\">\n          <Button\n            variant={\"link\"}\n            className=\"_login+btn hidden items-center gap-[2px] transition-all duration-300 hover:underline md:flex\"\n          >\n            Login\n            <ArrowRightIcon size={16} />\n          </Button>\n          <Button className=\"_login+btn flex items-center gap-[2px]\">\n            Signup\n          </Button>\n\n          <div className=\"_theme-toggle-btn theme-toggle ml-2\">\n            <ClassicThemeToggle className=\"border-border/50 hover:bg-primary/5\" />\n          </div>\n        </div>\n\n        <div className={`_nav-menu md:hidden`}>\n          <BasicSheet side=\"left\" />\n        </div>\n      </Section.Container>\n    </Section.RootElement>\n  );\n}"
+  },
+  {
+    "path": "registry/components/navs/start-end/links.tsx",
+    "type": "registry:file",
+    "target": "components/ndk/links.tsx",
+    "content": "import { Building2, Component, ShoppingBag, ToolCase } from \"lucide-react\";\n\nexport const NavLinks = [\n  {\n    name: \"Services\",\n    url: \"#\",\n    icon: <ToolCase size={16} />,\n  },\n  {\n    name: \"Features\",\n    url: \"#\",\n    icon: <Component size={16} />,\n  },\n  {\n    name: \"Blocks\",\n    url: \"/blocks\",\n    icon: <Building2 size={16} />,\n  },\n  {\n    name: \"Marketplace\",\n    url: \"#\",\n    icon: <ShoppingBag size={16} />,\n  },\n];"
   }
 ],
     keywords: [],
@@ -39,7 +45,7 @@ export const index: Record<string, any> = {
         const mod = await import("@/registry/components/navs/start-end/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "components-navs-start-end";
+        ) || "components-start-end";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -49,15 +55,15 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@animate-ui/components-navs-start-end',
+    command: '@ndk/components-start-end',
   },
-  "components-sheets-basic-sheet": {
-    name: "components-sheets-basic-sheet",
+  "components-basic-sheet": {
+    name: "components-basic-sheet",
     description: "A basic mobile navigation (sheet).",
     type: "registry:ui",
     dependencies: ["lucide-react"],
     devDependencies: undefined,
-    registryDependencies: ["@_ndk/ui/components/ui/sheet","@_ndk/ui/components/_ui/social-icons"],
+    registryDependencies: [""],
     files: [
   {
     "path": "registry/components/sheets/basic-sheet/index.tsx",
@@ -72,7 +78,7 @@ export const index: Record<string, any> = {
         const mod = await import("@/registry/components/sheets/basic-sheet/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "components-sheets-basic-sheet";
+        ) || "components-basic-sheet";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -82,10 +88,10 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@animate-ui/components-sheets-basic-sheet',
+    command: '@ndk/components-basic-sheet',
   },
-  "components-sheets-mintlify-sheet": {
-    name: "components-sheets-mintlify-sheet",
+  "components-mintlify-sheet": {
+    name: "components-mintlify-sheet",
     description: "A mintlify inspired mobile navigation (sheet).",
     type: "registry:ui",
     dependencies: [],
@@ -105,7 +111,7 @@ export const index: Record<string, any> = {
         const mod = await import("@/registry/components/sheets/mintlify-sheet/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "components-sheets-mintlify-sheet";
+        ) || "components-mintlify-sheet";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -115,10 +121,241 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@animate-ui/components-sheets-mintlify-sheet',
+    command: '@ndk/components-mintlify-sheet',
   },
-  "demo-components-navs-start-end": {
-    name: "demo-components-navs-start-end",
+  "components-background": {
+    name: "components-background",
+    description: "A utility component for handling background elements for a given component.",
+    type: "registry:ui",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/components/_ui/background/background.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/_ui/background.tsx",
+    "content": "import React from \"react\";\n\n/*\n * Presets\n */\ntype PresetKey<T extends Record<string, string>> = keyof T | (string & {});\ntype BackgroundSizeKeywords =\n  | \"auto\"\n  | \"cover\"\n  | \"contain\"\n  | \"initial\"\n  | \"inherit\"\n  | \"unset\"\n  | \"revert\";\ntype CSSBackgroundSize = BackgroundSizeKeywords | (string & {});\n\n// Preset gradients\nconst gradientPresets = {\n  crimson: \"linear-gradient(135deg, #dc143c 0%, #8b0000 100%)\",\n  ocean: \"linear-gradient(135deg, #667eea 0%, #764ba2 100%)\",\n  sunset: \"linear-gradient(135deg, #ff6b6b 0%, #feca57 100%)\",\n  forest: \"linear-gradient(135deg, #134e5e 0%, #71b280 100%)\",\n  midnight: \"linear-gradient(135deg, #232526 0%, #414345 100%)\",\n  // credit: pattern-craft\n  gradientHorizonGlow:\n    \"radial-gradient(ellipse 80% 60% at 50% 0%, rgba(251, 191, 36, 0.25), transparent 70%)\",\n  cosmicAurora:\n    \"radial-gradient(ellipse at 20% 30%, rgba(56, 189, 248, 0.4) 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.3) 0%, transparent 70%),radial-gradient(ellipse at 60% 20%, rgba(236, 72, 153, 0.25) 0%, transparent 50%), radial-gradient(ellipse at 40% 80%, rgba(34, 197, 94, 0.2) 0%, transparent 65%)\",\n  auroraDreams: `radial-gradient(ellipse 85% 65% at 8% 8%, rgba(175, 109, 255, 0.42), transparent 60%), radial-gradient(ellipse 75% 60% at 75% 35%, rgba(255, 235, 170, 0.55), transparent 62%), radial-gradient(ellipse 70% 60% at 15% 80%, rgba(255, 100, 180, 0.40), transparent 62%),\n  radial-gradient(ellipse 70% 60% at 92% 92%, rgba(120, 190, 255, 0.45), transparent 62%), linear-gradient(180deg, #f7eaff 0%, #fde2ea 100%)`,\n  dreamyPink: `radial-gradient(circle at 30% 70%, rgba(173, 216, 230, 0.35), transparent 60%), radial-gradient(circle at 70% 30%, rgba(255, 182, 193, 0.4), transparent 60%)`,\n  flurryBlue: `radial-gradient(circle at 25% 61%, hsla(298,0%,100%,1) 0%,transparent 55.31899567992806%),radial-gradient(circle at 42% 84%, hsla(298,0%,100%,1) 0%,transparent 55.31899567992806%),radial-gradient(circle at 13% 58%, hsla(298,100%,66%,0.34) 0%,transparent 45.77892876736944%),radial-gradient(circle at 53% 90%, hsla(163,100%,66%,0.34) 0%,transparent 45.77892876736944%),radial-gradient(circle at 23% 79%, hsla(224,100%,66%,1) 0%,transparent 74%)`,\n} as const;\n\n// Preset textures\nconst texturePresets = {\n  noise: `url(\"data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")`,\n} as const;\n\n// Preset patterns\nconst patternPresets = {\n  gridLinesDark: `linear-gradient(to right, #262626 1px, transparent 1px),linear-gradient(to bottom, #262626 1px, transparent 1px)` /* bgSize: 20px 20px */,\n  gridLinesLight: `linear-gradient(to right, #cccccc 1px, transparent 1px),linear-gradient(to bottom, #cccccc 1px, transparent 1px)` /* bgSize: 20px 20px */,\n  verticalLinesDark: `linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)`,\n  verticalLinesLight: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,\n  hatchLines: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 11px)` /* bgSize: cover */,\n  stripedDark: `repeating-linear-gradient(45deg, #000 0px, #111 2px, #000 4px, #222 6px)` /* bgSize: cover */,\n  circuitBoardLight: `repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),\n      repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),\n      radial-gradient(circle at 20px 20px, rgba(55, 65, 81, 0.12) 2px, transparent 2px),\n      radial-gradient(circle at 40px 40px, rgba(55, 65, 81, 0.12) 2px, transparent 2px)` /* bgSize: 40px 40px, 40px 40px, 40px 40px, 40px 40px */,\n  topFadeGrid: `linear-gradient(to right, #e2e8f0 1px, transparent 1px),linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)`,\n} as const;\n\n/*\n * Components\n */\ninterface BaseBackgroundProps {\n  className?: string;\n  style?: React.CSSProperties;\n  zIndex?: number;\n}\n\n// Gradient component\ninterface GradientProps extends BaseBackgroundProps {\n  gradient?: PresetKey<typeof gradientPresets>;\n  opacity?: number;\n  blendMode?: React.CSSProperties[\"mixBlendMode\"];\n}\n\nconst Gradient: React.FC<GradientProps> = ({\n  gradient = \"crimson\",\n  opacity = 1,\n  blendMode,\n  className = \"\",\n  zIndex = 1,\n  style = {},\n}) => {\n  const bg =\n    gradientPresets[gradient as keyof typeof gradientPresets] || gradient;\n\n  return (\n    <div\n      className={`gradient-background-graphic pointer-events-none absolute inset-0 ${className}`}\n      style={{\n        background: bg,\n        opacity,\n        mixBlendMode: blendMode,\n        zIndex: zIndex,\n        ...style,\n      }}\n      aria-hidden=\"true\"\n    />\n  );\n};\n\n// Texture component\ninterface TextureProps extends BaseBackgroundProps {\n  texture?: PresetKey<typeof texturePresets>;\n  opacity?: number;\n  blendMode?: React.CSSProperties[\"mixBlendMode\"];\n  size?: CSSBackgroundSize;\n}\n\nconst Texture: React.FC<TextureProps> = ({\n  texture = \"noise\",\n  opacity = 1,\n  blendMode = \"overlay\",\n  size = \"cover\",\n  className = \"\",\n  zIndex = 3,\n  style = {},\n}) => {\n  const bg = texturePresets[texture as keyof typeof texturePresets] || texture;\n\n  return (\n    <div\n      className={`texture--background-graphic pointer-events-none absolute inset-0 ${className}`}\n      style={{\n        backgroundImage: bg,\n        backgroundSize: size, // auto | contain | cover | <number>px\n        opacity,\n        mixBlendMode: blendMode,\n        zIndex: zIndex,\n        ...style,\n      }}\n      aria-hidden=\"true\"\n    />\n  );\n};\n\n// Img component\ninterface ImgProps extends BaseBackgroundProps {\n  pattern?: PresetKey<typeof patternPresets>;\n  opacity?: number;\n  blendMode?: React.CSSProperties[\"mixBlendMode\"];\n  size?: CSSBackgroundSize;\n}\n\nconst Img: React.FC<ImgProps> = ({\n  pattern = \"grid-lines-1\",\n  opacity,\n  blendMode,\n  size = \"cover\",\n  className = \"\",\n  zIndex = 2,\n  style = {},\n}) => {\n  const bg = patternPresets[pattern as keyof typeof patternPresets] || pattern;\n\n  return (\n    <div\n      className={`img--background-graphic pointer-events-none absolute inset-0 ${className}`}\n      style={{\n        backgroundImage: bg,\n        backgroundSize: size,\n        opacity,\n        mixBlendMode: blendMode,\n        zIndex: zIndex,\n        ...style,\n      }}\n      aria-hidden=\"true\"\n    />\n  );\n};\n\n// ---- Layer component -----\ninterface LayerProps extends BaseBackgroundProps {\n  opacity?: number;\n  children?: React.ReactNode;\n  styles?: React.CSSProperties | undefined;\n}\n\nconst Layer: React.FC<LayerProps> = ({\n  children,\n  opacity,\n  zIndex,\n  className,\n  styles,\n}) => {\n  return (\n    <div\n      aria-hidden=\"true\"\n      className={`layer--background-graphic pointer-events-none ${className}`}\n      style={{ opacity: opacity, zIndex: zIndex, ...styles }}\n    >\n      {children}\n    </div>\n  );\n};\n\n/* Main Background component */\ninterface BackgroundProps extends BaseBackgroundProps {\n  children?: React.ReactNode;\n}\n\nconst BackgroundRoot: React.FC<BackgroundProps> = ({\n  children,\n  className = \"\",\n  style = {},\n}) => {\n  return (\n    <div\n      className={`background-graphics pointer-events-none absolute inset-0 ${className}`}\n      style={style}\n      aria-hidden=\"true\"\n    >\n      {children}\n    </div>\n  );\n};\n\n// Compose the final component\nconst Background = Object.assign(BackgroundRoot, {\n  Gradient,\n  Texture,\n  Img,\n  Layer,\n});\n\nexport default Background;"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/components/_ui/background/background.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "components-background";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/components-background',
+  },
+  "components-popover-ui": {
+    name: "components-popover-ui",
+    description: "A light wrapper for the shadcn/ui popover component.",
+    type: "registry:ui",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/components/_ui/popover-ui/popover-ui.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/_ui/popover-ui.tsx",
+    "content": "import {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\";\n\nexport const Trigger01 = () => {\n  return (\n    <svg\n      width=\"15\"\n      height=\"15\"\n      viewBox=\"0 0 15 15\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      aria-hidden=\"true\"\n      focusable=\"false\"\n      className=\"text-white/50\"\n    >\n      <path\n        d=\"M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z\"\n        fill=\"currentColor\"\n        fillRule=\"evenodd\"\n        clipRule=\"evenodd\"\n      ></path>\n    </svg>\n  );\n};\n\nexport const Trigger02 = () => {\n  return (\n    <svg fill=\"none\" viewBox=\"0 0 16 16\" className=\"size-5 flex-none\">\n      <path\n        className=\"fill-gray-600 transition-colors group-hover:fill-gray-400 group-aria-expanded:fill-gray-400\"\n        d=\"M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm4 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM8 8a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z\"\n      ></path>\n    </svg>\n  );\n};\n\nexport default function PopoverUI({\n  content = \"Popover\",\n  className,\n  trigger,\n  align,\n  asChild,\n  side,\n  disabled,\n}: {\n  content?: React.ReactNode;\n  className?: string;\n  trigger?: React.ReactNode;\n  align?: \"center\" | \"start\" | \"end\" | undefined;\n  asChild?: boolean | undefined;\n  side?: \"top\" | \"right\" | \"bottom\" | \"left\" | undefined;\n  disabled?: boolean | undefined;\n}) {\n  return (\n    <Popover>\n      <PopoverTrigger asChild={asChild} disabled={disabled}>\n        {trigger ? trigger : <Trigger02 />}\n      </PopoverTrigger>\n      <PopoverContent\n        align={align}\n        side={side}\n        className={`${className} w-[170px] max-w-max rounded-[10px] p-1.5 px-2.5 text-[0.8rem]`}\n      >\n        {content}\n      </PopoverContent>\n    </Popover>\n  );\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/components/_ui/popover-ui/popover-ui.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "components-popover-ui";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/components-popover-ui',
+  },
+  "components-section": {
+    name: "components-section",
+    description: "A utility component for providing structure to a group of elements.",
+    type: "registry:ui",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/components/_ui/section/section.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/_ui/section.tsx",
+    "content": "import React from \"react\";\n\ntype SectionElement = \"section\" | \"div\" | \"footer\" | \"header\" | \"main\" | \"nav\";\n\ntype ContainerSize = \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"none\";\n\ntype RootElementProps<T extends SectionElement = \"section\"> =\n  React.ComponentPropsWithoutRef<T> & {\n    as?: T;\n  };\n\ntype ContainerProps = React.ComponentPropsWithoutRef<\"div\"> & {\n  container?: ContainerSize;\n};\n\nconst RootElement = <T extends SectionElement = \"section\">({\n  as,\n  className = \"bg-background\",\n  children,\n  ...props\n}: RootElementProps<T>) => {\n  const Element = (as || \"section\") as React.ElementType;\n\n  return (\n    <Element className={className} {...props}>\n      {children}\n    </Element>\n  );\n};\n\nconst Container: React.FC<ContainerProps> = ({\n  container = \"7xl\",\n  className = \"\",\n  children,\n  ...props\n}) => {\n  const containerDataType = `container-${container}`;\n\n  return (\n    // eslint-disable-next-line react/no-unknown-property\n    <div datatype={containerDataType} className={className} {...props}>\n      {children}\n    </div>\n  );\n};\n\nconst Section = {\n  RootElement,\n  Container,\n};\n\nexport default Section;"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/components/_ui/section/section.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "components-section";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/components-section',
+  },
+  "components-social-icons": {
+    name: "components-social-icons",
+    description: "A collection of popular social media icons.",
+    type: "registry:ui",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/components/_ui/social-icons/social-icons.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/_ui/social-icons.tsx",
+    "content": "import { cn } from \"@/lib/utils\";\n\ntype SVGProps = React.SVGProps<SVGSVGElement> & {\n  url?: string;\n  className?: string;\n};\n\nexport function TikTokIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>Tiktok</title>\n        <g fill=\"currentColor\">\n          <path d=\"M24.562,7.613c-1.508-.983-2.597-2.557-2.936-4.391-.073-.396-.114-.804-.114-1.221h-4.814l-.008,19.292c-.081,2.16-1.859,3.894-4.039,3.894-.677,0-1.315-.169-1.877-.465-1.288-.678-2.169-2.028-2.169-3.582,0-2.231,1.815-4.047,4.046-4.047,.417,0,.816,.069,1.194,.187v-4.914c-.391-.053-.788-.087-1.194-.087-4.886,0-8.86,3.975-8.86,8.86,0,2.998,1.498,5.65,3.783,7.254,1.439,1.01,3.19,1.606,5.078,1.606,4.886,0,8.86-3.975,8.86-8.86V11.357c1.888,1.355,4.201,2.154,6.697,2.154v-4.814c-1.345,0-2.597-.4-3.647-1.085Z\" />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function GithubIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>GitHub</title>\n        <g fill=\"currentColor\">\n          <path d=\"M16,2.345c7.735,0,14,6.265,14,14-.002,6.015-3.839,11.359-9.537,13.282-.7,.14-.963-.298-.963-.665,0-.473,.018-1.978,.018-3.85,0-1.312-.437-2.152-.945-2.59,3.115-.35,6.388-1.54,6.388-6.912,0-1.54-.543-2.783-1.435-3.762,.14-.35,.63-1.785-.14-3.71,0,0-1.173-.385-3.85,1.435-1.12-.315-2.31-.472-3.5-.472s-2.38,.157-3.5,.472c-2.677-1.802-3.85-1.435-3.85-1.435-.77,1.925-.28,3.36-.14,3.71-.892,.98-1.435,2.24-1.435,3.762,0,5.355,3.255,6.563,6.37,6.913-.403,.35-.77,.963-.893,1.872-.805,.368-2.818,.963-4.077-1.155-.263-.42-1.05-1.452-2.152-1.435-1.173,.018-.472,.665,.017,.927,.595,.332,1.277,1.575,1.435,1.978,.28,.787,1.19,2.293,4.707,1.645,0,1.173,.018,2.275,.018,2.607,0,.368-.263,.787-.963,.665-5.719-1.904-9.576-7.255-9.573-13.283,0-7.735,6.265-14,14-14Z\" />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function WhatsappIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>WhatsApp</title>\n        <g fill=\"currentColor\">\n          <path\n            d=\"M25.873,6.069c-2.619-2.623-6.103-4.067-9.814-4.069C8.411,2,2.186,8.224,2.184,15.874c-.001,2.446,.638,4.833,1.852,6.936l-1.969,7.19,7.355-1.929c2.026,1.106,4.308,1.688,6.63,1.689h.006c7.647,0,13.872-6.224,13.874-13.874,.001-3.708-1.44-7.193-4.06-9.815h0Zm-9.814,21.347h-.005c-2.069,0-4.099-.557-5.87-1.607l-.421-.25-4.365,1.145,1.165-4.256-.274-.436c-1.154-1.836-1.764-3.958-1.763-6.137,.003-6.358,5.176-11.531,11.537-11.531,3.08,.001,5.975,1.202,8.153,3.382,2.177,2.179,3.376,5.077,3.374,8.158-.003,6.359-5.176,11.532-11.532,11.532h0Zm6.325-8.636c-.347-.174-2.051-1.012-2.369-1.128-.318-.116-.549-.174-.78,.174-.231,.347-.895,1.128-1.098,1.359-.202,.232-.405,.26-.751,.086-.347-.174-1.464-.54-2.788-1.72-1.03-.919-1.726-2.054-1.929-2.402-.202-.347-.021-.535,.152-.707,.156-.156,.347-.405,.52-.607,.174-.202,.231-.347,.347-.578,.116-.232,.058-.434-.029-.607-.087-.174-.78-1.88-1.069-2.574-.281-.676-.567-.584-.78-.595-.202-.01-.433-.012-.665-.012s-.607,.086-.925,.434c-.318,.347-1.213,1.186-1.213,2.892s1.242,3.355,1.416,3.587c.174,.232,2.445,3.733,5.922,5.235,.827,.357,1.473,.571,1.977,.73,.83,.264,1.586,.227,2.183,.138,.666-.1,2.051-.839,2.34-1.649,.289-.81,.289-1.504,.202-1.649s-.318-.232-.665-.405h0Z\"\n            fillRule=\"evenodd\"\n          />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function XTwitterIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>XTwitter</title>\n        <g fill=\"currentColor\">\n          <path d=\"M18.42,14.009L27.891,3h-2.244l-8.224,9.559L10.855,3H3.28l9.932,14.455L3.28,29h2.244l8.684-10.095,6.936,10.095h7.576l-10.301-14.991h0Zm-3.074,3.573l-1.006-1.439L6.333,4.69h3.447l6.462,9.243,1.006,1.439,8.4,12.015h-3.447l-6.854-9.804h0Z\" />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function YoutubeIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>YouTube</title>\n        <g fill=\"currentColor\">\n          <path d=\"M31.331,8.248c-.368-1.386-1.452-2.477-2.829-2.848-2.496-.673-12.502-.673-12.502-.673,0,0-10.007,0-12.502,.673-1.377,.37-2.461,1.462-2.829,2.848-.669,2.512-.669,7.752-.669,7.752,0,0,0,5.241,.669,7.752,.368,1.386,1.452,2.477,2.829,2.847,2.496,.673,12.502,.673,12.502,.673,0,0,10.007,0,12.502-.673,1.377-.37,2.461-1.462,2.829-2.847,.669-2.512,.669-7.752,.669-7.752,0,0,0-5.24-.669-7.752ZM12.727,20.758V11.242l8.364,4.758-8.364,4.758Z\" />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function TelegramIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>Telegram</title>\n        <g fill=\"currentColor\">\n          <path\n            d=\"M16,2c-7.732,0-14,6.268-14,14s6.268,14,14,14,14-6.268,14-14S23.732,2,16,2Zm6.489,9.521c-.211,2.214-1.122,7.586-1.586,10.065-.196,1.049-.583,1.401-.957,1.435-.813,.075-1.43-.537-2.218-1.053-1.232-.808-1.928-1.311-3.124-2.099-1.382-.911-.486-1.412,.302-2.23,.206-.214,3.788-3.472,3.858-3.768,.009-.037,.017-.175-.065-.248-.082-.073-.203-.048-.29-.028-.124,.028-2.092,1.329-5.905,3.903-.559,.384-1.065,.571-1.518,.561-.5-.011-1.461-.283-2.176-.515-.877-.285-1.574-.436-1.513-.92,.032-.252,.379-.51,1.042-.773,4.081-1.778,6.803-2.95,8.164-3.517,3.888-1.617,4.696-1.898,5.222-1.907,.116-.002,.375,.027,.543,.163,.142,.115,.181,.27,.199,.379,.019,.109,.042,.357,.023,.551Z\"\n            fillRule=\"evenodd\"\n          />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function ThreadsIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>Threads</title>\n        <g fill=\"currentColor\">\n          <path d=\"M22.7,14.977c-.121-.058-.243-.113-.367-.167-.216-3.982-2.392-6.262-6.046-6.285-.017,0-.033,0-.05,0-2.185,0-4.003,.933-5.122,2.63l2.009,1.378c.836-1.268,2.147-1.538,3.113-1.538,.011,0,.022,0,.033,0,1.203,.008,2.111,.357,2.698,1.04,.428,.497,.714,1.183,.855,2.049-1.067-.181-2.22-.237-3.453-.166-3.474,.2-5.707,2.226-5.557,5.041,.076,1.428,.788,2.656,2.003,3.459,1.028,.678,2.351,1.01,3.727,.935,1.817-.1,3.242-.793,4.236-2.06,.755-.963,1.233-2.21,1.444-3.781,.866,.523,1.507,1.21,1.862,2.037,.603,1.405,.638,3.714-1.246,5.596-1.651,1.649-3.635,2.363-6.634,2.385-3.326-.025-5.842-1.091-7.478-3.171-1.532-1.947-2.323-4.759-2.353-8.359,.03-3.599,.821-6.412,2.353-8.359,1.636-2.079,4.151-3.146,7.478-3.171,3.35,.025,5.91,1.097,7.608,3.186,.833,1.025,1.461,2.313,1.874,3.815l2.355-.628c-.502-1.849-1.291-3.443-2.365-4.764-2.177-2.679-5.361-4.051-9.464-4.08h-.016c-4.094,.028-7.243,1.406-9.358,4.095-1.882,2.393-2.853,5.722-2.886,9.895v.01s0,.01,0,.01c.033,4.173,1.004,7.503,2.886,9.895,2.115,2.689,5.264,4.067,9.358,4.095h.016c3.64-.025,6.206-.978,8.32-3.09,2.765-2.763,2.682-6.226,1.771-8.352-.654-1.525-1.901-2.763-3.605-3.581Zm-6.285,5.909c-1.522,.086-3.104-.598-3.182-2.061-.058-1.085,.772-2.296,3.276-2.441,.287-.017,.568-.025,.844-.025,.909,0,1.76,.088,2.533,.257-.288,3.602-1.98,4.187-3.471,4.269Z\" />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function InstagramIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>Instagram</title>\n        <g fill=\"currentColor\">\n          <path d=\"M10.202,2.098c-1.49,.07-2.507,.308-3.396,.657-.92,.359-1.7,.84-2.477,1.619-.776,.779-1.254,1.56-1.61,2.481-.345,.891-.578,1.909-.644,3.4-.066,1.49-.08,1.97-.073,5.771s.024,4.278,.096,5.772c.071,1.489,.308,2.506,.657,3.396,.359,.92,.84,1.7,1.619,2.477,.779,.776,1.559,1.253,2.483,1.61,.89,.344,1.909,.579,3.399,.644,1.49,.065,1.97,.08,5.771,.073,3.801-.007,4.279-.024,5.773-.095s2.505-.309,3.395-.657c.92-.36,1.701-.84,2.477-1.62s1.254-1.561,1.609-2.483c.345-.89,.579-1.909,.644-3.398,.065-1.494,.081-1.971,.073-5.773s-.024-4.278-.095-5.771-.308-2.507-.657-3.397c-.36-.92-.84-1.7-1.619-2.477s-1.561-1.254-2.483-1.609c-.891-.345-1.909-.58-3.399-.644s-1.97-.081-5.772-.074-4.278,.024-5.771,.096m.164,25.309c-1.365-.059-2.106-.286-2.6-.476-.654-.252-1.12-.557-1.612-1.044s-.795-.955-1.05-1.608c-.192-.494-.423-1.234-.487-2.599-.069-1.475-.084-1.918-.092-5.656s.006-4.18,.071-5.656c.058-1.364,.286-2.106,.476-2.6,.252-.655,.556-1.12,1.044-1.612s.955-.795,1.608-1.05c.493-.193,1.234-.422,2.598-.487,1.476-.07,1.919-.084,5.656-.092,3.737-.008,4.181,.006,5.658,.071,1.364,.059,2.106,.285,2.599,.476,.654,.252,1.12,.555,1.612,1.044s.795,.954,1.051,1.609c.193,.492,.422,1.232,.486,2.597,.07,1.476,.086,1.919,.093,5.656,.007,3.737-.006,4.181-.071,5.656-.06,1.365-.286,2.106-.476,2.601-.252,.654-.556,1.12-1.045,1.612s-.955,.795-1.608,1.05c-.493,.192-1.234,.422-2.597,.487-1.476,.069-1.919,.084-5.657,.092s-4.18-.007-5.656-.071M21.779,8.517c.002,.928,.755,1.679,1.683,1.677s1.679-.755,1.677-1.683c-.002-.928-.755-1.679-1.683-1.677,0,0,0,0,0,0-.928,.002-1.678,.755-1.677,1.683m-12.967,7.496c.008,3.97,3.232,7.182,7.202,7.174s7.183-3.232,7.176-7.202c-.008-3.97-3.233-7.183-7.203-7.175s-7.182,3.233-7.174,7.203m2.522-.005c-.005-2.577,2.08-4.671,4.658-4.676,2.577-.005,4.671,2.08,4.676,4.658,.005,2.577-2.08,4.671-4.658,4.676-2.577,.005-4.671-2.079-4.676-4.656h0\" />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function DiscordIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>Discord</title>\n        <g fill=\"currentColor\">\n          <path d=\"M26.413,6.536c-1.971-.902-4.052-1.543-6.189-1.904-.292,.523-.557,1.061-.793,1.612-2.277-.343-4.592-.343-6.869,0-.236-.551-.5-1.089-.793-1.612-2.139,.365-4.221,1.006-6.194,1.909C1.658,12.336,.596,17.987,1.127,23.558h0c2.294,1.695,4.861,2.984,7.591,3.811,.615-.827,1.158-1.704,1.626-2.622-.888-.332-1.744-.741-2.56-1.222,.215-.156,.425-.316,.628-.472,4.806,2.26,10.37,2.26,15.177,0,.205,.168,.415,.328,.628,.472-.817,.483-1.676,.892-2.565,1.225,.467,.918,1.011,1.794,1.626,2.619,2.732-.824,5.301-2.112,7.596-3.808h0c.623-6.461-1.064-12.06-4.46-17.025Zm-15.396,13.596c-1.479,0-2.702-1.343-2.702-2.994s1.18-3.006,2.697-3.006,2.73,1.354,2.704,3.006-1.192,2.994-2.699,2.994Zm9.967,0c-1.482,0-2.699-1.343-2.699-2.994s1.18-3.006,2.699-3.006,2.723,1.354,2.697,3.006-1.189,2.994-2.697,2.994Z\" />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function FacebookIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>Facebook</title>\n        <g fill=\"currentColor\">\n          <path d=\"M16,2c-7.732,0-14,6.268-14,14,0,6.566,4.52,12.075,10.618,13.588v-9.31h-2.887v-4.278h2.887v-1.843c0-4.765,2.156-6.974,6.835-6.974,.887,0,2.417,.174,3.043,.348v3.878c-.33-.035-.904-.052-1.617-.052-2.296,0-3.183,.87-3.183,3.13v1.513h4.573l-.786,4.278h-3.787v9.619c6.932-.837,12.304-6.74,12.304-13.897,0-7.732-6.268-14-14-14Z\" />\n        </g>\n      </svg>\n    </a>\n  );\n}\n\nexport function LinkedinIcon({ className, url, ...props }: SVGProps) {\n  return (\n    <a href={url}>\n      <svg\n        xmlns=\"http://www.w3.org/2000/svg\"\n        viewBox=\"0 0 32 32\"\n        className={cn(\"size-7\", className)}\n        {...props}\n      >\n        <title>Linkedin</title>\n        <g fill=\"currentColor\">\n          <path\n            d=\"M26.111,3H5.889c-1.595,0-2.889,1.293-2.889,2.889V26.111c0,1.595,1.293,2.889,2.889,2.889H26.111c1.595,0,2.889-1.293,2.889-2.889V5.889c0-1.595-1.293-2.889-2.889-2.889ZM10.861,25.389h-3.877V12.87h3.877v12.519Zm-1.957-14.158c-1.267,0-2.293-1.034-2.293-2.31s1.026-2.31,2.293-2.31,2.292,1.034,2.292,2.31-1.026,2.31-2.292,2.31Zm16.485,14.158h-3.858v-6.571c0-1.802-.685-2.809-2.111-2.809-1.551,0-2.362,1.048-2.362,2.809v6.571h-3.718V12.87h3.718v1.686s1.118-2.069,3.775-2.069,4.556,1.621,4.556,4.975v7.926Z\"\n            fillRule=\"evenodd\"\n          ></path>\n        </g>\n      </svg>\n    </a>\n  );\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/components/_ui/social-icons/social-icons.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "components-social-icons";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/components-social-icons',
+  },
+  "components-theme-img": {
+    name: "components-theme-img",
+    description: "A simple utility component for managing images based on current theme - light or dark.",
+    type: "registry:ui",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/components/_ui/theme-img/theme-img.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/_ui/theme-img.tsx",
+    "content": "/* eslint-disable @next/next/no-img-element */\n/* USAGE:\n *\n *  <ThemeImage\n *     srcLight=\"/imgs/ndk-banner--light.webp\"\n *     srcDark=\"/imgs/ndk-banner--dark.webp\"\n *     alt=\"img\"\n *   />\n */\n\nexport type Props = Omit<\n  React.ImgHTMLAttributes<HTMLImageElement>,\n  \"src\" | \"className\"\n> & {\n  srcLight: string;\n  srcDark: string;\n  className: string;\n};\n\nconst ThemeImage = (props: Props) => {\n  const { srcLight, srcDark, className, ...rest } = props;\n\n  return (\n    <>\n      <img\n        {...rest}\n        src={srcLight}\n        className=\"imgLight block w-full dark:hidden\"\n      />\n      <img\n        {...rest}\n        src={srcDark}\n        className={` ${className} imgDark hidden w-full dark:block`}\n      />\n    </>\n  );\n};\n\nexport default ThemeImage;"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/components/_ui/theme-img/theme-img.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "components-theme-img";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/components-theme-img',
+  },
+  "components-theme-toggles": {
+    name: "components-theme-toggles",
+    description: "A set of three commonly used theme switcher components.",
+    type: "registry:ui",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/components/_ui/theme-toggles/theme-toggles.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/_ui/theme-toggles.tsx",
+    "content": "\"use client\";\n\nimport { useTheme } from \"next-themes\";\nimport { useState, useEffect } from \"react\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from \"@/components/ui/dropdown-menu\";\nimport { MoonIcon, SunIcon, MonitorIcon, ChevronDownIcon } from \"lucide-react\";\nimport SpinnerRing180 from \"@/icons/180-spinner\";\nimport { cn } from \"@/utils\";\n\nexport const DisabledSpinner = () => {\n  return (\n    <Button\n      variant=\"outline\"\n      className=\"text-foreground rounded-full\"\n      size=\"icon\"\n      disabled\n    >\n      <span className=\"sr-only\">\n        <SpinnerRing180 className=\"w-2\" />\n      </span>\n    </Button>\n  );\n};\n\n/*\n * 1. Classic Toggle - Sun/Moon switch\n */\nexport function ClassicThemeToggle({\n  size = 14,\n  className,\n}: {\n  size?: number;\n  className?: string;\n}) {\n  const { theme, setTheme, resolvedTheme } = useTheme();\n  const [mounted, setMounted] = useState(false);\n\n  useEffect(() => setMounted(true), []);\n\n  // Prevent hydration mismatch by rendering a disabled placeholder button\n  if (!mounted) return <DisabledSpinner />;\n\n  const handleToggle = () => {\n    if (theme === \"system\") {\n      setTheme(resolvedTheme === \"dark\" ? \"light\" : \"dark\");\n    } else {\n      setTheme(theme === \"light\" ? \"dark\" : \"light\");\n    }\n  };\n\n  const isDark = resolvedTheme === \"dark\";\n\n  return (\n    <button\n      onClick={handleToggle}\n      className={cn(\n        \"hover:bg-secondary/10 max-w-max rounded-full border p-1.5 transition-colors\",\n        className,\n      )}\n      aria-label={`Switch to ${isDark ? \"light\" : \"dark\"} theme`}\n    >\n      {isDark ? <MoonIcon size={size} /> : <SunIcon size={size} />}\n    </button>\n  );\n}\n\n/*\n * 2. Button Group - Three options toggle\n */\nexport function ButtonGroupThemeToggle({ className }: { className?: string }) {\n  const { theme, setTheme } = useTheme();\n  const [mounted, setMounted] = useState(false);\n\n  useEffect(() => setMounted(true), []);\n\n  if (!mounted) return <DisabledSpinner />;\n\n  const options = [\n    { value: \"light\", icon: <SunIcon size={18} />, label: \"Light\" },\n    { value: \"dark\", icon: <MoonIcon size={18} />, label: \"Dark\" },\n    { value: \"system\", icon: <MonitorIcon size={18} />, label: \"System\" },\n  ];\n\n  return (\n    <div className={`flex max-w-max rounded-full ${className}`}>\n      {options.map(({ value, icon, label }) => (\n        <button\n          key={value}\n          onClick={() => setTheme(value)}\n          className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${\n            theme === value\n              ? \"bg-white text-gray-900 shadow-sm dark:bg-gray-200 dark:text-gray-50\" // active option\n              : \"hover:text-gray-9 text-gray-600 dark:text-gray-400 dark:hover:text-gray-100\"\n          } `}\n          aria-label={`Switch to ${label.toLowerCase()} theme`}\n        >\n          {icon}\n          <span className=\"hidden [sm:inline]\">{label}</span>\n        </button>\n      ))}\n    </div>\n  );\n}\n\n/*\n * 3. Dropdown - Compact menu\n */\nexport function DropdownThemeToggle() {\n  const { theme, setTheme } = useTheme();\n  const [mounted, setMounted] = useState(false);\n\n  useEffect(() => setMounted(true), []);\n\n  if (!mounted) return <DisabledSpinner />;\n\n  const options = [\n    { value: \"light\", icon: <SunIcon size={16} />, label: \"Light\" },\n    { value: \"dark\", icon: <MoonIcon size={16} />, label: \"Dark\" },\n    { value: \"system\", icon: <MonitorIcon size={16} />, label: \"System\" },\n  ];\n\n  const currentOption =\n    options.find((option) => option.value === theme) || options[2]!;\n\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\" className=\"border-border max-w-max gap-2\">\n          {currentOption.icon}\n          <span>{currentOption.label}</span>\n          <ChevronDownIcon />\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"end\">\n        {options.map(({ value, icon, label }) => (\n          <DropdownMenuItem\n            key={value}\n            onClick={() => setTheme(value)}\n            className={`gap-3 ${theme === value ? \"bg-accent\" : \"\"}`}\n          >\n            {icon}\n            {label}\n          </DropdownMenuItem>\n        ))}\n      </DropdownMenuContent>\n    </DropdownMenu>\n  );\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/components/_ui/theme-toggles/theme-toggles.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "components-theme-toggles";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/components-theme-toggles',
+  },
+  "components-tooltip-ui": {
+    name: "components-tooltip-ui",
+    description: "A light wrapper for the shadcn/ui tooltip component.",
+    type: "registry:ui",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/components/_ui/tooltip-ui/tooltip-ui.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/_ui/tooltip-ui.tsx",
+    "content": "import {\n  Tooltip,\n  TooltipTrigger,\n  TooltipContent,\n} from \"@/components/ui/tooltip\";\n\nexport const Trigger01 = () => {\n  return (\n    <svg fill=\"none\" viewBox=\"0 0 16 16\" className=\"size-5 flex-none\">\n      <path\n        className=\"fill-gray-600 transition-colors group-hover:fill-gray-400 group-aria-expanded:fill-gray-400\"\n        d=\"M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm4 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM8 8a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z\"\n      ></path>\n    </svg>\n  );\n};\n\nexport const TooltipUI = ({\n  content = \"Tooltip\",\n  trigger,\n  asChild,\n}: {\n  content?: React.ReactNode;\n  trigger?: React.ReactNode;\n  asChild?: boolean | undefined;\n}) => {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild={asChild}>\n        {trigger ? trigger : <Trigger01 />}\n      </TooltipTrigger>\n      <TooltipContent className=\"w-[150px] max-w-max [--primary:#000]\">\n        {content}\n      </TooltipContent>\n    </Tooltip>\n  );\n};"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/components/_ui/tooltip-ui/tooltip-ui.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "components-tooltip-ui";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/components-tooltip-ui',
+  },
+  "demo-components-start-end": {
+    name: "demo-components-start-end",
     description: "A basic start-end layout navbar.",
     type: "registry:ui",
     dependencies: [],
@@ -138,7 +375,7 @@ export const index: Record<string, any> = {
         const mod = await import("@/registry/demo/navs/start-end/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "demo-components-navs-start-end";
+        ) || "demo-components-start-end";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -148,10 +385,10 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@animate-ui/demo-components-navs-start-end',
+    command: '@ndk/demo-components-start-end',
   },
-  "demo-components-sheets-basic-sheet": {
-    name: "demo-components-sheets-basic-sheet",
+  "demo-components-basic-sheet": {
+    name: "demo-components-basic-sheet",
     description: "A basic mobile navigation (sheet).",
     type: "registry:ui",
     dependencies: ["lucide-react"],
@@ -171,7 +408,7 @@ export const index: Record<string, any> = {
         const mod = await import("@/registry/demo/sheets/basic-sheet/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "demo-components-sheets-basic-sheet";
+        ) || "demo-components-basic-sheet";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -181,10 +418,10 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {"BasicSheet":{"mobileOnly":{"value":false},"side":{"value":"right"}}};
       return LazyComp;
     })(),
-    command: '@animate-ui/demo-components-sheets-basic-sheet',
+    command: '@ndk/demo-components-basic-sheet',
   },
-  "demo-components-sheets-mintlify-sheet": {
-    name: "demo-components-sheets-mintlify-sheet",
+  "demo-components-mintlify-sheet": {
+    name: "demo-components-mintlify-sheet",
     description: "A mintlify inspired mobile navigation (sheet).",
     type: "registry:ui",
     dependencies: [],
@@ -204,7 +441,7 @@ export const index: Record<string, any> = {
         const mod = await import("@/registry/demo/sheets/mintlify-sheet/index.tsx");
         const exportName = Object.keys(mod).find(
           key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
-        ) || "demo-components-sheets-mintlify-sheet";
+        ) || "demo-components-mintlify-sheet";
         const Comp = mod.default || mod[exportName];
         if (mod.animations) {
           (LazyComp as any).animations = mod.animations;
@@ -214,6 +451,72 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: '@animate-ui/demo-components-sheets-mintlify-sheet',
+    command: '@ndk/demo-components-mintlify-sheet',
+  },
+  "demo-components-background": {
+    name: "demo-components-background",
+    description: "A utility component for handling background elements for a given component.",
+    type: "registry:ui",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/demo/_ui/background/demo-background.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/_ui/demo-background.tsx",
+    "content": "import Background from \"@/components/_ui/background\";\r\nimport { Button } from \"@/components/ui/button\";\r\n\r\nexport default function DemoBackground() {\r\n  return (\r\n    <section className=\"_hero-section relative grid h-full w-full place-items-center rounded-md bg-black text-white\">\r\n      <Background className=\"_background opacity-40\">\r\n        <Background.Gradient\r\n          gradient=\"flurryBlue\"\r\n          className=\"rounded-md bg-position-[0px_5px]\"\r\n        />\r\n\r\n        <Background.Texture\r\n          texture=\"noise\"\r\n          blendMode=\"color-burn\"\r\n          opacity={0.4}\r\n          zIndex={99}\r\n        />\r\n\r\n        <Background.Img\r\n          pattern=\"circuitBoardLight\"\r\n          className=\"rounded-md\"\r\n          size=\"40px 40px, 40px 40px, 40px 40px, 40px 40px\"\r\n        />\r\n      </Background>\r\n\r\n      <main className=\"_main-contents relative z-1 px-10\">\r\n        <div className=\"max-w-xl\">\r\n          <h2 className=\"mt-0 mb-3 text-center text-4xl\">\r\n            Empowering the next generation of engineers\r\n          </h2>\r\n          <p className=\"mt-5 text-center opacity-80\">\r\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas\r\n            adipisci dolores assumenda.\r\n          </p>\r\n        </div>\r\n\r\n        <div className=\"_buttons mt-8 flex items-center justify-center gap-3\">\r\n          <Button className=\"rounded-full\">Get started</Button>\r\n          <Button\r\n            variant=\"link\"\r\n            className=\"rounded-full text-white hover:opacity-80\"\r\n          >\r\n            Learn more\r\n          </Button>\r\n        </div>\r\n      </main>\r\n    </section>\r\n  );\r\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/demo/_ui/background/demo-background.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "demo-components-background";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/demo-components-background',
+  },
+  "icons-acme-logo": {
+    name: "icons-acme-logo",
+    description: "A logo for ACME Corp (a placeholder company used in UIs).",
+    type: "registry:ui",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/icons/acme-logo/acme-logo.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/icons/acme-logo.tsx",
+    "content": "type AcmeLogoProps = React.SVGProps<SVGSVGElement>;\n\nexport function AcmeLogoSimple({ ...props }: AcmeLogoProps) {\n  return (\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      className=\"\"\n      viewBox=\"0 0 4.92 5.04\"\n      {...props}\n    >\n      <g id=\"acme-logo\">\n        <path\n          className=\"fill-black dark:fill-white/60\"\n          strokeLinecap=\"round\"\n          strokeLinejoin=\"round\"\n          strokeWidth=\".2px\"\n          d=\"M4.78,2.92c-.41.03-.96.31-1.34.53-.03-.23-.08-.42-.12-.57-1.41.4-1.79,1.99-1.79,1.99l-1.43.07C.45,2.93,2.11,1.53,2.11,1.53l-1.6.46c-.06-.41.37-1.14.37-1.14.39-.26,1.08-.63,1.99-.72.36-.04.68-.03.96,0,.59,1.14.85,2.07.95,2.79Z\"\n        />\n        <path\n          className=\"fill-neutral-500 dark:fill-neutral-200\"\n          strokeLinecap=\"round\"\n          strokeLinejoin=\"round\"\n          strokeWidth=\".2px\"\n          d=\"M4.82,3.85c-.03.64-.19.95-.19.95l-1.43.12c.09-.18.19-.47.23-.84.61-.35,1.1-.32,1.39-.23Z\"\n        />\n      </g>\n    </svg>\n  );\n}\n\nexport function AcmeLogoRounded({ ...props }: AcmeLogoProps) {\n  return (\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 7.94 7.94\" {...props}>\n      <g id=\"acme-logo-round-2\">\n        <circle\n          fill=\"var(--alr-circleFill)\"\n          strokeWidth={0}\n          cx=\"3.97\"\n          cy=\"3.97\"\n          r=\"3.97\"\n        />\n        <g>\n          <path\n            fill=\"var(--alr-logoFill)\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            strokeWidth=\".2px\"\n            d=\"M6.25,3.86c-.41.03-.96.31-1.34.53-.03-.23-.08-.42-.12-.57-1.41.4-1.79,1.99-1.79,1.99l-1.43.07c.35-2.01,2.01-3.41,2.01-3.41l-1.6.46c-.06-.41.37-1.14.37-1.14.39-.26,1.08-.63,1.99-.72.36-.04.68-.03.96,0,.59,1.14.85,2.07.95,2.79Z\"\n          />\n          <path\n            fill=\"var(--alr-stumpFill)\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            strokeWidth=\".2px\"\n            d=\"M6.29,4.79c-.03.64-.19.95-.19.95l-1.43.12c.09-.18.19-.47.23-.84.61-.35,1.1-.32,1.39-.23Z\"\n          />\n        </g>\n      </g>\n    </svg>\n  );\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/icons/acme-logo/acme-logo.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "icons-acme-logo";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/icons-acme-logo',
   },
   }

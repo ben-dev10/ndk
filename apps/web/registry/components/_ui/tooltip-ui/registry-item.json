@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-tooltip-ui",
+  "type": "registry:ui",
+  "title": "TooltipUI",
+  "description": "A light wrapper for the shadcn/ui tooltip component.",
+  "files": [
+    {
+      "path": "registry/components/_ui/tooltip-ui/tooltip-ui.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/tooltip-ui.tsx"
+    }
+  ]
+}

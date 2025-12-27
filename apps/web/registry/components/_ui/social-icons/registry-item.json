@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-social-icons",
+  "type": "registry:ui",
+  "title": "Social Icons",
+  "description": "A collection of popular social media icons.",
+  "files": [
+    {
+      "path": "registry/components/_ui/social-icons/social-icons.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/social-icons.tsx"
+    }
+  ]
+}

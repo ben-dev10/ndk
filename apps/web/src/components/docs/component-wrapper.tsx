@@ -106,7 +106,7 @@ export const ComponentWrapper = ({
           ) : (
             <div
               key={key}
-              className={`_normal-preview-wrapper ${WRAPPER_HEIGHT} flex w-full items-center justify-center px-10 py-16`}
+              className={`_normal-preview-wrapper ${WRAPPER_HEIGHT} grid w-full place-items-center`}
             >
               {!mounted && <Loader className="" />}
               {mounted && <>{children}</>}

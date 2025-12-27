@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "demo-components-navs-start-end",
+  "name": "demo-components-start-end",
   "type": "registry:ui",
   "title": "Start-End Nav",
   "description": "A basic start-end layout navbar.",

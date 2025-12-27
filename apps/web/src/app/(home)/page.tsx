@@ -40,21 +40,21 @@ export default function Home() {
             </p>
 
             <div className="flex gap-2">
-              <Link href="/docs/ui">
+              <Link href="/docs/ui" className="grow">
                 <Button className="mb-5 w-full">Get Started</Button>
               </Link>
-              <Link href="/blocks">
+              {/* <Link href="/blocks" className="grow">
                 <Button variant="secondary" className="mb-5 w-full">
                   See blocks
                 </Button>
-              </Link>
+              </Link> */}
             </div>
 
             <hr className="mt-10 mb-3" />
 
             <div className="_primitives flex flex-col gap-y-5">
               <small className="text-muted-foreground">
-                Test out these components from the library.
+                Test out these components from the package.
               </small>
 
               <div className="flex gap-4">

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-theme-toggles",
+  "type": "registry:ui",
+  "title": "Theme Toggles",
+  "description": "A set of three commonly used theme switcher components.",
+  "files": [
+    {
+      "path": "registry/components/_ui/theme-toggles/theme-toggles.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/theme-toggles.tsx"
+    }
+  ]
+}

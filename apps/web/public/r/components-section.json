@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-section",
+  "title": "Background",
+  "description": "A utility component for providing structure to a group of elements.",
+  "files": [
+    {
+      "path": "registry/components/_ui/section/section.tsx",
+      "content": "import React from \"react\";\n\ntype SectionElement = \"section\" | \"div\" | \"footer\" | \"header\" | \"main\" | \"nav\";\n\ntype ContainerSize = \"5xl\" | \"6xl\" | \"7xl\" | \"8xl\" | \"none\";\n\ntype RootElementProps<T extends SectionElement = \"section\"> =\n  React.ComponentPropsWithoutRef<T> & {\n    as?: T;\n  };\n\ntype ContainerProps = React.ComponentPropsWithoutRef<\"div\"> & {\n  container?: ContainerSize;\n};\n\nconst RootElement = <T extends SectionElement = \"section\">({\n  as,\n  className = \"bg-background\",\n  children,\n  ...props\n}: RootElementProps<T>) => {\n  const Element = (as || \"section\") as React.ElementType;\n\n  return (\n    <Element className={className} {...props}>\n      {children}\n    </Element>\n  );\n};\n\nconst Container: React.FC<ContainerProps> = ({\n  container = \"7xl\",\n  className = \"\",\n  children,\n  ...props\n}) => {\n  const containerDataType = `container-${container}`;\n\n  return (\n    // eslint-disable-next-line react/no-unknown-property\n    <div datatype={containerDataType} className={className} {...props}>\n      {children}\n    </div>\n  );\n};\n\nconst Section = {\n  RootElement,\n  Container,\n};\n\nexport default Section;\n",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/section.tsx"
+    }
+  ],
+  "css": {
+    "@layer utilities": {
+      ".container, [datatype='container']": {
+        "@apply mx-auto max-w-4xl": ""
+      },
+      ".container-5xl, [datatype='container-5xl']": {
+        "@apply mx-auto max-w-5xl": ""
+      },
+      ".container-6xl, [datatype='container-6xl']": {
+        "@apply mx-auto max-w-6xl": ""
+      },
+      ".container-7xl, [datatype='container-7xl']": {
+        "@apply mx-auto max-w-7xl": ""
+      },
+      ".container-8xl, [datatype='container-8xl']": {
+        "@apply mx-auto max-w-8xl": ""
+      }
+    }
+  },
+  "type": "registry:ui"
+}

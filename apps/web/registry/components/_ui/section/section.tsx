@@ -1,35 +1,3 @@
----
-title: Section
-description: A utility for setting structure on a group of elements.
----
-
-The `section` component basically and wrapper for a group of related elements. A simple example is a header or navbar.
-Wrap the elements in `Section.RootElement` and an inner wrapper `Section.Container` which applies a max width to its
-content and centers them horizontally.
-
-<Tabs items={['example', 'section.tsx']}>
-  <Tab value="example">
-  ```tsx
-
-import Section from "@_ndk/ui/components/_ui/section";
-
-export default function Navbar() {
-  return (
-    <Section.RootElement className="">
-      <Section.Container container="8xl" className="">
-        <div className="">
-            <h2> A simple section </h2>
-        </div>
-      </Section.Container>
-    </Section.RootElement>
-  );
-}
-```
-  </Tab>
-
-  <Tab value="section.tsx">
-
-```tsx
 import React from "react";
 
 type SectionElement = "section" | "div" | "footer" | "header" | "main" | "nav";
@@ -69,6 +37,7 @@ const Container: React.FC<ContainerProps> = ({
   const containerDataType = `container-${container}`;
 
   return (
+    // eslint-disable-next-line react/no-unknown-property
     <div datatype={containerDataType} className={className} {...props}>
       {children}
     </div>
@@ -81,9 +50,3 @@ const Section = {
 };
 
 export default Section;
-```
-
-  </Tab>
-</Tabs>
-
-### Props

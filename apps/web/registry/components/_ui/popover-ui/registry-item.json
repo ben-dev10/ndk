@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-popover-ui",
+  "type": "registry:ui",
+  "title": "PopoverUI",
+  "description": "A light wrapper for the shadcn/ui popover component.",
+  "files": [
+    {
+      "path": "registry/components/_ui/popover-ui/popover-ui.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/popover-ui.tsx"
+    }
+  ]
+}

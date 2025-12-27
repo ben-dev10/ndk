@@ -20,28 +20,28 @@ export default function CodeTabs({ codes }: { codes: Record<string, string> }) {
         <>
           <CodeBlockTab value="npm">
             <DynamicCodeBlock2
-              className=""
+              className="border-0 bg-transparent"
               lang="bash"
               code={`${codes["npm"]}`}
             />
           </CodeBlockTab>
           <CodeBlockTab value="pnpm">
             <DynamicCodeBlock2
-              className=""
+              className="border-0 bg-transparent"
               lang="bash"
               code={`${codes["pnpm"]}`}
             />
           </CodeBlockTab>
           <CodeBlockTab value="yarn">
             <DynamicCodeBlock2
-              className=""
+              className="border-0 bg-transparent"
               lang="bash"
               code={`${codes["yarn"]}`}
             />
           </CodeBlockTab>
           <CodeBlockTab value="bun">
             <DynamicCodeBlock2
-              className=""
+              className="border-0 bg-transparent"
               lang="bash"
               code={`${codes["bun"]}`}
             />
