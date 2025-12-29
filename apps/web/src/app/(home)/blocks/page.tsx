@@ -49,7 +49,7 @@ const ComponentPreview = ({
   );
 };
 
-export const SheetBlocks = () => {
+export const Blocks = () => {
   return (
     <Section.RootElement>
       <Section.Container className="container-8xl px-(--gutter-x) py-6">
@@ -74,6 +74,42 @@ export const SheetBlocks = () => {
             <NavbarStartEnd />
           </ComponentPreview>
         </div>
+
+        <article className="_typography bg-secondary mb-10 rounded-lg p-10">
+          <nav className="mb-8 flex gap-5">
+            <a href="">Home</a>
+            <a href="">Services</a>
+            <a href="">Account</a>
+          </nav>
+
+          <div>
+            <h1 className="">The big brown fox jumped over the lazy dog</h1>
+            <p className="mb-10">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio,
+              eveniet at. Est, non doloremque? Quidem maiores excepturi, quia
+              doloremque minima vel quo sapiente eum aspernatur explicabo enim
+              perferendis autem dolore!
+            </p>
+          </div>
+
+          <div>
+            <h2>Typescales</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio,
+              eveniet at, minima vel quo sapiente eum aspernatur explicabo enim
+              perferendis autem dolore!
+            </p>
+
+            <div className="">
+              <h1>H1 Header</h1>
+              <h2>H2 Header</h2>
+              <h3>H3 Header</h3>
+              <h4>H4 Header</h4>
+              <h5>H5 Header</h5>
+              <h6>H6 Header</h6>
+            </div>
+          </div>
+        </article>
 
         <div className="_backgrounds mb-10">
           <h4 className="mb-2">Backgrounds</h4>
@@ -132,7 +168,7 @@ export default function BlocksPage() {
   return (
     <main className="min-h-[90dvh]">
       <Hero />
-      <SheetBlocks />
+      <Blocks />
     </main>
   );
 }

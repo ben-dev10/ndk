@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../utils/styles/code-scrollbars.css";
 
 @import "@_ndk/ui/tokens";
 @import "@_ndk/ui/fonts";
@@ -6,6 +7,8 @@
 
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
+
+@config "../../tailwind.config.ts";
 
 /* theme for your app & ndk ui components: provided by @_ndk/ui  */
 @import "@_ndk/ui/themes/neutral.css";
@@ -23,27 +26,18 @@
     @apply text-[0.88rem]!;
   }
 
-  @keyframes collapsible-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-collapsible-content-height);
-    }
-  }
-  @keyframes collapsible-up {
-    from {
-      height: var(--radix-collapsible-content-height);
-    }
-    to {
-      height: 0;
-    }
+  /* code-block */
+  [data-slot="codeblock-viewport"] {
+    counter-reset: line;
   }
 
-  .animate-collapsible-down {
-    animation: collapsible-down 0.5s ease-out;
-  }
-  .animate-collapsible-up {
-    animation: collapsible-up 0.5s ease-out;
+  [data-slot="codeblock-viewport"] .line::before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: 2rem;
+    margin-right: 0.7rem;
+
+    @apply bg-background text-foreground/40 dark:text-foreground/10! sticky left-0 text-center select-none;
   }
 }

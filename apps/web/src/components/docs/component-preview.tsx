@@ -101,13 +101,11 @@ export default function ComponentPreview({
             <TabsTrigger value="code">Code</TabsTrigger>
           </TabsList>
         </div>
-
         <TabsContent value="preview">
           <ComponentWrapper name={name} iframe={iframe} bigScreen={bigScreen}>
             <Suspense fallback={<Loader />}>{preview}</Suspense>
           </ComponentWrapper>
         </TabsContent>
-
         <TabsContent value="code" className="rounded-lg">
           <DynamicCodeBlock
             code={code}

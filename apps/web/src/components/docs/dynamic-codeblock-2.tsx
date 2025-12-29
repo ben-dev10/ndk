@@ -27,11 +27,7 @@ const getComponents = ({
           title={title}
           icon={icon}
           onCopy={onCopy}
-          className={cn(
-            "_codetab-block my-0",
-            props.className,
-            className,
-          )}
+          className={cn("_codetab-block my-0", props.className, className)}
         >
           <Pre className="">{props.children}</Pre>
         </CodeBlock>

@@ -22,6 +22,8 @@ export type CodeBlockProps = HTMLAttributes<HTMLElement> & {
   allowCopy?: boolean;
   viewportProps?: ScrollAreaPrimitive.ScrollAreaViewportProps;
   onCopy?: () => void;
+  "data-line-numbers"?: boolean;
+  "data-line-numbers-start"?: number;
 };
 
 export const Pre = forwardRef<HTMLPreElement, HTMLAttributes<HTMLPreElement>>(
@@ -29,7 +31,7 @@ export const Pre = forwardRef<HTMLPreElement, HTMLAttributes<HTMLPreElement>>(
     return (
       <pre
         ref={ref}
-        className={cn("p-4 focus-visible:outline-none", className)}
+        className={cn("p-4 pl-0 focus-visible:outline-none", className)}
         {...props}
       >
         {props.children}
@@ -49,6 +51,8 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
       icon,
       viewportProps,
       onCopy: onCopyEvent,
+      "data-line-numbers": showLineNumbers,
+      "data-line-numbers-start": lineNumbersStart,
       ...props
     },
     ref,
@@ -78,7 +82,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
         ref={ref}
         {...props}
         className={cn(
-          "not-prose group fd-codeblock [&.shiki]:bg-accent! _ui relative my-6 overflow-hidden rounded-lg text-[0.85rem]",
+          "not-prose group fd-codeblock [&.shiki]:bg-accent! relative my-6 overflow-hidden rounded-lg text-[0.85rem]",
           props.className,
         )}
       >
@@ -126,10 +130,18 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
               {...viewportProps}
               data-slot="codeblock-viewport"
               className={cn(
-                "bg-background rounded-md leading-5 [&_code]:text-[0.85rem]! [&_code_.line]:px-0!",
+                "bg-background rounded-md pl-0 leading-5 [&_code]:text-[0.85rem]! [&_code_.line]:px-0!",
                 viewportProps?.className,
                 height,
               )}
+              style={
+                {
+                  counterSet: showLineNumbers
+                    ? `line ${Number(lineNumbersStart ?? 1) - 1}`
+                    : undefined,
+                  ...viewportProps?.style,
+                } as object
+              }
             >
               {props.children}
             </ScrollViewport>

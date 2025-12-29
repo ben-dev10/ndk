@@ -1,5 +1,4 @@
 "use client";
-
 import { CodeBlock, Pre } from "@/components/docs/code-block";
 import type {
   HighlightOptionsCommon,
@@ -31,6 +30,7 @@ const getComponents = ({
           onCopy={onCopy}
           className={cn("my-0", props.className, className)}
           height={height}
+          data-line-numbers
         >
           <Pre>{props.children}</Pre>
         </CodeBlock>

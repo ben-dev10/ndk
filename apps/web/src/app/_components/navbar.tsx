@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <Section.RootElement
       as="header"
-      className="bg-background sticky top-(--banner-height) border-b"
+      className="bg-background sticky top-(--banner-height) z-10 border-b"
     >
       <Section.Container
         container="8xl"

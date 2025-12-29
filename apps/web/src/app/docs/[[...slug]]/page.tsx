@@ -11,6 +11,10 @@ import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
 import { Edit } from "lucide-react";
 
+export const revalidate = false;
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;
   const page = source.getPage(params.slug);
@@ -46,10 +50,6 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   );
 }
 
-export async function generateStaticParams() {
-  return source.generateParams();
-}
-
 export async function generateMetadata(
   props: PageProps<"/docs/[[...slug]]">,
 ): Promise<Metadata> {
@@ -60,5 +60,25 @@ export async function generateMetadata(
   return {
     title: page.data.title,
     description: page.data.description,
+    openGraph: {
+      title: page.data.title,
+      description: page.data.description,
+      url: "https://ndk-ui.vercel.app",
+      siteName: "NDK UI",
+      // images: image,
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@ndk_ui",
+      title: page.data.title,
+      description: page.data.description,
+      // images: image,
+    },
   };
+}
+
+export async function generateStaticParams() {
+  return source.generateParams();
 }

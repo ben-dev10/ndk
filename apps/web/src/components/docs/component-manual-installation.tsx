@@ -108,7 +108,7 @@ export const ComponentManualInstallation = ({
               >
                 <div
                   className={cn(
-                    "[&_code]:pb-[60px] [&_pre]:my-0 [&_pre]:max-h-[650px]",
+                    "[&_code]:pb-[70px] [&_pre]:my-0 [&_pre]:max-h-[650px]",
                     !isOpened
                       ? "[&_pre]:overflow-hidden"
                       : "[&_pre]:overflow-auto]",
