@@ -1,18 +1,18 @@
 ---
-title: Basic Sheet
-description: A basic mobile navigation menu.
+title: Mintlify Sheet
+description: A basic Mintlify-inspired mobile navigation menu.
 ---
 
 ## Preview
 
 <ComponentPreview
-  name="demo-components-basic-sheet"
-  title="demo-basic-sheet.tsx"
+  name="demo-components-mintlify-sheet"
+  title="demo-mintlify-sheet.tsx"
 />
 
 ## Installation
 
-<ComponentInstallation name="components-basic-sheet" />
+<ComponentInstallation name="components-mintlify-sheet" />
 
 ## Props
 
@@ -30,6 +30,12 @@ description: A basic mobile navigation menu.
       type: '"left" | "top" | "right" | "bottom" | undefined',
       required: false,
       default: "left",
+    },
+    defaultOpen: {
+      description: "Determines if the accordion items are opened by default",
+      type: "Boolean",
+      required: false,
+      default: false,
     },
   }}
 />

@@ -2,7 +2,7 @@ import Section from "@_ndk/ui/components/_ui/section";
 import { GITHUB_LINK, NARDSTUDIOS_SITE } from "../_assets/constants";
 import Link from "next/link";
 
-export default function footer() {
+export default function Footer() {
   return (
     <Section.RootElement className="">
       <Section.Container

@@ -6,7 +6,7 @@
   "description": "A collection of popular social media icons.",
   "files": [
     {
-      "path": "registry/components/_ui/social-icons/social-icons.tsx",
+      "path": "registry/components/_ui/social-icons/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/_ui/social-icons.tsx"
     }

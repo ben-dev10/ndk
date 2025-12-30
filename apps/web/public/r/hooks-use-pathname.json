@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hooks-use-pathname",
+  "title": "usePathName",
+  "description": "Returns the active status of a Next.js Link component",
+  "files": [
+    {
+      "path": "registry/hooks/use-pathname/index.ts",
+      "content": "\"use client\";\nimport { usePathname } from \"next/navigation\";\n\n// _TODO: test framework-agnostic option\nexport const usePathName = () => {\n  const pathname = usePathname();\n  const isActive = (path: string) => path === pathname;\n\n  return isActive;\n};\n",
+      "type": "registry:hook",
+      "target": "hooks/use-pathname.ts"
+    }
+  ],
+  "type": "registry:hook"
+}

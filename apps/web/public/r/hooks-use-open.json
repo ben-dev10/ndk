@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hooks-use-open",
+  "title": "useOpen",
+  "description": "A simple hook that is manually toggle a radix-sheet",
+  "files": [
+    {
+      "path": "registry/hooks/use-open/index.ts",
+      "content": "\"use client\";\nimport { useState } from \"react\";\n\nexport function useOpen() {\n  const [open, setOpen] = useState(false);\n\n  const handleClick = () => {\n    setOpen(false);\n  };\n\n  return {\n    open,\n    setOpen,\n    handleClick,\n  };\n}\n",
+      "type": "registry:hook",
+      "target": "hooks/use-open.ts"
+    }
+  ],
+  "type": "registry:hook"
+}

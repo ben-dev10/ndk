@@ -61,7 +61,6 @@ interface BaseBackgroundProps {
   zIndex?: number;
 }
 
-// Gradient component
 interface GradientProps extends BaseBackgroundProps {
   gradient?: PresetKey<typeof gradientPresets>;
   opacity?: number;
@@ -94,7 +93,6 @@ const Gradient: React.FC<GradientProps> = ({
   );
 };
 
-// Texture component
 interface TextureProps extends BaseBackgroundProps {
   texture?: PresetKey<typeof texturePresets>;
   opacity?: number;
@@ -129,7 +127,6 @@ const Texture: React.FC<TextureProps> = ({
   );
 };
 
-// Img component
 interface ImgProps extends BaseBackgroundProps {
   pattern?: PresetKey<typeof patternPresets>;
   opacity?: number;
@@ -164,7 +161,6 @@ const Img: React.FC<ImgProps> = ({
   );
 };
 
-// ---- Layer component -----
 interface LayerProps extends BaseBackgroundProps {
   opacity?: number;
   children?: React.ReactNode;
@@ -189,7 +185,6 @@ const Layer: React.FC<LayerProps> = ({
   );
 };
 
-/* Main Background component */
 interface BackgroundProps extends BaseBackgroundProps {
   children?: React.ReactNode;
 }
@@ -210,7 +205,6 @@ const BackgroundRoot: React.FC<BackgroundProps> = ({
   );
 };
 
-// Compose the final component
 const Background = Object.assign(BackgroundRoot, {
   Gradient,
   Texture,

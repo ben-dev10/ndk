@@ -1,17 +1,30 @@
-import Footer from "../_components/footer";
-import Navbar from "../_components/navbar";
 import "./app.module.css";
+import { HomeLayout } from "fumadocs-ui/layouts/home";
+import { baseOptions } from "@/utils/lib/layout.shared";
+import { BookMarkedIcon, TextQuoteIcon } from "lucide-react";
+import Footer from "@/app/_components/footer";
 
-export default function HomeLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout({ children }: LayoutProps<"/">) {
   return (
-    <div className="_ui _homelayout">
-      <Navbar />
+    <HomeLayout
+      {...baseOptions()}
+      links={[
+        {
+          icon: <BookMarkedIcon />,
+          text: "Documentation",
+          url: "/docs/ui",
+          active: "nested-url",
+        },
+        {
+          icon: <TextQuoteIcon />,
+          text: "Blog",
+          url: "/blog",
+          active: "nested-url",
+        },
+      ]}
+    >
       {children}
       <Footer />
-    </div>
+    </HomeLayout>
   );
 }

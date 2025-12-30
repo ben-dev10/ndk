@@ -30,6 +30,7 @@
         "@ndk/components-theme-toggles",
         "@ndk/components-background",
         "@ndk/components-section",
+        "@ndk/components-basic-sheet",
         "@ndk/icons-acme-logo"
       ],
       "files": [
@@ -37,11 +38,6 @@
           "path": "registry/components/navs/start-end/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/nav-start-end.tsx"
-        },
-        {
-          "path": "registry/components/navs/start-end/links.tsx",
-          "type": "registry:file",
-          "target": "components/ndk/links.tsx"
         }
       ]
     },
@@ -54,7 +50,11 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        ""
+        "@ndk/hooks-use-open",
+        "@ndk/hooks-use-pathname",
+        "button",
+        "sheet",
+        "@ndk/components-social-icons"
       ],
       "files": [
         {
@@ -69,13 +69,27 @@
       "type": "registry:ui",
       "title": "Mintlify Sheet",
       "description": "A mintlify inspired mobile navigation (sheet).",
-      "dependencies": [],
-      "registryDependencies": [],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "accordion",
+        "sheet",
+        "button",
+        "@ndk/icons-acme-logo",
+        "@ndk/hooks-use-open",
+        "@ndk/hooks-pathname"
+      ],
       "files": [
         {
           "path": "registry/components/sheets/mintlify-sheet/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/mintlify-sheet.tsx"
+        },
+        {
+          "path": "registry/components/sheets/mintlify-sheet/mintlify-links.tsx",
+          "type": "registry:file",
+          "target": "components/ndk/mintlify-links.tsx"
         }
       ]
     },
@@ -86,7 +100,7 @@
       "description": "A utility component for handling background elements for a given component.",
       "files": [
         {
-          "path": "registry/components/_ui/background/background.tsx",
+          "path": "registry/components/_ui/background/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/_ui/background.tsx"
         }
@@ -99,7 +113,7 @@
       "description": "A light wrapper for the shadcn/ui popover component.",
       "files": [
         {
-          "path": "registry/components/_ui/popover-ui/popover-ui.tsx",
+          "path": "registry/components/_ui/popover-ui/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/_ui/popover-ui.tsx"
         }
@@ -112,7 +126,7 @@
       "description": "A utility component for providing structure to a group of elements.",
       "files": [
         {
-          "path": "registry/components/_ui/section/section.tsx",
+          "path": "registry/components/_ui/section/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/_ui/section.tsx"
         }
@@ -144,7 +158,7 @@
       "description": "A collection of popular social media icons.",
       "files": [
         {
-          "path": "registry/components/_ui/social-icons/social-icons.tsx",
+          "path": "registry/components/_ui/social-icons/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/_ui/social-icons.tsx"
         }
@@ -157,7 +171,7 @@
       "description": "A simple utility component for managing images based on current theme - light or dark.",
       "files": [
         {
-          "path": "registry/components/_ui/theme-img/theme-img.tsx",
+          "path": "registry/components/_ui/theme-img/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/_ui/theme-img.tsx"
         }
@@ -170,7 +184,7 @@
       "description": "A set of three commonly used theme switcher components.",
       "files": [
         {
-          "path": "registry/components/_ui/theme-toggles/theme-toggles.tsx",
+          "path": "registry/components/_ui/theme-toggles/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/_ui/theme-toggles.tsx"
         }
@@ -183,7 +197,7 @@
       "description": "A light wrapper for the shadcn/ui tooltip component.",
       "files": [
         {
-          "path": "registry/components/_ui/tooltip-ui/tooltip-ui.tsx",
+          "path": "registry/components/_ui/tooltip-ui/index.tsx",
           "type": "registry:ui",
           "target": "components/ndk/_ui/tooltip-ui.tsx"
         }
@@ -265,6 +279,45 @@
       ]
     },
     {
+      "name": "hooks-use-open",
+      "type": "registry:hook",
+      "title": "useOpen",
+      "description": "A simple hook that is manually toggle a radix-sheet",
+      "files": [
+        {
+          "path": "registry/hooks/use-open/index.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-open.ts"
+        }
+      ]
+    },
+    {
+      "name": "hooks-use-pathname",
+      "type": "registry:hook",
+      "title": "usePathName",
+      "description": "Returns the active status of a Next.js Link component",
+      "files": [
+        {
+          "path": "registry/hooks/use-pathname/index.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-pathname.ts"
+        }
+      ]
+    },
+    {
+      "name": "icons-180-spinner",
+      "type": "registry:ui",
+      "title": "180Spinner Icon",
+      "description": "A circular spinner icon.",
+      "files": [
+        {
+          "path": "registry/icons/180-spinner/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/icons/180-spinner.tsx"
+        }
+      ]
+    },
+    {
       "name": "icons-acme-logo",
       "type": "registry:ui",
       "title": "ACME Logo",
@@ -274,6 +327,32 @@
           "path": "registry/icons/acme-logo/acme-logo.tsx",
           "type": "registry:ui",
           "target": "components/ndk/icons/acme-logo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icons-github-icon",
+      "type": "registry:ui",
+      "title": "Github Icon",
+      "description": "GitHub's Icon",
+      "files": [
+        {
+          "path": "registry/icons/github-icon/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/icons/github-icon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icons-react-icon",
+      "type": "registry:ui",
+      "title": "React Icon",
+      "description": "React.js's Icon",
+      "files": [
+        {
+          "path": "registry/icons/react-icon/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/icons/react-icon.tsx"
         }
       ]
     }

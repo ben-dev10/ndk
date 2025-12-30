@@ -6,12 +6,12 @@
   "description": "A utility component for providing structure to a group of elements.",
   "files": [
     {
-      "path": "registry/components/_ui/section/section.tsx",
+      "path": "registry/components/_ui/section/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/_ui/section.tsx"
     }
   ],
-   "css": {
+  "css": {
     "@layer utilities": {
       ".container, [datatype='container']": {
         "@apply mx-auto max-w-4xl": ""
@@ -29,5 +29,5 @@
         "@apply mx-auto max-w-8xl": ""
       }
     }
-}
+  }
 }

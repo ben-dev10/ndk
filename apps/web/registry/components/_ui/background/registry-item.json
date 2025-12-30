@@ -6,7 +6,7 @@
   "description": "A utility component for handling background elements for a given component.",
   "files": [
     {
-      "path": "registry/components/_ui/background/background.tsx",
+      "path": "registry/components/_ui/background/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/_ui/background.tsx"
     }

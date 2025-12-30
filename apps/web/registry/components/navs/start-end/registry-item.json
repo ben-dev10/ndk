@@ -10,6 +10,7 @@
     "@ndk/components-theme-toggles",
     "@ndk/components-background",
     "@ndk/components-section",
+    "@ndk/components-basic-sheet",
     "@ndk/icons-acme-logo"
   ],
   "files": [
@@ -17,11 +18,6 @@
       "path": "registry/components/navs/start-end/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/nav-start-end.tsx"
-    },
-    {
-      "path": "registry/components/navs/start-end/links.tsx",
-      "type": "registry:file",
-      "target": "components/ndk/links.tsx"
     }
   ]
 }

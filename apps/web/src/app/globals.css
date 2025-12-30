@@ -8,8 +8,6 @@
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
 
-@config "../../tailwind.config.ts";
-
 /* theme for your app & ndk ui components: provided by @_ndk/ui  */
 @import "@_ndk/ui/themes/neutral.css";
 

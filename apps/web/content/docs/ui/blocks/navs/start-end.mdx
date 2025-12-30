@@ -22,38 +22,3 @@ import NavbarStartEnd from "@/components/ndk/start-end.tsx";
 
 <NavbarStartEnd />;
 ```
-
-Note that you may have to plug-in a data source (`NavLinks`) for the links map. Here is a sample data:
-
-```tsx
-export const NavLinks = [
-  {
-    name: "Services",
-    url: "#",
-    icon: <ToolCase size={16} />,
-  },
-  {
-    name: "Features",
-    url: "#",
-    icon: <Component size={16} />,
-  },
-  {
-    name: "Blocks",
-    url: "/blocks",
-    icon: <Building2 size={16} />,
-  },
-  {
-    name: "Marketplace",
-    url: "#",
-    icon: <ShoppingBag size={16} />,
-  },
-];
-```
-
-#### `ndk` Dependencies
-
-{/* prettier-ignore */}
-<div className="ml-8">
-  - <Link href="/docs/ui/blocks/sheets/basic-sheet">Basic Sheet</Link>
-  - <Link href="/docs/ui/primitives/layouts/section">Section</Link>
-</div>

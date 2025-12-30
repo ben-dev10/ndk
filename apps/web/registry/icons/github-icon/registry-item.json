@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icons-github-icon",
+  "type": "registry:ui",
+  "title": "Github Icon",
+  "description": "GitHub's Icon",
+  "files": [
+    {
+      "path": "registry/icons/github-icon/index.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/icons/github-icon.tsx"
+    }
+  ]
+}

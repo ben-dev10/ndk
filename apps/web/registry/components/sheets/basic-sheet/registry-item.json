@@ -5,7 +5,13 @@
   "title": "Basic Sheet",
   "description": "A basic mobile navigation (sheet).",
   "dependencies": ["lucide-react"],
-  "registryDependencies": [""],
+  "registryDependencies": [
+    "@ndk/hooks-use-open",
+    "@ndk/hooks-use-pathname",
+    "button",
+    "sheet",
+    "@ndk/components-social-icons"
+  ],
   "files": [
     {
       "path": "registry/components/sheets/basic-sheet/index.tsx",

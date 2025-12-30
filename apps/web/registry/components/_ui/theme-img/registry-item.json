@@ -6,7 +6,7 @@
   "description": "A simple utility component for managing images based on current theme - light or dark.",
   "files": [
     {
-      "path": "registry/components/_ui/theme-img/theme-img.tsx",
+      "path": "registry/components/_ui/theme-img/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/_ui/theme-img.tsx"
     }

@@ -5,8 +5,31 @@ import { ClassicThemeToggle } from "@_ndk/ui/components/_ui/theme-toggles";
 import Background from "@_ndk/ui/components/_ui/background";
 import Section from "@_ndk/ui/components/_ui/section";
 import { BasicSheet } from "@/registry/components/sheets/basic-sheet";
-import { NavLinks } from "./links";
 import Link from "next/link";
+import { Building2, Component, ShoppingBag, ToolCase } from "lucide-react";
+
+export const NavLinks = [
+  {
+    name: "Services",
+    url: "#",
+    icon: <ToolCase size={16} />,
+  },
+  {
+    name: "Features",
+    url: "#",
+    icon: <Component size={16} />,
+  },
+  {
+    name: "Blocks",
+    url: "/blocks",
+    icon: <Building2 size={16} />,
+  },
+  {
+    name: "Marketplace",
+    url: "#",
+    icon: <ShoppingBag size={16} />,
+  },
+];
 
 export default function NavbarStartEnd() {
   return (

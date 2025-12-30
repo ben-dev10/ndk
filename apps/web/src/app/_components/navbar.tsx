@@ -18,11 +18,11 @@ export default function Navbar() {
   return (
     <Section.RootElement
       as="header"
-      className="bg-background sticky top-(--banner-height) z-10 border-b"
+      className="bg-background sticky top-(--banner-height) z-999999999 border-b"
     >
       <Section.Container
         container="8xl"
-        className="flex h-(--nav-height) items-center justify-between px-6"
+        className="debug flex h-(--nav-height) items-center justify-between px-6"
       >
         <div className="_logo">
           <Link href="/">

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hooks-use-open",
+  "type": "registry:hook",
+  "title": "useOpen",
+  "description": "A simple hook that is manually toggle a radix-sheet",
+  "files": [
+    {
+      "path": "registry/hooks/use-open/index.ts",
+      "type": "registry:hook",
+      "target": "hooks/use-open.ts"
+    }
+  ]
+}

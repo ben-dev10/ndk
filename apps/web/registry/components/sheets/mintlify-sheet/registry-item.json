@@ -4,13 +4,25 @@
   "type": "registry:ui",
   "title": "Mintlify Sheet",
   "description": "A mintlify inspired mobile navigation (sheet).",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": ["lucide-react"],
+  "registryDependencies": [
+    "accordion",
+    "sheet",
+    "button",
+    "@ndk/icons-acme-logo",
+    "@ndk/hooks-use-open",
+    "@ndk/hooks-pathname"
+  ],
   "files": [
     {
       "path": "registry/components/sheets/mintlify-sheet/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/mintlify-sheet.tsx"
+    },
+    {
+      "path": "registry/components/sheets/mintlify-sheet/mintlify-links.tsx",
+      "type": "registry:file",
+      "target": "components/ndk/mintlify-links.tsx"
     }
   ]
 }

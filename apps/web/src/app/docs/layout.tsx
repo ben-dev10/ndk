@@ -6,7 +6,7 @@ export default function Layout({ children }: LayoutProps<"/docs">) {
   return (
     <DocsLayout
       sidebar={{
-        defaultOpenLevel: 1,
+        defaultOpenLevel: 2,
       }}
       links={[]}
       tree={source.pageTree}

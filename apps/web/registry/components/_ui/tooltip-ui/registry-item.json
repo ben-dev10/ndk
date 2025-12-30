@@ -6,7 +6,7 @@
   "description": "A light wrapper for the shadcn/ui tooltip component.",
   "files": [
     {
-      "path": "registry/components/_ui/tooltip-ui/tooltip-ui.tsx",
+      "path": "registry/components/_ui/tooltip-ui/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/_ui/tooltip-ui.tsx"
     }

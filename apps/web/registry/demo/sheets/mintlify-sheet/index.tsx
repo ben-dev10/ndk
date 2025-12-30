@@ -3,7 +3,7 @@ import { MintlifySheet } from "@/registry/components/sheets/mintlify-sheet";
 export const MintlifySheetDemo = () => {
   return (
     <div>
-      <MintlifySheet />
+      <MintlifySheet mobileOnly={false} />
     </div>
   );
 };

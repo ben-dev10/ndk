@@ -1,6 +1,12 @@
-import type { IconProps } from "./icon-types.js";
+import { SVGProps } from "react";
 
-function GithubLogoIcon({ title = "", ...props }: IconProps) {
+export type IconProps = SVGProps<SVGSVGElement> & {
+  secondaryfill?: string;
+  strokewidth?: number;
+  title?: string;
+};
+
+function GithubLogoIcon({ title, ...props }: IconProps) {
   return (
     <svg height="32" id="github" width="32" viewBox="0 0 32 32" {...props}>
       <title>{title}</title>

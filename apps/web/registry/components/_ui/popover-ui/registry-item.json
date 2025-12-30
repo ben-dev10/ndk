@@ -6,7 +6,7 @@
   "description": "A light wrapper for the shadcn/ui popover component.",
   "files": [
     {
-      "path": "registry/components/_ui/popover-ui/popover-ui.tsx",
+      "path": "registry/components/_ui/popover-ui/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/_ui/popover-ui.tsx"
     }

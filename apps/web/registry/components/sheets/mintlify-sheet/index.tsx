@@ -110,7 +110,7 @@ export function MintlifySheet({
                               onClick={handleClick}
                               href={link.url}
                               id="navLink"
-                              className={`_sheet-link group mb-1 flex flex-col gap-1 rounded-[8px] p-2 px-3 hover:bg-neutral-200/60 dark:hover:bg-neutral-900 dark:hover:text-white ${
+                              className={`group mb-1 flex flex-col gap-1 rounded-[8px] p-2 px-3 hover:bg-neutral-200/60 dark:hover:bg-neutral-900 dark:hover:text-white ${
                                 isActive(link.url)
                                   ? "bg-neutral-500/10 font-[600]"
                                   : ""
@@ -128,37 +128,27 @@ export function MintlifySheet({
                   </AccordionContent>
                 </AccordionItem>
               ))}
-
-              <AccordionItem value="item-2">
-                <AccordionTrigger className="opacity-80 hover:no-underline hover:opacity-100">
-                  <Link
-                    onClick={handleClick}
-                    href="#"
-                    id="navLink"
-                    className={`sheet-link w-full py-2 ${
-                      isActive("#") ? "font-[800]" : ""
-                    }`}
-                  >
-                    <h6 className="">Customers</h6>
-                  </Link>
-                </AccordionTrigger>
-              </AccordionItem>
-
-              <AccordionItem value="item-3">
-                <AccordionTrigger className="opacity-80 hover:no-underline hover:opacity-100">
-                  <Link
-                    onClick={handleClick}
-                    href="#"
-                    id="navLink"
-                    className={`sheet-link w-full py-2 ${
-                      isActive("#") ? "font-[800]" : ""
-                    }`}
-                  >
-                    <h6 className="">Blocks</h6>
-                  </Link>
-                </AccordionTrigger>
-              </AccordionItem>
             </Accordion>
+
+            <Link
+              onClick={handleClick}
+              href="#"
+              id="navLink"
+              className={`flex h-[56px] items-center border-t py-2 opacity-80 hover:opacity-100 md:h-[66px] ${
+                isActive("#") ? "font-[800]" : ""
+              }`}
+            >
+              <h6 className="">Customers</h6>
+            </Link>
+
+            <Link
+              onClick={handleClick}
+              href="#"
+              id="navLink"
+              className={`flex h-[56px] items-center border-t py-2 opacity-80 hover:opacity-100 md:h-[66px] ${isActive("#") ? "font-[800]" : ""}`}
+            >
+              <h6 className="">Blocks</h6>
+            </Link>
           </nav>
         </div>
 

@@ -13,6 +13,8 @@ import { MoonIcon, SunIcon, MonitorIcon, ChevronDownIcon } from "lucide-react";
 import SpinnerRing180 from "@_ndk/ui/icons/180-spinner";
 import { cn } from "@_ndk/ui/utils";
 
+//_TODO: feature incomplete
+
 export const DisabledSpinner = () => {
   return (
     <Button

@@ -37,7 +37,6 @@ const Container: React.FC<ContainerProps> = ({
   const containerDataType = `container-${container}`;
 
   return (
-    // eslint-disable-next-line react/no-unknown-property
     <div datatype={containerDataType} className={className} {...props}>
       {children}
     </div>
