@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/demo/navs/start-end/index.tsx",
-      "content": "import NavbarStartEnd from \"@/components/animate-ui/components/navs/start-end\";\n\nexport default function NavbarStartEndDemo() {\n  return (\n    <div className=\"\">\n      <NavbarStartEnd />\n    </div>\n  );\n}\n",
+      "content": "import NavbarStartEnd from \"@/components/navs/start-end\";\n\nexport default function NavbarStartEndDemo() {\n  return (\n    <div className=\"\">\n      <NavbarStartEnd />\n    </div>\n  );\n}\n",
       "type": "registry:ui",
       "target": "components/ndk/demo/start-end-nav.tsx"
     }

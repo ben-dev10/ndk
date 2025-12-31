@@ -25,7 +25,10 @@ function replaceRegistryPaths(inputStr: string): string {
       if (rest.startsWith("hooks/")) {
         return `${quote}@/${rest}${quote}`;
       }
-      return `${quote}@/components/animate-ui/${rest}${quote}`;
+      if (rest.startsWith("components/")) {
+        return `${quote}@/${rest}${quote}`;
+      }
+      return `${quote}@/components/ndk/${rest}${quote}`;
     }
     // 🟡
     else if (content.startsWith("@_ndk/ui/")) {
@@ -249,7 +252,7 @@ async function buildRegistry() {
     });
   });
 
-  // 3. Replace `@/registry/animate-ui/` with `@/components/animate-ui/` in all files
+  // 3. Replace `@/registry/ndk/` with `@/components/ndk/` in all files
   const files = await fs.readdir(path.join(process.cwd(), "public/r"));
 
   await Promise.all(

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hooks-use-share",
+  "type": "registry:hook",
+  "title": "useShare",
+  "description": "Used to share a link using the native Share API",
+  "files": [
+    {
+      "path": "registry/hooks/use-share/index.ts",
+      "type": "registry:hook",
+      "target": "hooks/use-share.ts"
+    }
+  ]
+}

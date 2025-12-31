@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hooks-use-share",
+  "title": "useShare",
+  "description": "Used to share a link using the native Share API",
+  "files": [
+    {
+      "path": "registry/hooks/use-share/index.ts",
+      "content": "\"use client\";\r\n\r\n/*\r\n * USAGE:\r\n * useShare returns an event handler function that calls the browser's\r\n * navigator API to share the current window's URL along with some title\r\n * and description.\r\n *\r\n * const handleClick = useShare({title:\"\", desc:\"\"})\r\n *\r\n * <button onClick={handleClick}> Share this link </button />\r\n */\r\n\r\nexport default function useShare({\r\n  title = \"UI Resource\",\r\n  desc = \"Checkout this cool site I found!\",\r\n  url,\r\n}: {\r\n  title?: string;\r\n  desc?: string;\r\n  url?: string;\r\n}) {\r\n  const handleShare = async () => {\r\n    if (!navigator.share) {\r\n      const isSecureContext = window.isSecureContext;\r\n      const inIframe = window.self !== window.top;\r\n      const errorMsg = `Share API not supported: ${\r\n        !isSecureContext ? \"⚠️ Connection not HTTPS\" : \"\"\r\n      } ${inIframe ? \"⚠️ In iframe (may restrict Share)\" : \"\"}`.trim();\r\n\r\n      alert(errorMsg || \"Share API not supported on this browser\");\r\n      return;\r\n    }\r\n\r\n    try {\r\n      const shareData: ShareData = {\r\n        title: title,\r\n        text: desc,\r\n        url: url || window.location.href,\r\n      };\r\n\r\n      await navigator.share(shareData);\r\n    } catch (error) {\r\n      const errorName = (error as Error).name;\r\n      if (errorName !== \"AbortError\") {\r\n        console.error(\"Share API error:\", error);\r\n        alert(`Share failed: ${(error as Error).message || errorName}`);\r\n      }\r\n    }\r\n  };\r\n  return handleShare;\r\n}\r\n",
+      "type": "registry:hook",
+      "target": "hooks/use-share.ts"
+    }
+  ],
+  "type": "registry:hook"
+}

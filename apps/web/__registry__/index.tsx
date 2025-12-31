@@ -30,7 +30,7 @@ export const index: Record<string, any> = {
     "path": "registry/components/navs/start-end/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/nav-start-end.tsx",
-    "content": "import { AcmeLogoSimple } from \"@/components/_ui/acme-logo\";\nimport { Button } from \"@/components/ui/button\";\nimport { ArrowRightIcon } from \"lucide-react\";\nimport { ClassicThemeToggle } from \"@/components/_ui/theme-toggles\";\nimport Background from \"@/components/_ui/background\";\nimport Section from \"@/components/_ui/section\";\nimport { BasicSheet } from \"@/components/animate-ui/components/sheets/basic-sheet\";\nimport Link from \"next/link\";\nimport { Building2, Component, ShoppingBag, ToolCase } from \"lucide-react\";\n\nexport const NavLinks = [\n  {\n    name: \"Services\",\n    url: \"#\",\n    icon: <ToolCase size={16} />,\n  },\n  {\n    name: \"Features\",\n    url: \"#\",\n    icon: <Component size={16} />,\n  },\n  {\n    name: \"Blocks\",\n    url: \"/blocks\",\n    icon: <Building2 size={16} />,\n  },\n  {\n    name: \"Marketplace\",\n    url: \"#\",\n    icon: <ShoppingBag size={16} />,\n  },\n];\n\nexport default function NavbarStartEnd() {\n  return (\n    <Section.RootElement\n      as=\"header\"\n      className=\"_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]\"\n    >\n      <Section.Container\n        container=\"8xl\"\n        className={`_navbar-wrapper relative flex w-full items-center gap-2`}\n      >\n        <Background>\n          <Background.Img\n            opacity={0.25}\n            className=\"fixed top-0 -left-[60px] h-[55px] w-full md:left-0\"\n            style={{\n              background: `url(/imgs/.svg)`,\n              backgroundRepeat: \"no-repeat\",\n            }}\n          />\n        </Background>\n\n        <div className=\"_logo mr-3 max-md:mr-auto\">\n          <AcmeLogoSimple className=\"size-6\" />\n        </div>\n\n        <div className=\"_menu-links mr-auto hidden items-center gap-3 md:flex\">\n          {NavLinks.map((link) => (\n            <Link\n              href={link.url}\n              key={link.name}\n              className=\"hover:text-primary\"\n            >\n              {link.name}\n            </Link>\n          ))}\n        </div>\n\n        <div className=\"_utilities flex items-center gap-1\">\n          <Button\n            variant={\"link\"}\n            className=\"_login+btn hidden items-center gap-[2px] transition-all duration-300 hover:underline md:flex\"\n          >\n            Login\n            <ArrowRightIcon size={16} />\n          </Button>\n          <Button className=\"_login+btn flex items-center gap-[2px]\">\n            Signup\n          </Button>\n\n          <div className=\"_theme-toggle-btn theme-toggle ml-2\">\n            <ClassicThemeToggle className=\"border-border/50 hover:bg-primary/5\" />\n          </div>\n        </div>\n\n        <div className={`_nav-menu md:hidden`}>\n          <BasicSheet side=\"left\" />\n        </div>\n      </Section.Container>\n    </Section.RootElement>\n  );\n}"
+    "content": "import { AcmeLogoSimple } from \"@/components/_ui/acme-logo\";\nimport { Button } from \"@/components/ui/button\";\nimport { ArrowRightIcon } from \"lucide-react\";\nimport { ClassicThemeToggle } from \"@/components/_ui/theme-toggles\";\nimport Background from \"@/components/_ui/background\";\nimport Section from \"@/components/_ui/section\";\nimport { BasicSheet } from \"@/components/sheets/basic-sheet\";\nimport Link from \"next/link\";\nimport { Building2, Component, ShoppingBag, ToolCase } from \"lucide-react\";\n\nexport const NavLinks = [\n  {\n    name: \"Services\",\n    url: \"#\",\n    icon: <ToolCase size={16} />,\n  },\n  {\n    name: \"Features\",\n    url: \"#\",\n    icon: <Component size={16} />,\n  },\n  {\n    name: \"Blocks\",\n    url: \"/blocks\",\n    icon: <Building2 size={16} />,\n  },\n  {\n    name: \"Marketplace\",\n    url: \"#\",\n    icon: <ShoppingBag size={16} />,\n  },\n];\n\nexport default function NavbarStartEnd() {\n  return (\n    <Section.RootElement\n      as=\"header\"\n      className=\"_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]\"\n    >\n      <Background>\n        <Background.Gradient\n          gradient=\"dreamyPink\"\n          className=\"w-[150px] mask-r-from-10% opacity-100! dark:opacity-50!\"\n        />\n      </Background>\n\n      <Section.Container\n        container=\"8xl\"\n        className={`_navbar-wrapper relative z-1 flex w-full items-center gap-2`}\n      >\n        <div className=\"_logo mr-3 max-md:mr-auto\">\n          <AcmeLogoSimple className=\"size-6\" />\n        </div>\n\n        <div className=\"_menu-links mr-auto hidden items-center gap-3 md:flex\">\n          {NavLinks.map((link) => (\n            <Link\n              href={link.url}\n              key={link.name}\n              className=\"hover:text-primary\"\n            >\n              {link.name}\n            </Link>\n          ))}\n        </div>\n\n        <div className=\"_utilities flex items-center gap-1\">\n          <Button\n            variant={\"link\"}\n            className=\"_login+btn hidden items-center gap-[2px] transition-all duration-300 hover:underline md:flex\"\n          >\n            Login\n            <ArrowRightIcon size={16} />\n          </Button>\n          <Button className=\"_login+btn flex items-center gap-[2px]\">\n            Signup\n          </Button>\n\n          <div className=\"_theme-toggle-btn theme-toggle ml-2\">\n            <ClassicThemeToggle className=\"border-border/50 hover:bg-primary/5\" />\n          </div>\n        </div>\n\n        <div className={`_nav-menu md:hidden`}>\n          <BasicSheet side=\"left\" />\n        </div>\n      </Section.Container>\n    </Section.RootElement>\n  );\n}"
   }
 ],
     keywords: [],
@@ -354,6 +354,72 @@ export const index: Record<string, any> = {
     })(),
     command: '@ndk/components-tooltip-ui',
   },
+  "demo-hooks-use-platform": {
+    name: "demo-hooks-use-platform",
+    description: "Returns a set of info about a client's platform - os, user-agent .etc",
+    type: "registry:hook",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/demo/hooks/use-platform/index.tsx",
+    "type": "registry:hook",
+    "target": "components/ndk/demo/demo-use-platform.tsx",
+    "content": "import { ScrollArea, ScrollBar } from \"@/components/ui/scroll-area\";\r\nimport { usePlatform } from \"@/hooks/use-platform\";\r\nimport Background from \"@/components/_ui/background\";\r\n\r\nexport default function UsePlatformDemo() {\r\n  const { platform, userAgent, device, isDesktop, os, isMobile } =\r\n    usePlatform();\r\n\r\n  return (\r\n    <ScrollArea className=\"h-[380px] rounded-lg\">\r\n      <Background>\r\n        <Background.Gradient\r\n          zIndex={1}\r\n          gradient=\"cosmicAurora\"\r\n          className=\"rounded-lg to-40% mask-l-from-0% opacity-30! dark:opacity-55!\"\r\n        />\r\n      </Background>\r\n\r\n      <section className=\"relative z-1 h-full w-full mb-20 overflow-x-hidden px-20 pt-10 text-[0.8rem]\">\r\n        <h4 className=\"text-2xl\">Current Device Platform Details</h4>\r\n        <div className=\"_contents\">\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">OS</p>\r\n            <p>{os}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">Platform</p>\r\n            <p>{platform}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">Device</p>\r\n            <p>{device}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground shrink-0\">User Agent</p>\r\n            <p className=\"\">{userAgent}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">isDesktop?</p>\r\n            <p className=\"\">{`${isDesktop}`}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">isMobile?</p>\r\n            <p className=\"\">{`${isMobile}`}</p>\r\n          </div>\r\n        </div>\r\n      </section>\r\n      <ScrollBar orientation=\"horizontal\" />\r\n      <ScrollBar orientation=\"vertical\" />\r\n    </ScrollArea>\r\n  );\r\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/demo/hooks/use-platform/index.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "demo-hooks-use-platform";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/demo-hooks-use-platform',
+  },
+  "demo-hooks-use-share": {
+    name: "demo-hooks-use-share",
+    description: "Used to share a link using the native Share API",
+    type: "registry:hook",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/demo/hooks/use-share/index.tsx",
+    "type": "registry:hook",
+    "target": "components/ndk/demo/demo-use-share.tsx",
+    "content": "import useShare from \"@/hooks/use-share\";\r\nimport { Button } from \"@/components/ui/button\";\r\nimport { Share2 } from \"lucide-react\";\r\n\r\nexport default function UseShareDemo() {\r\n  const handleClick = useShare({\r\n    title: \"NDK UI Components\",\r\n    desc: \"Check out this cool new JS library i found!\",\r\n  });\r\n  return (\r\n    <div>\r\n      <Button onClick={handleClick} size=\"icon-sm\">\r\n        <Share2 />\r\n      </Button>\r\n    </div>\r\n  );\r\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/demo/hooks/use-share/index.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "demo-hooks-use-share";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/demo-hooks-use-share',
+  },
   "demo-components-start-end": {
     name: "demo-components-start-end",
     description: "A basic start-end layout navbar.",
@@ -366,7 +432,7 @@ export const index: Record<string, any> = {
     "path": "registry/demo/navs/start-end/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/demo/start-end-nav.tsx",
-    "content": "import NavbarStartEnd from \"@/components/animate-ui/components/navs/start-end\";\n\nexport default function NavbarStartEndDemo() {\n  return (\n    <div className=\"\">\n      <NavbarStartEnd />\n    </div>\n  );\n}"
+    "content": "import NavbarStartEnd from \"@/components/navs/start-end\";\n\nexport default function NavbarStartEndDemo() {\n  return (\n    <div className=\"\">\n      <NavbarStartEnd />\n    </div>\n  );\n}"
   }
 ],
     keywords: [],
@@ -399,7 +465,7 @@ export const index: Record<string, any> = {
     "path": "registry/demo/sheets/basic-sheet/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/demo/basic-sheet.tsx",
-    "content": "import { BasicSheet } from \"@/components/animate-ui/components/sheets/basic-sheet\";\n\nexport default function BasicSheetDemo() {\n  return (\n    <div className=\"p-3\">\n      <BasicSheet mobileOnly={false} side=\"right\" />\n    </div>\n  );\n}"
+    "content": "import { BasicSheet } from \"@/components/sheets/basic-sheet\";\n\nexport default function BasicSheetDemo() {\n  return (\n    <div className=\"p-3\">\n      <BasicSheet mobileOnly={false} side=\"right\" />\n    </div>\n  );\n}"
   }
 ],
     keywords: [],
@@ -432,7 +498,7 @@ export const index: Record<string, any> = {
     "path": "registry/demo/sheets/mintlify-sheet/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/demo/mintlify-sheet.tsx",
-    "content": "import { MintlifySheet } from \"@/components/animate-ui/components/sheets/mintlify-sheet\";\n\nexport const MintlifySheetDemo = () => {\n  return (\n    <div>\n      <MintlifySheet mobileOnly={false} />\n    </div>\n  );\n};"
+    "content": "import { MintlifySheet } from \"@/components/sheets/mintlify-sheet\";\n\nexport const MintlifySheetDemo = () => {\n  return (\n    <div>\n      <MintlifySheet mobileOnly={false} />\n    </div>\n  );\n};"
   }
 ],
     keywords: [],
@@ -552,6 +618,72 @@ export const index: Record<string, any> = {
     })(),
     command: '@ndk/hooks-use-pathname',
   },
+  "hooks-use-platform": {
+    name: "hooks-use-platform",
+    description: "Returns a set of info about a client's platform - os, user-agent .etc",
+    type: "registry:hook",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/hooks/use-platform/index.ts",
+    "type": "registry:hook",
+    "target": "hooks/use-platform.ts",
+    "content": "\"use client\";\r\nimport { useState, useEffect } from \"react\";\r\n\r\n/*\r\n * USAGE:\r\n * const { platform, os, isMobile } = usePlatform();\r\n *\r\n * <div className=\"p-4\">\r\n *    <p>Platform: {platform}</p>\r\n *    {isMobile === true ? <p>Is mobile</p> : <p>not mobile</p>}\r\n *    {os === \"android\" ? <p>android</p> : <p>not android</p>}\r\n *    {os === \"ios\" ? <p>ios</p> : <p>not ios</p>}\r\n *    {os === \"linux\" ? <p>linux</p> : <p>not linux</p>}\r\n * </div>\r\n */\r\n\r\ninterface PlatformInfo {\r\n  os: \"windows\" | \"macos\" | \"linux\" | \"ios\" | \"android\" | \"unknown\";\r\n  device: \"mobile\" | \"tablet\" | \"desktop\";\r\n  platform: string; // e.g., \"android-mobile\", \"windows-desktop\"\r\n  isMobile: boolean;\r\n  isDesktop: boolean;\r\n  userAgent: string;\r\n}\r\n\r\nexport const usePlatform = (): PlatformInfo => {\r\n  const [platform, setPlatform] = useState<PlatformInfo>(() => {\r\n    // SSR-safe: return default values during server-side rendering\r\n    if (typeof window === \"undefined\") {\r\n      return {\r\n        os: \"unknown\",\r\n        device: \"desktop\",\r\n        platform: \"unknown-desktop\",\r\n        isMobile: false,\r\n        isDesktop: true,\r\n        userAgent: \"\",\r\n      };\r\n    }\r\n\r\n    return detectPlatform();\r\n  });\r\n\r\n  useEffect(() => {\r\n    setPlatform(detectPlatform());\r\n  }, []);\r\n\r\n  return platform;\r\n};\r\n\r\nfunction detectPlatform(): PlatformInfo {\r\n  const ua = navigator.userAgent.toLowerCase();\r\n\r\n  // OS\r\n  let os: PlatformInfo[\"os\"] = \"unknown\";\r\n  if (ua.includes(\"win\")) os = \"windows\";\r\n  else if (ua.includes(\"mac\") && !ua.includes(\"iphone\") && !ua.includes(\"ipad\"))\r\n    os = \"macos\";\r\n  else if (ua.includes(\"linux\") && !ua.includes(\"android\")) os = \"linux\";\r\n  else if (ua.includes(\"iphone\") || ua.includes(\"ipad\") || ua.includes(\"ipod\"))\r\n    os = \"ios\";\r\n  else if (ua.includes(\"android\")) os = \"android\";\r\n\r\n  // device type\r\n  const isMobileUA =\r\n    /mobile|android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);\r\n  const isTabletUA = /ipad|android(?!.*mobile)|tablet/i.test(ua);\r\n\r\n  let device: PlatformInfo[\"device\"] = \"desktop\";\r\n  if (isTabletUA) device = \"tablet\";\r\n  else if (isMobileUA) device = \"mobile\";\r\n\r\n  // platform string\r\n  const platformString = `${os}-${device}`;\r\n\r\n  return {\r\n    os,\r\n    device,\r\n    platform: platformString,\r\n    isMobile: device === \"mobile\",\r\n    isDesktop: device === \"desktop\",\r\n    userAgent: navigator.userAgent,\r\n  };\r\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/hooks/use-platform/index.ts");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "hooks-use-platform";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/hooks-use-platform',
+  },
+  "hooks-use-share": {
+    name: "hooks-use-share",
+    description: "Used to share a link using the native Share API",
+    type: "registry:hook",
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+  {
+    "path": "registry/hooks/use-share/index.ts",
+    "type": "registry:hook",
+    "target": "hooks/use-share.ts",
+    "content": "\"use client\";\r\n\r\n/*\r\n * USAGE:\r\n * useShare returns an event handler function that calls the browser's\r\n * navigator API to share the current window's URL along with some title\r\n * and description.\r\n *\r\n * const handleClick = useShare({title:\"\", desc:\"\"})\r\n *\r\n * <button onClick={handleClick}> Share this link </button />\r\n */\r\n\r\nexport default function useShare({\r\n  title = \"UI Resource\",\r\n  desc = \"Checkout this cool site I found!\",\r\n  url,\r\n}: {\r\n  title?: string;\r\n  desc?: string;\r\n  url?: string;\r\n}) {\r\n  const handleShare = async () => {\r\n    if (!navigator.share) {\r\n      const isSecureContext = window.isSecureContext;\r\n      const inIframe = window.self !== window.top;\r\n      const errorMsg = `Share API not supported: ${\r\n        !isSecureContext ? \"⚠️ Connection not HTTPS\" : \"\"\r\n      } ${inIframe ? \"⚠️ In iframe (may restrict Share)\" : \"\"}`.trim();\r\n\r\n      alert(errorMsg || \"Share API not supported on this browser\");\r\n      return;\r\n    }\r\n\r\n    try {\r\n      const shareData: ShareData = {\r\n        title: title,\r\n        text: desc,\r\n        url: url || window.location.href,\r\n      };\r\n\r\n      await navigator.share(shareData);\r\n    } catch (error) {\r\n      const errorName = (error as Error).name;\r\n      if (errorName !== \"AbortError\") {\r\n        console.error(\"Share API error:\", error);\r\n        alert(`Share failed: ${(error as Error).message || errorName}`);\r\n      }\r\n    }\r\n  };\r\n  return handleShare;\r\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/hooks/use-share/index.ts");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "hooks-use-share";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/hooks-use-share',
+  },
   "icons-180-spinner": {
     name: "icons-180-spinner",
     description: "A circular spinner icon.",
@@ -564,7 +696,7 @@ export const index: Record<string, any> = {
     "path": "registry/icons/180-spinner/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/icons/180-spinner.tsx",
-    "content": "import { cn } from \"@/utils\";\nimport type { IconProps } from \"../github-icon/icon-types.js\";\n\nfunction SpinnerRing180({\n  className,\n  title = \"\",\n  ...props\n}: IconProps & {\n  className?: string;\n}) {\n  const css = `@keyframes spinner_StKS { 100% { transform: rotate(360deg); } }`;\n\n  return (\n    <svg\n      height=\"36\"\n      id=\"180-ring-with-bg-black-36\"\n      width=\"36\"\n      viewBox=\"0 0 24 24\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n      className={cn(\"size-6\", className)}\n    >\n      <title>{title}</title>\n      <g fill=\"currentColor\">\n        <style>{css}</style>\n        <path\n          d=\"M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z\"\n          opacity=\".25\"\n        />\n        <path\n          className=\"spinner_z9k8\"\n          style={{\n            transformOrigin: \"center\",\n            animation: \"spinner_StKS .75s infinite linear\",\n          }}\n          d=\"M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z\"\n        />\n      </g>\n    </svg>\n  );\n}\n\nexport default SpinnerRing180;"
+    "content": "import { cn } from \"@/utils\";\nimport { SVGProps } from \"react\";\n\nexport type IconProps = SVGProps<SVGSVGElement> & {\n  secondaryfill?: string;\n  strokewidth?: number;\n  title?: string;\n};\n\nfunction SpinnerRing180({\n  className,\n  title = \"\",\n  ...props\n}: IconProps & {\n  className?: string;\n}) {\n  const css = `@keyframes spinner_StKS { 100% { transform: rotate(360deg); } }`;\n\n  return (\n    <svg\n      height=\"36\"\n      id=\"180-ring-with-bg-black-36\"\n      width=\"36\"\n      viewBox=\"0 0 24 24\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      {...props}\n      className={cn(\"size-6\", className)}\n    >\n      <title>{title}</title>\n      <g fill=\"currentColor\">\n        <style>{css}</style>\n        <path\n          d=\"M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z\"\n          opacity=\".25\"\n        />\n        <path\n          className=\"spinner_z9k8\"\n          style={{\n            transformOrigin: \"center\",\n            animation: \"spinner_StKS .75s infinite linear\",\n          }}\n          d=\"M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z\"\n        />\n      </g>\n    </svg>\n  );\n}\n\nexport default SpinnerRing180;"
   }
 ],
     keywords: [],

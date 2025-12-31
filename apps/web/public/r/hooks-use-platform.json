@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hooks-use-platform",
+  "title": "usePlatform",
+  "description": "Returns a set of info about a client's platform - os, user-agent .etc",
+  "files": [
+    {
+      "path": "registry/hooks/use-platform/index.ts",
+      "content": "\"use client\";\r\nimport { useState, useEffect } from \"react\";\r\n\r\n/*\r\n * USAGE:\r\n * const { platform, os, isMobile } = usePlatform();\r\n *\r\n * <div className=\"p-4\">\r\n *    <p>Platform: {platform}</p>\r\n *    {isMobile === true ? <p>Is mobile</p> : <p>not mobile</p>}\r\n *    {os === \"android\" ? <p>android</p> : <p>not android</p>}\r\n *    {os === \"ios\" ? <p>ios</p> : <p>not ios</p>}\r\n *    {os === \"linux\" ? <p>linux</p> : <p>not linux</p>}\r\n * </div>\r\n */\r\n\r\ninterface PlatformInfo {\r\n  os: \"windows\" | \"macos\" | \"linux\" | \"ios\" | \"android\" | \"unknown\";\r\n  device: \"mobile\" | \"tablet\" | \"desktop\";\r\n  platform: string; // e.g., \"android-mobile\", \"windows-desktop\"\r\n  isMobile: boolean;\r\n  isDesktop: boolean;\r\n  userAgent: string;\r\n}\r\n\r\nexport const usePlatform = (): PlatformInfo => {\r\n  const [platform, setPlatform] = useState<PlatformInfo>(() => {\r\n    // SSR-safe: return default values during server-side rendering\r\n    if (typeof window === \"undefined\") {\r\n      return {\r\n        os: \"unknown\",\r\n        device: \"desktop\",\r\n        platform: \"unknown-desktop\",\r\n        isMobile: false,\r\n        isDesktop: true,\r\n        userAgent: \"\",\r\n      };\r\n    }\r\n\r\n    return detectPlatform();\r\n  });\r\n\r\n  useEffect(() => {\r\n    setPlatform(detectPlatform());\r\n  }, []);\r\n\r\n  return platform;\r\n};\r\n\r\nfunction detectPlatform(): PlatformInfo {\r\n  const ua = navigator.userAgent.toLowerCase();\r\n\r\n  // OS\r\n  let os: PlatformInfo[\"os\"] = \"unknown\";\r\n  if (ua.includes(\"win\")) os = \"windows\";\r\n  else if (ua.includes(\"mac\") && !ua.includes(\"iphone\") && !ua.includes(\"ipad\"))\r\n    os = \"macos\";\r\n  else if (ua.includes(\"linux\") && !ua.includes(\"android\")) os = \"linux\";\r\n  else if (ua.includes(\"iphone\") || ua.includes(\"ipad\") || ua.includes(\"ipod\"))\r\n    os = \"ios\";\r\n  else if (ua.includes(\"android\")) os = \"android\";\r\n\r\n  // device type\r\n  const isMobileUA =\r\n    /mobile|android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);\r\n  const isTabletUA = /ipad|android(?!.*mobile)|tablet/i.test(ua);\r\n\r\n  let device: PlatformInfo[\"device\"] = \"desktop\";\r\n  if (isTabletUA) device = \"tablet\";\r\n  else if (isMobileUA) device = \"mobile\";\r\n\r\n  // platform string\r\n  const platformString = `${os}-${device}`;\r\n\r\n  return {\r\n    os,\r\n    device,\r\n    platform: platformString,\r\n    isMobile: device === \"mobile\",\r\n    isDesktop: device === \"desktop\",\r\n    userAgent: navigator.userAgent,\r\n  };\r\n}\r\n",
+      "type": "registry:hook",
+      "target": "hooks/use-platform.ts"
+    }
+  ],
+  "type": "registry:hook"
+}

@@ -2,6 +2,8 @@
 
 A mini development toolkit for frontend development.
 
+![](./apps//web/public/og.webp)
+
 This project is in still in early development and APIs may change along the line. The roadmap here is to build a
 bunch of packages and apps aimed at boosting development times along with "configurators" and some visual builders
 similar to the approach of "no-code" tools.

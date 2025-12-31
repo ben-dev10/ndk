@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-hooks-use-platform",
+  "type": "registry:hook",
+  "title": "usePlatform Demo",
+  "description": "Returns a set of info about a client's platform - os, user-agent .etc",
+  "files": [
+    {
+      "path": "registry/demo/hooks/use-platform/index.tsx",
+      "type": "registry:hook",
+      "target": "components/ndk/demo/demo-use-platform.tsx"
+    }
+  ]
+}

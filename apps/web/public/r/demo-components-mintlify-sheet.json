@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/demo/sheets/mintlify-sheet/index.tsx",
-      "content": "import { MintlifySheet } from \"@/components/animate-ui/components/sheets/mintlify-sheet\";\n\nexport const MintlifySheetDemo = () => {\n  return (\n    <div>\n      <MintlifySheet mobileOnly={false} />\n    </div>\n  );\n};\n",
+      "content": "import { MintlifySheet } from \"@/components/sheets/mintlify-sheet\";\n\nexport const MintlifySheetDemo = () => {\n  return (\n    <div>\n      <MintlifySheet mobileOnly={false} />\n    </div>\n  );\n};\n",
       "type": "registry:ui",
       "target": "components/ndk/demo/mintlify-sheet.tsx"
     }

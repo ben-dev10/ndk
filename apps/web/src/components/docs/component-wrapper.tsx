@@ -32,7 +32,7 @@ export const ComponentWrapper = ({
   const mounted = useMounted();
 
   return (
-    <div className="bg-accent rounded-lg p-1.5">
+    <div className="bg-accent overflow-hidden rounded-lg p-1.5">
       <motion.div
         id="component-wrapper"
         className={cn(

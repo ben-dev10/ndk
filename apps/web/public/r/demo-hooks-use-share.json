@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-hooks-use-share",
+  "title": "useShare Demo",
+  "description": "Used to share a link using the native Share API",
+  "files": [
+    {
+      "path": "registry/demo/hooks/use-share/index.tsx",
+      "content": "import useShare from \"@/hooks/use-share\";\r\nimport { Button } from \"@/components/ui/button\";\r\nimport { Share2 } from \"lucide-react\";\r\n\r\nexport default function UseShareDemo() {\r\n  const handleClick = useShare({\r\n    title: \"NDK UI Components\",\r\n    desc: \"Check out this cool new JS library i found!\",\r\n  });\r\n  return (\r\n    <div>\r\n      <Button onClick={handleClick} size=\"icon-sm\">\r\n        <Share2 />\r\n      </Button>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:hook",
+      "target": "components/ndk/demo/demo-use-share.tsx"
+    }
+  ],
+  "type": "registry:hook"
+}

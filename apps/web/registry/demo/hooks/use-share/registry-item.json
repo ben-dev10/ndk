@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-hooks-use-share",
+  "type": "registry:hook",
+  "title": "useShare Demo",
+  "description": "Used to share a link using the native Share API",
+  "files": [
+    {
+      "path": "registry/demo/hooks/use-share/index.tsx",
+      "type": "registry:hook",
+      "target": "components/ndk/demo/demo-use-share.tsx"
+    }
+  ]
+}

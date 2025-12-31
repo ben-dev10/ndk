@@ -37,21 +37,17 @@ export default function NavbarStartEnd() {
       as="header"
       className="_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]"
     >
+      <Background>
+        <Background.Gradient
+          gradient="dreamyPink"
+          className="w-[150px] mask-r-from-10% opacity-100! dark:opacity-50!"
+        />
+      </Background>
+
       <Section.Container
         container="8xl"
-        className={`_navbar-wrapper relative flex w-full items-center gap-2`}
+        className={`_navbar-wrapper relative z-1 flex w-full items-center gap-2`}
       >
-        <Background>
-          <Background.Img
-            opacity={0.25}
-            className="fixed top-0 -left-[60px] h-[55px] w-full md:left-0"
-            style={{
-              background: `url(/imgs/.svg)`,
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-        </Background>
-
         <div className="_logo mr-3 max-md:mr-auto">
           <AcmeLogoSimple className="size-6" />
         </div>

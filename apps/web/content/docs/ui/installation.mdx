@@ -4,9 +4,60 @@ description: Get started with NDK.
 icon: BookCopy
 ---
 
-The documentation on this page is about the package installation process (or the toolkit in general). You can skip ahead if you aren't interested.
+Most of the components and tools offered by this library can be obtained through the registry or the `ndk` npm packages.
 
-## Prerequisites
+## Using the `ndk` registry
+
+The simplest way is through the copy-paste method popularized by shadcn/ui. Simply copy and paste component source files from their doc pages or use an automated approach with the shadcn/cli.
+
+If you are using shadcn components in your project, you will have to make some edits to the `components.json` file first before you can use the shadcn/cli. However you can still use the cli to fetch resources
+from the registry even if you don't use shadcn/ui components, but in this case you'd still have to create a `components.json` file in the root of your project - this is the only requirement by the shadcn/cli.
+
+{/* prettier-ignore */}
+```json title="components.json"
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/index.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks" 
+  },
+  "iconLibrary": "lucide",
+  "registries": { // [!code ++] 
+    "@ndk": "https://ndk-ui.vercel.app/r/{name}.json" // [!code ++] [!code highlight]
+  } // [!code ++] 
+}
+```
+
+When done, you can fetch a resource using this command:
+
+```npm
+npx shadcn@latest add @ndk/<resource-name>
+```
+
+Example of `<resource-name>`s (they are provided under the installation sections of the doc pages of every component):
+
+- components-basic-stylesheets
+- hooks-acme-logo
+- hooks-use-open
+
+For more info, visit the <Link href="https://ui.shadcn.com/docs/registry">shadcn/registry</Link> docs.
+
+<br />
+
+## Using the `ndk` packages
 
 Before we get started, make sure you have a `react` app ready with `tailwindcss` configured.
 
@@ -56,3 +107,5 @@ Before we get started, make sure you have a `react` app ready with `tailwindcss`
     </div>
 
 </section>
+
+<br />

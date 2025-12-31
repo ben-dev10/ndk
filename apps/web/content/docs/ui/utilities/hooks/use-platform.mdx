@@ -1,0 +1,26 @@
+---
+title: usePlatform
+description: A react that returns a list of information used to identify a device.
+---
+
+<ComponentPreview name="demo-hooks-use-platform" title="usePlatform-demo.tsx" />
+
+## Installation
+
+<ComponentInstallation name="hooks-use-platform" />
+
+### Usage
+
+```tsx
+const { platform, os, isMobile } = usePlatform();
+
+<div className="p-4">
+  <p>Platform: {platform}</p>
+
+  {isMobile === true ? <p>mobile</p> : <p>not mobile</p>}
+  {os === "android" ? <p>android</p> : <p>not android</p>}
+
+  {os === "ios" ? <p>ios</p> : <p>not ios</p>}
+  {os === "linux" ? <p>linux</p> : <p>not linux</p>}
+</div>;
+```

@@ -1,0 +1,20 @@
+---
+title: useShare
+description: A react hook that shares a link or resource with a device's native Share API.
+---
+
+<ComponentPreview name="demo-hooks-use-share" title="useShare-demo.tsx" />
+
+## Installation
+
+<ComponentInstallation name="hooks-use-share" />
+
+### Usage
+
+The hook returns an event handler function that calls the browser's navigator API to share the current window's URL along with some title and description.
+
+```tsx
+ const handleClick = useShare({title:"NDK UI Components", desc:"Check out this cool library I found."})
+
+ <button onClick={handleClick}> Share this link </button />
+```

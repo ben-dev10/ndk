@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-hooks-use-platform",
+  "title": "usePlatform Demo",
+  "description": "Returns a set of info about a client's platform - os, user-agent .etc",
+  "files": [
+    {
+      "path": "registry/demo/hooks/use-platform/index.tsx",
+      "content": "import { ScrollArea, ScrollBar } from \"@/components/ui/scroll-area\";\r\nimport { usePlatform } from \"@/hooks/use-platform\";\r\nimport Background from \"@/components/_ui/background\";\r\n\r\nexport default function UsePlatformDemo() {\r\n  const { platform, userAgent, device, isDesktop, os, isMobile } =\r\n    usePlatform();\r\n\r\n  return (\r\n    <ScrollArea className=\"h-[380px] rounded-lg\">\r\n      <Background>\r\n        <Background.Gradient\r\n          zIndex={1}\r\n          gradient=\"cosmicAurora\"\r\n          className=\"rounded-lg to-40% mask-l-from-0% opacity-30! dark:opacity-55!\"\r\n        />\r\n      </Background>\r\n\r\n      <section className=\"relative z-1 h-full w-full mb-20 overflow-x-hidden px-20 pt-10 text-[0.8rem]\">\r\n        <h4 className=\"text-2xl\">Current Device Platform Details</h4>\r\n        <div className=\"_contents\">\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">OS</p>\r\n            <p>{os}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">Platform</p>\r\n            <p>{platform}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">Device</p>\r\n            <p>{device}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground shrink-0\">User Agent</p>\r\n            <p className=\"\">{userAgent}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">isDesktop?</p>\r\n            <p className=\"\">{`${isDesktop}`}</p>\r\n          </div>\r\n          <div className=\"_os flex items-center justify-between gap-25 border-b px-1\">\r\n            <p className=\"text-muted-foreground\">isMobile?</p>\r\n            <p className=\"\">{`${isMobile}`}</p>\r\n          </div>\r\n        </div>\r\n      </section>\r\n      <ScrollBar orientation=\"horizontal\" />\r\n      <ScrollBar orientation=\"vertical\" />\r\n    </ScrollArea>\r\n  );\r\n}\r\n",
+      "type": "registry:hook",
+      "target": "components/ndk/demo/demo-use-platform.tsx"
+    }
+  ],
+  "type": "registry:hook"
+}

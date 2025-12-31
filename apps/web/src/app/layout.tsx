@@ -3,10 +3,18 @@ import { ThemeProvider } from "@_ndk/ui/contexts/theme-provider";
 import "./globals.css";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import Banner from "./_components/banner";
+import { metadata as baseMetadata, metadataKeywords } from "./metadata";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "ndk",
-  description: "nard development kit - a frontend toolkit for developers",
+  ...baseMetadata,
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: metadataKeywords,
 };
 
 export default function RootLayout({

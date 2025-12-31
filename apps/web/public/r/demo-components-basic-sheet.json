@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "registry/demo/sheets/basic-sheet/index.tsx",
-      "content": "import { BasicSheet } from \"@/components/animate-ui/components/sheets/basic-sheet\";\n\nexport default function BasicSheetDemo() {\n  return (\n    <div className=\"p-3\">\n      <BasicSheet mobileOnly={false} side=\"right\" />\n    </div>\n  );\n}\n",
+      "content": "import { BasicSheet } from \"@/components/sheets/basic-sheet\";\n\nexport default function BasicSheetDemo() {\n  return (\n    <div className=\"p-3\">\n      <BasicSheet mobileOnly={false} side=\"right\" />\n    </div>\n  );\n}\n",
       "type": "registry:ui",
       "target": "components/ndk/demo/basic-sheet.tsx"
     }

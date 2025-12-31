@@ -204,6 +204,32 @@
       ]
     },
     {
+      "name": "demo-hooks-use-platform",
+      "type": "registry:hook",
+      "title": "usePlatform Demo",
+      "description": "Returns a set of info about a client's platform - os, user-agent .etc",
+      "files": [
+        {
+          "path": "registry/demo/hooks/use-platform/index.tsx",
+          "type": "registry:hook",
+          "target": "components/ndk/demo/demo-use-platform.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-hooks-use-share",
+      "type": "registry:hook",
+      "title": "useShare Demo",
+      "description": "Used to share a link using the native Share API",
+      "files": [
+        {
+          "path": "registry/demo/hooks/use-share/index.tsx",
+          "type": "registry:hook",
+          "target": "components/ndk/demo/demo-use-share.tsx"
+        }
+      ]
+    },
+    {
       "name": "demo-components-start-end",
       "type": "registry:ui",
       "title": "Start-End Nav",
@@ -301,6 +327,32 @@
           "path": "registry/hooks/use-pathname/index.ts",
           "type": "registry:hook",
           "target": "hooks/use-pathname.ts"
+        }
+      ]
+    },
+    {
+      "name": "hooks-use-platform",
+      "type": "registry:hook",
+      "title": "usePlatform",
+      "description": "Returns a set of info about a client's platform - os, user-agent .etc",
+      "files": [
+        {
+          "path": "registry/hooks/use-platform/index.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-platform.ts"
+        }
+      ]
+    },
+    {
+      "name": "hooks-use-share",
+      "type": "registry:hook",
+      "title": "useShare",
+      "description": "Used to share a link using the native Share API",
+      "files": [
+        {
+          "path": "registry/hooks/use-share/index.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-share.ts"
         }
       ]
     },
