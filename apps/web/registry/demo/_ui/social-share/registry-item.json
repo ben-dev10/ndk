@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-social-share",
+  "type": "registry:ui",
+  "title": "Social Share Demo",
+  "description": "Social media link sharing components.",
+  "files": [
+    {
+      "path": "registry/demo/_ui/social-share/index.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/demo/_ui/social-share.tsx"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+---
+title: Social Share
+description: Social media link sharing components.
+---
+
+Shares a url along and a piece of text across a list of social media platforms. On mobile, its opens in the default application for that platform. For example clicking the Email link opens the Gmail application on your phone
+with some fields auto-filled.
+
+On the web, it opens a separate window to the web application for that platform.
+
+## Preview
+
+<ComponentPreview
+  name="demo-components-social-share"
+  title="social-share-demo.tsx"
+/>
+
+## Installation
+
+<ComponentInstallation name="components-social-share" />
+
+## Usage
+
+```tsx title="social-share-usage.tsx"
+<SocialShare
+  title="NDK UI"
+  description="Check out the cool library I found!"
+  showLabels
+/>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    url: {
+      description: "The link to share. Defaults to the current window url.",
+      type: "string",
+      required: true,
+      default: "window.location.href",
+    },
+    title: {
+      description: "Main caption of the message to be shared.",
+      type: "string",
+      required: false,
+      default: "Check this out!",
+    },
+  }}
+/>

@@ -4,6 +4,7 @@
   "type": "registry:ui",
   "title": "TooltipUI",
   "description": "A light wrapper for the shadcn/ui tooltip component.",
+  "registryDependencies": ["popover"],
   "files": [
     {
       "path": "registry/components/_ui/tooltip-ui/index.tsx",

@@ -21,7 +21,7 @@
 @layer base {
   p > code,
   li > code {
-    @apply text-[0.88rem]!;
+    @apply text-[0.86rem]!;
   }
 
   /* code-block */

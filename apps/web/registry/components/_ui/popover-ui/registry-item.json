@@ -4,6 +4,7 @@
   "type": "registry:ui",
   "title": "PopoverUI",
   "description": "A light wrapper for the shadcn/ui popover component.",
+  "registryDependencies": ["popover"],
   "files": [
     {
       "path": "registry/components/_ui/popover-ui/index.tsx",

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-theme-toggles",
+  "title": "Theme Toggles Demo",
+  "description": "A set of three commonly used theme switcher components.",
+  "files": [
+    {
+      "path": "registry/demo/_ui/theme-toggles/index.tsx",
+      "content": "import {\n  ButtonGroupThemeToggle,\n  ThemeToggle,\n  DropdownThemeToggle,\n} from \"@/components/_ui/theme-toggles\";\n\nexport default function ThemeToggles() {\n  return (\n    <div className=\"_toggles-demo flex min-w-[110px] flex-col items-center gap-8 [&_.first]:self-start\">\n      <ThemeToggle className=\"first ml-3\" size={16} />\n      <ButtonGroupThemeToggle />\n      <DropdownThemeToggle />\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/ndk/demo/theme-toggles.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

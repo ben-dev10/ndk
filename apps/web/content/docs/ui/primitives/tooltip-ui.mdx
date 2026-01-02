@@ -1,0 +1,43 @@
+---
+title: TooltipUI
+description: A lightweight abstraction over the shadcn/ui tooltip component to simplify its usage.
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/tooltip
+  api: https://www.radix-ui.com/docs/primitives/components/tooltip#api-reference
+---
+
+## Usage
+
+```tsx title="PopoverUI-Example.tsx"
+<div className="grid size-full place-items-center">
+  <TooltipUI side="left" content="Hello World!" />
+</div>
+```
+
+## Installation
+
+<ComponentInstallation name="components-tooltip-ui" />
+
+## Props
+
+<TypeTable
+  type={{
+    content: {
+      description: "The content of the tooltip",
+      type: "React.ReactNode | string",
+      required: true,
+    },
+    trigger: {
+      description: "An element to trigger the tooltip",
+      type: "React.ReactNode | string",
+      required: false,
+    },
+    side: {
+      description:
+        "Where the tooltip content will be positioned relative to it's trigger.",
+      type: '"center" | "start" | "end" | undefined',
+      required: false,
+      default: "center",
+    },
+  }}
+/>

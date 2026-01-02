@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-social-share",
+  "title": "Social Share",
+  "description": "Social media link sharing components.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "registry/components/_ui/social-share/index.tsx",
+      "content": "import { Mail, Share2 } from \"lucide-react\";\r\nimport {\r\n  FacebookIcon,\r\n  XTwitterIcon,\r\n  LinkedinIcon,\r\n  WhatsappIcon,\r\n  TelegramIcon,\r\n} from \"@/components/_ui/social-icons\";\r\nimport {\r\n  Popover,\r\n  PopoverContent,\r\n  PopoverTrigger,\r\n} from \"@/components/ui/popover\";\r\nimport { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/utils\";\r\n\r\ninterface ShareProps {\r\n  url?: string;\r\n  title?: string;\r\n  description?: string;\r\n  triggerStyles?: string;\r\n  className?: string;\r\n  showLabels?: boolean;\r\n}\r\n\r\nexport default function SocialShare({\r\n  url = window.location.href,\r\n  title = \"Check this out!\",\r\n  description = \"I found something interesting to share with you\",\r\n  triggerStyles,\r\n  className,\r\n  showLabels = false,\r\n}: ShareProps) {\r\n  const encodedUrl = encodeURIComponent(url);\r\n  const encodedTitle = encodeURIComponent(title);\r\n  const encodedDescription = encodeURIComponent(description);\r\n\r\n  const shareLinks = [\r\n    {\r\n      name: \"Facebook\",\r\n      icon: FacebookIcon,\r\n      url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,\r\n      color: \"bg-[#1877F2]\",\r\n    },\r\n    {\r\n      name: \"Twitter\",\r\n      icon: XTwitterIcon,\r\n      url: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,\r\n      color: \"bg-black\",\r\n    },\r\n    {\r\n      name: \"LinkedIn\",\r\n      icon: LinkedinIcon,\r\n      url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,\r\n      color: \"bg-[#0A66C2]\",\r\n    },\r\n    {\r\n      name: \"WhatsApp\",\r\n      icon: WhatsappIcon,\r\n      url: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,\r\n      color: \"bg-[#25D366]\",\r\n    },\r\n    {\r\n      name: \"Telegram\",\r\n      icon: TelegramIcon,\r\n      url: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`,\r\n      color: \"bg-[#26A5E4]\",\r\n    },\r\n    {\r\n      name: \"Email\",\r\n      icon: Mail,\r\n      url: `mailto:?subject=${encodedTitle}&body=${encodedDescription}%0A%0A${encodedUrl}`,\r\n      color: \"bg-gray-600\",\r\n    },\r\n  ];\r\n\r\n  const handleShare = (shareUrl: string) => {\r\n    window.open(shareUrl, \"_blank\", \"noopener,noreferrer,width=600,height=600\");\r\n  };\r\n\r\n  return (\r\n    <Popover>\r\n      <PopoverTrigger asChild>\r\n        <Button\r\n          className={cn(\r\n            \"bg-secondary hover:bg-secondary/60 text-foreground\",\r\n            triggerStyles,\r\n          )}\r\n          title=\"Share this link\"\r\n        >\r\n          <Share2 size={16} className=\"-ml-1\" />\r\n        </Button>\r\n      </PopoverTrigger>\r\n      <PopoverContent\r\n        className={cn(\r\n          \"text-foreground rounded-2xl bg-neutral-50 p-2 dark:bg-neutral-900\",\r\n          className,\r\n        )}\r\n      >\r\n        <div className=\"grid grid-cols-3\">\r\n          {shareLinks.map((platform) => {\r\n            const Icon = platform.icon;\r\n\r\n            return (\r\n              <button\r\n                key={platform.name}\r\n                onClick={() => handleShare(platform.url)}\r\n                className=\"group dark:hover:bg-primary/10 flex flex-col items-center gap-2 rounded-xl p-3 transition-colors hover:bg-neutral-200/50\"\r\n              >\r\n                <div\r\n                  className={`${platform.color} flex size-12 items-center justify-center rounded-full transition-transform`}\r\n                >\r\n                  <Icon size={20} className=\"text-white\" />\r\n                </div>\r\n                {showLabels && (\r\n                  <span className=\"text-muted-foreground text-[0.8rem] font-medium\">\r\n                    {platform.name}\r\n                  </span>\r\n                )}\r\n              </button>\r\n            );\r\n          })}\r\n        </div>\r\n      </PopoverContent>\r\n    </Popover>\r\n  );\r\n}\r\n",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/social-share.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -4,6 +4,8 @@
   "type": "registry:ui",
   "title": "Theme Toggles",
   "description": "A set of three commonly used theme switcher components.",
+  "dependencies": ["lucide-react", "next-themes", "motion"],
+  "registryDependencies": ["button", "dropdown-menu", "@ndk/icons-180-spinner"],
   "files": [
     {
       "path": "registry/components/_ui/theme-toggles/index.tsx",

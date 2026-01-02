@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "components-social-share",
+  "type": "registry:ui",
+  "title": "Social Share",
+  "description": "Social media link sharing components.",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["button", "popover", "@ndk/components-social-icons"],
+  "files": [
+    {
+      "path": "registry/components/_ui/social-share/index.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/_ui/social-share.tsx"
+    }
+  ]
+}

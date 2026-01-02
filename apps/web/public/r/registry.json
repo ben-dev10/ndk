@@ -111,6 +111,9 @@
       "type": "registry:ui",
       "title": "PopoverUI",
       "description": "A light wrapper for the shadcn/ui popover component.",
+      "registryDependencies": [
+        "popover"
+      ],
       "files": [
         {
           "path": "registry/components/_ui/popover-ui/index.tsx",
@@ -165,6 +168,26 @@
       ]
     },
     {
+      "name": "components-social-share",
+      "type": "registry:ui",
+      "title": "Social Share",
+      "description": "Social media link sharing components.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "registry/components/_ui/social-share/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/_ui/social-share.tsx"
+        }
+      ]
+    },
+    {
       "name": "components-theme-img",
       "type": "registry:ui",
       "title": "Theme Image",
@@ -182,6 +205,16 @@
       "type": "registry:ui",
       "title": "Theme Toggles",
       "description": "A set of three commonly used theme switcher components.",
+      "dependencies": [
+        "lucide-react",
+        "next-themes",
+        "motion"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "@ndk/icons-180-spinner"
+      ],
       "files": [
         {
           "path": "registry/components/_ui/theme-toggles/index.tsx",
@@ -195,6 +228,9 @@
       "type": "registry:ui",
       "title": "TooltipUI",
       "description": "A light wrapper for the shadcn/ui tooltip component.",
+      "registryDependencies": [
+        "popover"
+      ],
       "files": [
         {
           "path": "registry/components/_ui/tooltip-ui/index.tsx",
@@ -300,7 +336,33 @@
         {
           "path": "registry/demo/_ui/background/demo-background.tsx",
           "type": "registry:ui",
-          "target": "components/ndk/_ui/demo-background.tsx"
+          "target": "components/ndk/demo/demo-background.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-social-share",
+      "type": "registry:ui",
+      "title": "Social Share Demo",
+      "description": "Social media link sharing components.",
+      "files": [
+        {
+          "path": "registry/demo/_ui/social-share/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/demo/_ui/social-share.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-components-theme-toggles",
+      "type": "registry:ui",
+      "title": "Theme Toggles Demo",
+      "description": "A set of three commonly used theme switcher components.",
+      "files": [
+        {
+          "path": "registry/demo/_ui/theme-toggles/index.tsx",
+          "type": "registry:ui",
+          "target": "components/ndk/demo/theme-toggles.tsx"
         }
       ]
     },

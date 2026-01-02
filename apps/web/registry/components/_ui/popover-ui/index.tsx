@@ -3,6 +3,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@_ndk/ui/components/ui/popover";
+import { cn } from "@_ndk/ui/utils";
 
 export const Trigger01 = () => {
   return (
@@ -30,7 +31,7 @@ export const Trigger02 = () => {
   return (
     <svg fill="none" viewBox="0 0 16 16" className="size-5 flex-none">
       <path
-        className="fill-gray-600 transition-colors group-hover:fill-gray-400 group-aria-expanded:fill-gray-400"
+        className="fill-red-600 transition-colors group-hover:fill-gray-400 group-aria-expanded:fill-gray-400"
         d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm4 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM8 8a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z"
       ></path>
     </svg>
@@ -45,14 +46,16 @@ export default function PopoverUI({
   asChild,
   side,
   disabled,
+  showArrow = false,
 }: {
-  content?: React.ReactNode;
+  content: React.ReactNode | string;
   className?: string;
-  trigger?: React.ReactNode;
+  trigger?: React.ReactNode | string;
   align?: "center" | "start" | "end" | undefined;
   asChild?: boolean | undefined;
   side?: "top" | "right" | "bottom" | "left" | undefined;
   disabled?: boolean | undefined;
+  showArrow?: boolean;
 }) {
   return (
     <Popover>
@@ -60,9 +63,13 @@ export default function PopoverUI({
         {trigger ? trigger : <Trigger02 />}
       </PopoverTrigger>
       <PopoverContent
+        showArrow={showArrow}
         align={align}
         side={side}
-        className={`${className} w-[170px] max-w-max rounded-[10px] p-1.5 px-2.5 text-[0.8rem]`}
+        className={cn(
+          "w-[170px] max-w-max rounded-[10px] p-1.5 px-2.5 text-[0.8rem]",
+          className,
+        )}
       >
         {content}
       </PopoverContent>

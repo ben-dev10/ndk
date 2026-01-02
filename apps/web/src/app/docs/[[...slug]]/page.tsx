@@ -9,7 +9,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
-import { Edit } from "lucide-react";
+import { ArrowUpRight, Edit } from "lucide-react";
+import DocBadges from "@/components/docs/badges";
+import fm from "front-matter";
+import { z } from "zod";
+import { Badge } from "@_ndk/ui/components/ui/badge";
 
 export const revalidate = false;
 export const dynamic = "force-static";
@@ -22,10 +26,47 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
 
   const MDXContent = page.data.body;
 
+  const raw = await page.data.getText("raw");
+  const { attributes } = fm(raw);
+  const { links } = z
+    .object({
+      links: z
+        .object({
+          doc: z.string().optional(),
+          api: z.string().optional(),
+        })
+        .optional(),
+    })
+    .parse(attributes);
+
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsDescription className={`${page.data.pills || links ? "mb-2" : ""}`}>
+        {page.data.description}
+      </DocsDescription>
+      {page.data.pills && <DocBadges pills={page.data.pills} />}
+
+      {links ? (
+        <div className="mb-12 flex items-center gap-2">
+          {links?.doc && (
+            <Badge asChild variant="secondary" className="rounded-full">
+              <a href={links.doc} target="_blank" rel="noreferrer">
+                Docs <ArrowUpRight />
+              </a>
+            </Badge>
+          )}
+          {links?.api && (
+            <Badge asChild variant="secondary" className="rounded-full">
+              <a href={links.api} target="_blank" rel="noreferrer">
+                API Reference <ArrowUpRight />
+              </a>
+            </Badge>
+          )}
+        </div>
+      ) : (
+        ""
+      )}
 
       <DocsBody>
         <MDXContent

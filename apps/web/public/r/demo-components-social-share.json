@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "demo-components-social-share",
+  "title": "Social Share Demo",
+  "description": "Social media link sharing components.",
+  "files": [
+    {
+      "path": "registry/demo/_ui/social-share/index.tsx",
+      "content": "import SocialShare from \"@/components/_ui/social-share\";\r\n\r\nexport default function SocialShareDemo() {\r\n  return (\r\n    <div>\r\n      <SocialShare\r\n        title=\"NDK UI\"\r\n        description=\"Check out the cool library I found!\"\r\n        showLabels\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui",
+      "target": "components/ndk/demo/_ui/social-share.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

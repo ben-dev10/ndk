@@ -3,10 +3,13 @@
   "name": "components-tooltip-ui",
   "title": "TooltipUI",
   "description": "A light wrapper for the shadcn/ui tooltip component.",
+  "registryDependencies": [
+    "popover"
+  ],
   "files": [
     {
       "path": "registry/components/_ui/tooltip-ui/index.tsx",
-      "content": "import {\n  Tooltip,\n  TooltipTrigger,\n  TooltipContent,\n} from \"@/components/ui/tooltip\";\n\nexport const Trigger01 = () => {\n  return (\n    <svg fill=\"none\" viewBox=\"0 0 16 16\" className=\"size-5 flex-none\">\n      <path\n        className=\"fill-gray-600 transition-colors group-hover:fill-gray-400 group-aria-expanded:fill-gray-400\"\n        d=\"M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm4 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM8 8a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z\"\n      ></path>\n    </svg>\n  );\n};\n\nexport const TooltipUI = ({\n  content = \"Tooltip\",\n  trigger,\n  asChild,\n}: {\n  content?: React.ReactNode;\n  trigger?: React.ReactNode;\n  asChild?: boolean | undefined;\n}) => {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild={asChild}>\n        {trigger ? trigger : <Trigger01 />}\n      </TooltipTrigger>\n      <TooltipContent className=\"w-[150px] max-w-max [--primary:#000]\">\n        {content}\n      </TooltipContent>\n    </Tooltip>\n  );\n};\n",
+      "content": "import {\n  Tooltip,\n  TooltipTrigger,\n  TooltipContent,\n} from \"@/components/ui/tooltip\";\nimport { cn } from \"@/utils\";\n\nexport const Trigger01 = () => {\n  return (\n    <svg fill=\"none\" viewBox=\"0 0 16 16\" className=\"size-5 flex-none\">\n      <path\n        className=\"fill-gray-600 transition-colors group-hover:fill-gray-400 group-aria-expanded:fill-gray-400\"\n        d=\"M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm4 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM8 8a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z\"\n      ></path>\n    </svg>\n  );\n};\n\nexport const TooltipUI = ({\n  content = \"Tooltip\",\n  trigger,\n  asChild,\n  className,\n  sideOffset,\n  side,\n}: {\n  content?: React.ReactNode;\n  trigger?: React.ReactNode;\n  asChild?: boolean | undefined;\n  className?: string;\n  sideOffset?: number;\n  side?: \"top\" | \"right\" | \"bottom\" | \"left\" | undefined;\n}) => {\n  return (\n    <Tooltip>\n      <TooltipTrigger asChild={asChild}>\n        {trigger ? trigger : <Trigger01 />}\n      </TooltipTrigger>\n      <TooltipContent\n        side={side}\n        sideOffset={sideOffset}\n        className={cn(\"w-[150px] max-w-max [--primary:#000]\", className)}\n      >\n        {content}\n      </TooltipContent>\n    </Tooltip>\n  );\n};\n",
       "type": "registry:ui",
       "target": "components/ndk/_ui/tooltip-ui.tsx"
     }

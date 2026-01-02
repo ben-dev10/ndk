@@ -10,6 +10,7 @@ import { z } from "zod";
 // You can customize Zod schemas for frontmatter and `meta.json` here
 // see https://fumadocs.vercel.app/docs/mdx/collections#define-docs
 export const docs = defineDocs({
+  dir: "content/docs",
   docs: {
     schema: frontmatterSchema.extend({
       releaseDate: z.coerce.date().optional(),
@@ -17,6 +18,7 @@ export const docs = defineDocs({
       alpha: z.boolean().optional(),
       updated: z.boolean().optional(),
       deprecated: z.boolean().optional(),
+      pills: z.string().array().optional(),
       author: z
         .object({
           name: z.string(),

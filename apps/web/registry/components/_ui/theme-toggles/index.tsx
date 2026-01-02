@@ -12,8 +12,8 @@ import {
 import { MoonIcon, SunIcon, MonitorIcon, ChevronDownIcon } from "lucide-react";
 import SpinnerRing180 from "@_ndk/ui/icons/180-spinner";
 import { cn } from "@_ndk/ui/utils";
-
-//_TODO: feature incomplete
+import { motion } from "motion/react";
+import { type Variants } from "motion/react";
 
 export const DisabledSpinner = () => {
   return (
@@ -23,17 +23,15 @@ export const DisabledSpinner = () => {
       size="icon"
       disabled
     >
-      <span className="sr-only">
-        <SpinnerRing180 className="w-2" />
+      <span aria-hidden="true" className="">
+        <SpinnerRing180 className="w-4" />
       </span>
     </Button>
   );
 };
 
-/*
- * 1. Classic Toggle - Sun/Moon switch
- */
-export function ClassicThemeToggle({
+/* 1. Classic Toggle - Sun/Moon switch */
+export function ThemeToggle({
   size = 14,
   className,
 }: {
@@ -45,7 +43,7 @@ export function ClassicThemeToggle({
 
   useEffect(() => setMounted(true), []);
 
-  // Prevent hydration mismatch by rendering a disabled placeholder button
+  // Prevents hydration mismatch by rendering a disabled placeholder spinner
   if (!mounted) return <DisabledSpinner />;
 
   const handleToggle = () => {
@@ -58,24 +56,52 @@ export function ClassicThemeToggle({
 
   const isDark = resolvedTheme === "dark";
 
+  const parentVariants: Variants = {
+    initial: {},
+    hover: {},
+  };
+
+  const childVariants: Variants = {
+    initial: {
+      rotate: 0,
+    },
+    hover: {
+      rotate: 180,
+      transition: {
+        type: "spring",
+        ease: "easeInOut",
+        duration: 0.2,
+      },
+    },
+  };
+
   return (
-    <button
+    <motion.button
+      variants={parentVariants}
+      initial="initial"
+      whileHover="hover"
       onClick={handleToggle}
       className={cn(
-        "hover:bg-secondary/10 max-w-max rounded-full border p-1.5 transition-colors",
+        "hover:bg-secondary/10 text-foreground/50 hover:text-foreground/90 max-w-max rounded-full border p-1.5 transition-colors duration-200",
         className,
       )}
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
     >
-      {isDark ? <MoonIcon size={size} /> : <SunIcon size={size} />}
-    </button>
+      <motion.span variants={childVariants} className="block ease-in-out">
+        {isDark ? <MoonIcon size={size} /> : <SunIcon size={size} />}
+      </motion.span>
+    </motion.button>
   );
 }
 
-/*
- * 2. Button Group - Three options toggle
- */
-export function ButtonGroupThemeToggle({ className }: { className?: string }) {
+/* 2. Button Group - Three options toggle */
+export function ButtonGroupThemeToggle({
+  className,
+  size = 14,
+}: {
+  className?: string;
+  size?: number;
+}) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -84,21 +110,26 @@ export function ButtonGroupThemeToggle({ className }: { className?: string }) {
   if (!mounted) return <DisabledSpinner />;
 
   const options = [
-    { value: "light", icon: <SunIcon size={18} />, label: "Light" },
-    { value: "dark", icon: <MoonIcon size={18} />, label: "Dark" },
-    { value: "system", icon: <MonitorIcon size={18} />, label: "System" },
+    { value: "light", icon: <SunIcon size={size} />, label: "Light" },
+    { value: "dark", icon: <MoonIcon size={size} />, label: "Dark" },
+    { value: "system", icon: <MonitorIcon size={size} />, label: "System" },
   ];
 
   return (
-    <div className={`flex max-w-max rounded-full ${className}`}>
+    <div
+      className={cn(
+        "bg-secondary/40 text-foreground/50 flex max-w-max rounded-full border p-1",
+        className,
+      )}
+    >
       {options.map(({ value, icon, label }) => (
         <button
           key={value}
           onClick={() => setTheme(value)}
-          className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+          className={`flex items-center gap-2 rounded-full p-2 text-sm font-medium transition-colors duration-200 ${
             theme === value
-              ? "bg-white text-gray-900 shadow-sm dark:bg-gray-200 dark:text-gray-50" // active option
-              : "hover:text-gray-9 text-gray-600 dark:text-gray-400 dark:hover:text-gray-100"
+              ? "dark:bg-primary/15 bg-primary/5 text-foreground/100" // active state
+              : "hover:text-foreground/100" // default state
           } `}
           aria-label={`Switch to ${label.toLowerCase()} theme`}
         >
@@ -110,10 +141,14 @@ export function ButtonGroupThemeToggle({ className }: { className?: string }) {
   );
 }
 
-/*
- * 3. Dropdown - Compact menu
- */
-export function DropdownThemeToggle() {
+/* 3. Dropdown - Compact menu */
+export function DropdownThemeToggle({
+  className,
+  size,
+}: {
+  className?: string;
+  size?: number;
+}) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -122,9 +157,9 @@ export function DropdownThemeToggle() {
   if (!mounted) return <DisabledSpinner />;
 
   const options = [
-    { value: "light", icon: <SunIcon size={16} />, label: "Light" },
-    { value: "dark", icon: <MoonIcon size={16} />, label: "Dark" },
-    { value: "system", icon: <MonitorIcon size={16} />, label: "System" },
+    { value: "light", icon: <SunIcon size={size} />, label: "Light" },
+    { value: "dark", icon: <MoonIcon size={size} />, label: "Dark" },
+    { value: "system", icon: <MonitorIcon size={size} />, label: "System" },
   ];
 
   const currentOption =
@@ -133,18 +168,21 @@ export function DropdownThemeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="border-border max-w-max gap-2">
+        <Button variant="outline" className="max-w-max gap-2 border">
           {currentOption.icon}
           <span>{currentOption.label}</span>
           <ChevronDownIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="center">
         {options.map(({ value, icon, label }) => (
           <DropdownMenuItem
             key={value}
             onClick={() => setTheme(value)}
-            className={`gap-3 ${theme === value ? "bg-accent" : ""}`}
+            className={cn(
+              `hover:bg-accent/40! gap-3 ${theme === value ? "bg-accent hover:bg-accent!" : ""}`,
+              className,
+            )}
           >
             {icon}
             {label}

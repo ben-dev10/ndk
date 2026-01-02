@@ -3,6 +3,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@_ndk/ui/components/ui/tooltip";
+import { cn } from "@_ndk/ui/utils";
 
 export const Trigger01 = () => {
   return (
@@ -19,17 +20,27 @@ export const TooltipUI = ({
   content = "Tooltip",
   trigger,
   asChild,
+  className,
+  sideOffset,
+  side,
 }: {
   content?: React.ReactNode;
   trigger?: React.ReactNode;
   asChild?: boolean | undefined;
+  className?: string;
+  sideOffset?: number;
+  side?: "top" | "right" | "bottom" | "left" | undefined;
 }) => {
   return (
     <Tooltip>
       <TooltipTrigger asChild={asChild}>
         {trigger ? trigger : <Trigger01 />}
       </TooltipTrigger>
-      <TooltipContent className="w-[150px] max-w-max [--primary:#000]">
+      <TooltipContent
+        side={side}
+        sideOffset={sideOffset}
+        className={cn("w-[150px] max-w-max [--primary:#000]", className)}
+      >
         {content}
       </TooltipContent>
     </Tooltip>

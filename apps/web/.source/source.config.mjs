@@ -8,6 +8,7 @@ import {
 } from "fumadocs-mdx/config";
 import { z } from "zod";
 var docs = defineDocs({
+  dir: "content/docs",
   docs: {
     schema: frontmatterSchema.extend({
       releaseDate: z.coerce.date().optional(),
@@ -15,6 +16,7 @@ var docs = defineDocs({
       alpha: z.boolean().optional(),
       updated: z.boolean().optional(),
       deprecated: z.boolean().optional(),
+      pills: z.string().array().optional(),
       author: z.object({
         name: z.string(),
         url: z.string().optional()
