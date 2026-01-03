@@ -23,7 +23,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
         },
       ]}
     >
-      {children}
+      <div className="_ui">{children}</div>
       <Footer />
     </HomeLayout>
   );

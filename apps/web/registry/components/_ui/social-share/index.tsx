@@ -1,127 +1,186 @@
-import { Mail, Share2 } from "lucide-react";
-import {
-  FacebookIcon,
-  XTwitterIcon,
-  LinkedinIcon,
-  WhatsappIcon,
-  TelegramIcon,
-} from "@/registry/components/_ui/social-icons";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@_ndk/ui/components/ui/popover";
-import { Button } from "@_ndk/ui/components/ui/button";
-import { cn } from "@_ndk/ui/utils";
+"use client";
+import React, { createContext, useEffect, useMemo, useState } from "react";
 
-interface ShareProps {
+type SocialShareContextType = {
+  encodedUrl: string;
+  encodedTitle: string;
+  encodedDescription: string;
+  handleShare: (shareUrl: string) => void;
+};
+
+const SocialShareContext = createContext<SocialShareContextType>({
+  encodedUrl: "",
+  encodedTitle: "",
+  encodedDescription: "",
+  handleShare: () => {},
+});
+
+export type SocialShareRootProps = React.ComponentProps<"div"> & {
   url?: string;
   title?: string;
   description?: string;
-  triggerStyles?: string;
-  className?: string;
-  showLabels?: boolean;
-}
+};
 
-export default function SocialShare({
-  url = window.location.href,
+export function SocialShareRoot({
+  url,
   title = "Check this out!",
   description = "I found something interesting to share with you",
-  triggerStyles,
-  className,
-  showLabels = false,
-}: ShareProps) {
-  const encodedUrl = encodeURIComponent(url);
-  const encodedTitle = encodeURIComponent(title);
-  const encodedDescription = encodeURIComponent(description);
+  children,
+  ...props
+}: SocialShareRootProps) {
+  const [resolvedUrl, setResolvedUrl] = useState<string>(url ?? "");
 
-  const shareLinks = [
-    {
-      name: "Facebook",
-      icon: FacebookIcon,
-      url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-      color: "bg-[#1877F2]",
-    },
-    {
-      name: "Twitter",
-      icon: XTwitterIcon,
-      url: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-      color: "bg-black",
-    },
-    {
-      name: "LinkedIn",
-      icon: LinkedinIcon,
-      url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-      color: "bg-[#0A66C2]",
-    },
-    {
-      name: "WhatsApp",
-      icon: WhatsappIcon,
-      url: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
-      color: "bg-[#25D366]",
-    },
-    {
-      name: "Telegram",
-      icon: TelegramIcon,
-      url: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`,
-      color: "bg-[#26A5E4]",
-    },
-    {
-      name: "Email",
-      icon: Mail,
-      url: `mailto:?subject=${encodedTitle}&body=${encodedDescription}%0A%0A${encodedUrl}`,
-      color: "bg-gray-600",
-    },
-  ];
+  useEffect(() => {
+    if (url) {
+      setResolvedUrl(url);
+    } else if (typeof window !== "undefined") {
+      setResolvedUrl(window.location.href);
+    }
+  }, [url]);
+
+  const encodedUrl = useMemo(
+    () => encodeURIComponent(resolvedUrl || ""),
+    [resolvedUrl],
+  );
+
+  const encodedTitle = useMemo(() => encodeURIComponent(title), [title]);
+  const encodedDescription = useMemo(
+    () => encodeURIComponent(description),
+    [description],
+  );
 
   const handleShare = (shareUrl: string) => {
-    window.open(shareUrl, "_blank", "noopener,noreferrer,width=600,height=600");
+    if (typeof window !== "undefined") {
+      window.open(
+        shareUrl,
+        "_blank",
+        "noopener,noreferrer,width=600,height=600",
+      );
+    }
   };
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          className={cn(
-            "bg-secondary hover:bg-secondary/60 text-foreground",
-            triggerStyles,
-          )}
-          title="Share this link"
-        >
-          <Share2 size={16} className="-ml-1" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent
-        className={cn(
-          "text-foreground rounded-2xl bg-neutral-50 p-2 dark:bg-neutral-900",
-          className,
-        )}
-      >
-        <div className="grid grid-cols-3">
-          {shareLinks.map((platform) => {
-            const Icon = platform.icon;
+    <SocialShareContext.Provider
+      value={{
+        encodedUrl,
+        encodedTitle,
+        encodedDescription,
+        handleShare,
+      }}
+    >
+      <div {...props}>{children}</div>
+    </SocialShareContext.Provider>
+  );
+}
 
-            return (
-              <button
-                key={platform.name}
-                onClick={() => handleShare(platform.url)}
-                className="group dark:hover:bg-primary/10 flex flex-col items-center gap-2 rounded-xl p-3 transition-colors hover:bg-neutral-200/50"
-              >
-                <div
-                  className={`${platform.color} flex size-12 items-center justify-center rounded-full transition-transform`}
-                >
-                  <Icon size={20} className="text-white" />
-                </div>
-                {showLabels && (
-                  <span className="text-muted-foreground text-[0.8rem] font-medium">
-                    {platform.name}
-                  </span>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </PopoverContent>
-    </Popover>
+export type SocialShareFacebookProps = React.ComponentProps<"button">;
+
+export function SocialShareFacebook({ ...props }: SocialShareFacebookProps) {
+  return (
+    <SocialShareContext.Consumer>
+      {({ encodedUrl, handleShare }) => (
+        <button
+          {...props}
+          onClick={() =>
+            handleShare(
+              `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+            )
+          }
+        />
+      )}
+    </SocialShareContext.Consumer>
+  );
+}
+
+export type SocialShareXTwitterProps = React.ComponentProps<"button">;
+
+export function SocialShareXTwitter({ ...props }: SocialShareXTwitterProps) {
+  return (
+    <SocialShareContext.Consumer>
+      {({ encodedUrl, encodedTitle, handleShare }) => (
+        <button
+          {...props}
+          onClick={() =>
+            handleShare(
+              `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+            )
+          }
+        />
+      )}
+    </SocialShareContext.Consumer>
+  );
+}
+
+export type SocialShareLinkedInProps = React.ComponentProps<"button">;
+
+export function SocialShareLinkedIn({ ...props }: SocialShareLinkedInProps) {
+  return (
+    <SocialShareContext.Consumer>
+      {({ encodedUrl, handleShare }) => (
+        <button
+          {...props}
+          onClick={() =>
+            handleShare(
+              `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+            )
+          }
+        />
+      )}
+    </SocialShareContext.Consumer>
+  );
+}
+
+export type SocialShareWhatsAppProps = React.ComponentProps<"button">;
+
+export function SocialShareWhatsApp({ ...props }: SocialShareWhatsAppProps) {
+  return (
+    <SocialShareContext.Consumer>
+      {({ encodedUrl, encodedTitle, handleShare }) => (
+        <button
+          {...props}
+          onClick={() =>
+            handleShare(`https://wa.me/?text=${encodedTitle}%20${encodedUrl}`)
+          }
+        />
+      )}
+    </SocialShareContext.Consumer>
+  );
+}
+
+export type SocialShareTelegramProps = React.ComponentProps<"button">;
+
+export function SocialShareTelegram({ ...props }: SocialShareTelegramProps) {
+  return (
+    <SocialShareContext.Consumer>
+      {({ encodedUrl, encodedTitle, handleShare }) => (
+        <button
+          {...props}
+          onClick={() =>
+            handleShare(
+              `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`,
+            )
+          }
+        />
+      )}
+    </SocialShareContext.Consumer>
+  );
+}
+
+export type SocialShareEmailProps = React.ComponentProps<"button">;
+
+export function SocialShareEmail({ ...props }: SocialShareEmailProps) {
+  return (
+    <SocialShareContext.Consumer>
+      {({ encodedUrl, encodedDescription, encodedTitle, handleShare }) => (
+        <button
+          {...props}
+          onClick={() =>
+            handleShare(
+              `mailto:?subject=${encodedTitle}&body=${encodedDescription}%0A%0A${encodedUrl}`,
+            )
+          }
+        />
+      )}
+    </SocialShareContext.Consumer>
   );
 }

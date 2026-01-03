@@ -30,7 +30,9 @@ export const DisabledSpinner = () => {
   );
 };
 
-/* 1. Classic Toggle - Sun/Moon switch */
+/*
+ * 1. Default Toggle - Sun/Moon switch
+ */
 export function ThemeToggle({
   size = 14,
   className,
@@ -82,7 +84,7 @@ export function ThemeToggle({
       whileHover="hover"
       onClick={handleToggle}
       className={cn(
-        "hover:bg-secondary/10 text-foreground/50 hover:text-foreground/90 max-w-max rounded-full border p-1.5 transition-colors duration-200",
+        "hover:bg-secondary/60 bg-secondary/40 text-foreground/50 hover:text-foreground/90 max-w-max rounded-full border p-1.5 transition-colors duration-200",
         className,
       )}
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}

@@ -22,14 +22,21 @@ On the web, it opens a separate window to the web application for that platform.
 ## Usage
 
 ```tsx title="social-share-usage.tsx"
-<SocialShare
-  title="NDK UI"
-  description="Check out the cool library I found!"
-  showLabels
-/>
+export default () => (
+  <SocialShareRoot>
+    <SocialShareFacebook />
+    <SocialShareWhatsApp />
+    <SocialShareXTwitter />
+    <SocialShareLinkedIn />
+    <SocialShareTelegram />
+    <SocialShareEmail />
+  </SocialShareRoot>
+);
 ```
 
 ## Props
+
+### SocialShareRoot
 
 <TypeTable
   type={{
@@ -45,5 +52,19 @@ On the web, it opens a separate window to the web application for that platform.
       required: false,
       default: "Check this out!",
     },
+    description: {
+      description: "An optional description of the message",
+      type: "string",
+      required: false,
+      default: "Check this out!",
+    },
   }}
 />
+
+### SocialShareEmail, SocialShareXTwitter...
+
+```tsx title="button-props"
+type SocialShareEmailProps = React.ComponentProps<"button">,
+type SocialShareXTwitterProps = React.ComponentProps<"button">,
+//.... the rest also share the same type as above (extend the html button element)
+```
