@@ -43,11 +43,11 @@ export default function Home() {
               <Link href="/docs/ui" className="grow">
                 <Button className="mb-5 w-full">Get Started</Button>
               </Link>
-              {/* <Link href="/blocks" className="grow">
+              <Link href="/blocks" className="grow">
                 <Button variant="secondary" className="mb-5 w-full">
                   See blocks
                 </Button>
-              </Link> */}
+              </Link>
             </div>
 
             <hr className="mt-10 mb-3" />

@@ -71,7 +71,6 @@
   }
 }
 
-/* other utility classes */
 @layer base {
   :root {
     @apply text-[14px] max-md:text-[12px];
@@ -86,25 +85,19 @@
       "rlig" 1,
       "calt" 1;
   }
+
+  button {
+    cursor: pointer;
+  }
+s
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-
-  .debug {
-    @apply border border-red-500;
-  }
-  .debug-y {
-    @apply border border-yellow-500;
-  }
-  .debug-g {
-    @apply border border-green-500;
-  }
-
-  button {
-    cursor: pointer;
   }
 
   .container,
@@ -125,6 +118,21 @@
   }
   .container-8xl,
   [datatype="container-8xl"] {
-    @apply mx-auto max-w-5xl;
+    @apply mx-auto max-w-[1440px];
   }
+}
+
+/* @utility container-* {
+  max-width: value();
+  margin-inline: auto;
+} */
+
+@utility debug {
+  border: 1px solid red;
+}
+@utility debug-y {
+  border: 1px solid yellow;
+}
+@utility debug-g {
+  border: 1px solid green;
 }

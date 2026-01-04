@@ -8,13 +8,12 @@
  *   />
  */
 
-export type Props = Omit<
-  React.ImgHTMLAttributes<HTMLImageElement>,
-  "src" | "className"
-> & {
+import { cn } from "@_ndk/ui/utils";
+
+export type Props = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src"> & {
   srcLight: string;
   srcDark: string;
-  className: string;
+  className?: string;
 };
 
 const ThemeImage = (props: Props) => {
@@ -25,12 +24,12 @@ const ThemeImage = (props: Props) => {
       <img
         {...rest}
         src={srcLight}
-        className="imgLight block w-full dark:hidden"
+        className={cn("imgLight block w-full dark:hidden", className)}
       />
       <img
         {...rest}
         src={srcDark}
-        className={` ${className} imgDark hidden w-full dark:block`}
+        className={cn("imgDark hidden w-full dark:block", className)}
       />
     </>
   );

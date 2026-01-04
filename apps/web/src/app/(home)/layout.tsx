@@ -1,7 +1,7 @@
 import "./app.module.css";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import { baseOptions } from "@/utils/lib/layout.shared";
-import { BookMarkedIcon, TextQuoteIcon } from "lucide-react";
+import { Blocks, BookMarkedIcon, TextQuoteIcon } from "lucide-react";
 import Footer from "@/app/_components/footer";
 
 export default function Layout({ children }: LayoutProps<"/">) {
@@ -13,6 +13,12 @@ export default function Layout({ children }: LayoutProps<"/">) {
           icon: <BookMarkedIcon />,
           text: "Documentation",
           url: "/docs/ui",
+          active: "nested-url",
+        },
+        {
+          icon: <Blocks />,
+          text: "Blocks",
+          url: "/blocks",
           active: "nested-url",
         },
         {

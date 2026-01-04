@@ -5,32 +5,25 @@
   * {
     @apply border-border outline-ring/50;
   }
-
   body {
     @apply bg-background text-foreground;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  button {
+    cursor: pointer;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-
-  .debug {
-    @apply border border-red-500;
-  }
-  .debug-y {
-    @apply border border-yellow-500;
-  }
-  .debug-g {
-    @apply border border-green-500;
-  }
-
-  button {
-    cursor: pointer;
   }
 
   .container,
@@ -51,6 +44,16 @@
   }
   .container-8xl,
   [datatype="container-8xl"] {
-    @apply mx-auto max-w-5xl;
+    @apply mx-auto max-w-[1440px];
   }
+}
+
+@utility debug {
+  border: 1px solid red;
+}
+@utility debug-y {
+  border: 1px solid yellow;
+}
+@utility debug-g {
+  border: 1px solid green;
 }

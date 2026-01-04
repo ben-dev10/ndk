@@ -1,8 +1,8 @@
 // @ts-nocheck
-import * as __fd_glob_19 from "../content/docs/ui/utilities/hooks/use-share.mdx?collection=docs"
-import * as __fd_glob_18 from "../content/docs/ui/utilities/hooks/use-platform.mdx?collection=docs"
-import * as __fd_glob_17 from "../content/docs/ui/blocks/sheets/mintlify-sheet.mdx?collection=docs"
-import * as __fd_glob_16 from "../content/docs/ui/blocks/sheets/basic-sheet.mdx?collection=docs"
+import * as __fd_glob_19 from "../content/docs/ui/blocks/sheets/mintlify-sheet.mdx?collection=docs"
+import * as __fd_glob_18 from "../content/docs/ui/blocks/sheets/basic-sheet.mdx?collection=docs"
+import * as __fd_glob_17 from "../content/docs/ui/utilities/hooks/use-share.mdx?collection=docs"
+import * as __fd_glob_16 from "../content/docs/ui/utilities/hooks/use-platform.mdx?collection=docs"
 import * as __fd_glob_15 from "../content/docs/ui/blocks/navs/start-end.mdx?collection=docs"
 import * as __fd_glob_14 from "../content/docs/ui/blocks/heroes/simple-centered.mdx?collection=docs"
 import * as __fd_glob_13 from "../content/docs/ui/primitives/typography.mdx?collection=docs"
@@ -29,4 +29,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
 
 export const blogPosts = await create.doc("blogPosts", "content/blog", {"ndk-roadmap.mdx": __fd_glob_0, });
 
-export const docs = await create.docs("docs", "content/docs", {"cli/meta.json": __fd_glob_1, "ui/meta.json": __fd_glob_2, }, {"cli/index.mdx": __fd_glob_3, "ui/index.mdx": __fd_glob_4, "ui/installation.mdx": __fd_glob_5, "ui/motion/scroll-animations.mdx": __fd_glob_6, "ui/primitives/backgrounds.mdx": __fd_glob_7, "ui/primitives/popover-ui.mdx": __fd_glob_8, "ui/primitives/section.mdx": __fd_glob_9, "ui/primitives/social-share.mdx": __fd_glob_10, "ui/primitives/theme-toggles.mdx": __fd_glob_11, "ui/primitives/tooltip-ui.mdx": __fd_glob_12, "ui/primitives/typography.mdx": __fd_glob_13, "ui/blocks/heroes/simple-centered.mdx": __fd_glob_14, "ui/blocks/navs/start-end.mdx": __fd_glob_15, "ui/blocks/sheets/basic-sheet.mdx": __fd_glob_16, "ui/blocks/sheets/mintlify-sheet.mdx": __fd_glob_17, "ui/utilities/hooks/use-platform.mdx": __fd_glob_18, "ui/utilities/hooks/use-share.mdx": __fd_glob_19, });
+export const docs = await create.docs("docs", "content/docs", {"cli/meta.json": __fd_glob_1, "ui/meta.json": __fd_glob_2, }, {"cli/index.mdx": __fd_glob_3, "ui/index.mdx": __fd_glob_4, "ui/installation.mdx": __fd_glob_5, "ui/motion/scroll-animations.mdx": __fd_glob_6, "ui/primitives/backgrounds.mdx": __fd_glob_7, "ui/primitives/popover-ui.mdx": __fd_glob_8, "ui/primitives/section.mdx": __fd_glob_9, "ui/primitives/social-share.mdx": __fd_glob_10, "ui/primitives/theme-toggles.mdx": __fd_glob_11, "ui/primitives/tooltip-ui.mdx": __fd_glob_12, "ui/primitives/typography.mdx": __fd_glob_13, "ui/blocks/heroes/simple-centered.mdx": __fd_glob_14, "ui/blocks/navs/start-end.mdx": __fd_glob_15, "ui/utilities/hooks/use-platform.mdx": __fd_glob_16, "ui/utilities/hooks/use-share.mdx": __fd_glob_17, "ui/blocks/sheets/basic-sheet.mdx": __fd_glob_18, "ui/blocks/sheets/mintlify-sheet.mdx": __fd_glob_19, });

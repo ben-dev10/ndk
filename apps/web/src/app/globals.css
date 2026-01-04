@@ -22,6 +22,10 @@
   p > code,
   li > code {
     @apply text-[0.86rem]!;
+
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   /* code-block */
