@@ -30,7 +30,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
       ]}
     >
       <div className="_ui">{children}</div>
-      <Footer />
+      {/* <Footer /> */}
     </HomeLayout>
   );
 }

@@ -94,7 +94,7 @@ const Hero = () => {
 
 const StickySectionNav = () => {
   return (
-    <Section.RootElement className="bg-background sticky top-[42px] z-2 mt-10 border-y px-[14px] md:top-[48px]">
+    <Section.RootElement className="bg-background sticky top-[calc(var(--banner-height)+var(--nav-height))] z-2 mt-10 border-y px-[14px]">
       <div className="container-8xl flex items-center divide-x">
         <a href="#app-blocks">
           <button className="px-4 py-3 text-[0.7rem] uppercase">
@@ -121,7 +121,7 @@ const APPBlocksGridHeader = () => {
   return (
     <Section.RootElement
       id="app-blocks"
-      className="mt-20 mb-8 scroll-mt-28 border-y px-[14px]"
+      className="mt-20 mb-8 scroll-mt-43 border-y px-[14px]"
     >
       <div className="_header container-8xl px-[14px] py-6">
         <h5 className="mb-1">Application Blocks</h5>
@@ -187,7 +187,7 @@ const LayoutsGridHeader = () => {
   return (
     <Section.RootElement
       id="layouts"
-      className="mt-20 mb-8 scroll-mt-28 border-y px-[14px]"
+      className="mt-20 mb-8 scroll-mt-43 border-y px-[14px]"
     >
       <div className="_header container-8xl px-[14px] py-6">
         <h5 className="mb-1">Layouts</h5>
@@ -249,7 +249,7 @@ const TemplatesGridHeader = () => {
   return (
     <Section.RootElement
       id="templates"
-      className="mt-20 mb-8 scroll-mt-28 border-y px-[14px]"
+      className="mt-20 mb-8 scroll-mt-43 border-y px-[14px]"
     >
       <div className="_header container-8xl px-[14px] py-6">
         <h5 className="mb-1">Templates</h5>

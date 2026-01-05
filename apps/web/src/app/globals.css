@@ -12,10 +12,15 @@
 @import "@_ndk/ui/themes/neutral.css";
 
 :root {
-  --nav-height: 48px;
+  --nav-height: calc(var(--spacing) * 14);
   --banner-height: 3rem;
   --footer-height: 50px;
   --gutter-x: 2rem;
+}
+
+header#nd-nav {
+  position: sticky !important;
+  top: var(--banner-height) !important;
 }
 
 @layer base {
