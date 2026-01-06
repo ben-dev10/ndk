@@ -18,6 +18,39 @@ export const index: Record<string, any> = {
     component: null,
     command: '@ndk/index',
   },
+  "blocks-hero-simple-centered": {
+    name: "blocks-hero-simple-centered",
+    description: "A basic hero section centered in a page",
+    type: "registry:block",
+    dependencies: ["lucide-react"],
+    devDependencies: undefined,
+    registryDependencies: ["button"],
+    files: [
+  {
+    "path": "registry/blocks/heroes/simple-centered/index.tsx",
+    "type": "registry:ui",
+    "target": "components/ndk/blocks/hero-simple-centered.tsx",
+    "content": "export default function HeroSimpleCentered() {\r\n  return <div>HeroSimpleCentered</div>;\r\n}"
+  }
+],
+    keywords: [],
+    component: (function() {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import("@/registry/blocks/heroes/simple-centered/index.tsx");
+        const exportName = Object.keys(mod).find(
+          key => typeof mod[key] === 'function' || typeof mod[key] === 'object'
+        ) || "blocks-hero-simple-centered";
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@ndk/blocks-hero-simple-centered',
+  },
   "components-start-end": {
     name: "components-start-end",
     description: "A basic start-end layout navbar.",
@@ -168,7 +201,7 @@ export const index: Record<string, any> = {
     "path": "registry/components/_ui/popover-ui/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/_ui/popover-ui.tsx",
-    "content": "import {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\";\nimport { cn } from \"@/utils\";\n\nexport const Trigger01 = () => {\n  return (\n    <svg\n      width=\"15\"\n      height=\"15\"\n      viewBox=\"0 0 15 15\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      aria-hidden=\"true\"\n      focusable=\"false\"\n      className=\"text-white/50\"\n    >\n      <path\n        d=\"M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z\"\n        fill=\"currentColor\"\n        fillRule=\"evenodd\"\n        clipRule=\"evenodd\"\n      ></path>\n    </svg>\n  );\n};\n\nexport const Trigger02 = () => {\n  return (\n    <svg fill=\"none\" viewBox=\"0 0 16 16\" className=\"size-5 flex-none\">\n      <path\n        className=\"fill-red-600 transition-colors group-hover:fill-gray-400 group-aria-expanded:fill-gray-400\"\n        d=\"M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm4 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM8 8a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z\"\n      ></path>\n    </svg>\n  );\n};\n\nexport default function PopoverUI({\n  content = \"Popover\",\n  className,\n  trigger,\n  align,\n  asChild,\n  side,\n  disabled,\n  showArrow = false,\n}: {\n  content: React.ReactNode | string;\n  className?: string;\n  trigger?: React.ReactNode | string;\n  align?: \"center\" | \"start\" | \"end\" | undefined;\n  asChild?: boolean | undefined;\n  side?: \"top\" | \"right\" | \"bottom\" | \"left\" | undefined;\n  disabled?: boolean | undefined;\n  showArrow?: boolean;\n}) {\n  return (\n    <Popover>\n      <PopoverTrigger asChild={asChild} disabled={disabled}>\n        {trigger ? trigger : <Trigger02 />}\n      </PopoverTrigger>\n      <PopoverContent\n        showArrow={showArrow}\n        align={align}\n        side={side}\n        className={cn(\n          \"w-[170px] max-w-max rounded-[10px] p-1.5 px-2.5 text-[0.8rem]\",\n          className,\n        )}\n      >\n        {content}\n      </PopoverContent>\n    </Popover>\n  );\n}"
+    "content": "import {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/components/ui/popover\";\nimport { cn } from \"@/utils\";\n\nexport const Trigger01 = () => {\n  return (\n    <svg\n      width=\"15\"\n      height=\"15\"\n      viewBox=\"0 0 15 15\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      aria-hidden=\"true\"\n      focusable=\"false\"\n      className=\"text-white/50\"\n    >\n      <path\n        d=\"M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z\"\n        fill=\"currentColor\"\n        fillRule=\"evenodd\"\n        clipRule=\"evenodd\"\n      ></path>\n    </svg>\n  );\n};\n\nexport const Trigger02 = () => {\n  return (\n    <svg fill=\"none\" viewBox=\"0 0 16 16\" className=\"size-5 flex-none\">\n      <path\n        className=\"fill-neutral-500 transition-colors group-hover:fill-gray-400 group-aria-expanded:fill-gray-400\"\n        d=\"M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm4 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM8 8a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z\"\n      ></path>\n    </svg>\n  );\n};\n\nexport default function PopoverUI({\n  content = \"Popover\",\n  className,\n  trigger,\n  align,\n  asChild,\n  side,\n  disabled,\n  showArrow = false,\n}: {\n  content: React.ReactNode | string;\n  className?: string;\n  trigger?: React.ReactNode | string;\n  align?: \"center\" | \"start\" | \"end\" | undefined;\n  asChild?: boolean | undefined;\n  side?: \"top\" | \"right\" | \"bottom\" | \"left\" | undefined;\n  disabled?: boolean | undefined;\n  showArrow?: boolean;\n}) {\n  return (\n    <Popover>\n      <PopoverTrigger asChild={asChild} disabled={disabled}>\n        {trigger ? trigger : <Trigger02 />}\n      </PopoverTrigger>\n      <PopoverContent\n        showArrow={showArrow}\n        align={align}\n        side={side}\n        className={cn(\n          \"w-[170px] max-w-max rounded-[10px] p-1.5 px-2.5 text-[0.8rem]\",\n          className,\n        )}\n      >\n        {content}\n      </PopoverContent>\n    </Popover>\n  );\n}"
   }
 ],
     keywords: [],
@@ -300,7 +333,7 @@ export const index: Record<string, any> = {
     "path": "registry/components/_ui/theme-img/index.tsx",
     "type": "registry:ui",
     "target": "components/ndk/_ui/theme-img.tsx",
-    "content": "/* eslint-disable @next/next/no-img-element */\n/* USAGE:\n *\n *  <ThemeImage\n *     srcLight=\"/imgs/ndk-banner--light.webp\"\n *     srcDark=\"/imgs/ndk-banner--dark.webp\"\n *     alt=\"img\"\n *   />\n */\n\nexport type Props = Omit<\n  React.ImgHTMLAttributes<HTMLImageElement>,\n  \"src\" | \"className\"\n> & {\n  srcLight: string;\n  srcDark: string;\n  className: string;\n};\n\nconst ThemeImage = (props: Props) => {\n  const { srcLight, srcDark, className, ...rest } = props;\n\n  return (\n    <>\n      <img\n        {...rest}\n        src={srcLight}\n        className=\"imgLight block w-full dark:hidden\"\n      />\n      <img\n        {...rest}\n        src={srcDark}\n        className={` ${className} imgDark hidden w-full dark:block`}\n      />\n    </>\n  );\n};\n\nexport default ThemeImage;"
+    "content": "/* eslint-disable @next/next/no-img-element */\n/* USAGE:\n *\n *  <ThemeImage\n *     srcLight=\"/imgs/ndk-banner--light.webp\"\n *     srcDark=\"/imgs/ndk-banner--dark.webp\"\n *     alt=\"img\"\n *   />\n */\n\nimport { cn } from \"@/utils\";\n\nexport type Props = Omit<React.ImgHTMLAttributes<HTMLImageElement>, \"src\"> & {\n  srcLight: string;\n  srcDark: string;\n  className?: string;\n};\n\nconst ThemeImage = (props: Props) => {\n  const { srcLight, srcDark, className, ...rest } = props;\n\n  return (\n    <>\n      <img\n        {...rest}\n        src={srcLight}\n        className={cn(\"imgLight block w-full dark:hidden\", className)}\n      />\n      <img\n        {...rest}\n        src={srcDark}\n        className={cn(\"imgDark hidden w-full dark:block\", className)}\n      />\n    </>\n  );\n};\n\nexport default ThemeImage;"
   }
 ],
     keywords: [],

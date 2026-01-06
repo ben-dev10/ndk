@@ -1,16 +1,10 @@
 import { Button } from "@_ndk/ui/components/ui/button";
-import { DropdownThemeToggle } from "@_ndk/ui/components/_ui/theme-toggles";
 import { MotionStagger } from "@_ndk/motion/core";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@_ndk/ui/components/ui/dialog";
 import Link from "next/link";
-import ThemeImage from "@/components/_ui/theme-image";
+import Footer from "../_components/footer";
+import heroLight from "./home-hero-light.png";
+import heroDark from "./home-hero-dark.png";
+import ThemeImage from "@/registry/components/_ui/theme-img";
 
 export const contentHeight =
   "min-h-[calc(100dvh-var(--nav-height)-var(--footer-height)-var(--banner-height)-1px)]";
@@ -19,78 +13,45 @@ export default function Home() {
   return (
     <>
       <main
-        className={`_homepage ${contentHeight} bg-background grid grid-cols-1 place-items-center overflow-hidden p-20`}
+        className={`_homepage ${contentHeight} bg-background overflow-hidden p-10`}
       >
-        <div className="_contents min-w-[300px] p-4 lg:min-w-lg">
+        <div className="_contents p-4">
           <MotionStagger preset="blurIn">
-            <h4 className="mb-2 flex items-center gap-2 text-5xl font-extrabold">
-              <ThemeImage
-                width={31}
-                height={31}
-                alt="ndk logo"
-                srcDark="/svgs/ndk-dark.svg"
-                srcLight="/svgs/ndk-light.svg"
-                className="-mb-2 w-8"
-              />
-              ndk
-            </h4>
+            <div className="_heading mx-auto sm:max-w-3xl">
+              <h1 className="mb-3 text-center text-balance max-sm:text-[1.72rem] sm:max-w-3xl md:text-[2.6rem]">
+                A Component library and toolkit for developers.
+              </h1>
+              <p className="text-muted-foreground mx-auto mb-10 text-center sm:max-w-2xl sm:text-[1.2rem]">
+                A suite of UI components, themes, utilities and more for rapid
+                prototyping and development.
+              </p>
+            </div>
 
-            <p className="text-muted-foreground mb-10">
-              A mini toolkit for frontend development.
-            </p>
-
-            <div className="flex gap-2">
-              <Link href="/docs/ui" className="grow">
-                <Button className="mb-5 w-full">Get Started</Button>
+            <div className="flex justify-center gap-3">
+              <Link href="/docs/ui" className="">
+                <Button className="rounded-full">Documentation</Button>
               </Link>
-              <Link href="/blocks" className="grow">
-                <Button variant="secondary" className="mb-5 w-full">
+              <Link href="/blocks" className="">
+                <Button variant="secondary" className="rounded-full">
                   See blocks
                 </Button>
               </Link>
             </div>
 
-            <hr className="mt-10 mb-3" />
-
-            <div className="_primitives flex flex-col gap-y-5">
-              <small className="text-muted-foreground">
-                Test out these components from the package.
-              </small>
-
-              <div className="flex gap-4">
-                <DropdownThemeToggle />
-
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button variant="ghost">Show modal!</Button>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogTitle>shadcn components</DialogTitle>
-                      <DialogDescription className="text-muted-foreground">
-                        Most ui components provided by the @_ndk/ui package are
-                        just plain shadcn components bundled up into a neat
-                        small package along with other helpful tools and
-                        utilities.
-                      </DialogDescription>
-                      <div className="mt-5">
-                        <ThemeImage
-                          srcLight="/imgs/ndk-banner--light.webp"
-                          srcDark="/imgs/ndk-banner--dark.webp"
-                          className="w-full"
-                          alt="Turborepo logo"
-                          width={180}
-                          height={38}
-                        />
-                      </div>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              </div>
+            <div className="_hero-imgs mx-auto mt-10 max-w-7xl min-w-4xl p-10 max-md:mt-8">
+              <ThemeImage
+                width={2474}
+                height={1337}
+                alt="ndk logo"
+                srcDark={heroDark.src}
+                srcLight={heroLight.src}
+                className="shadow-2xl shadow-black max-sm:-ml-16"
+              />
             </div>
           </MotionStagger>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

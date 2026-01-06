@@ -46,7 +46,7 @@ function SheetOverlay({
 
 const Overlay = () => {
   return (
-    <div className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 bg-white/50 backdrop-blur-2xl md:hidden dark:bg-black/50" />
+    <div className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-9 bg-white/40 backdrop-blur-2xl md:hidden dark:bg-black/50" />
   );
 };
 

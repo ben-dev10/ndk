@@ -5,6 +5,7 @@ import heroLight from "./_assets/hero.png";
 import heroDark from "./_assets/hero-dark.png";
 import ThemeImage from "@/registry/components/_ui/theme-img";
 import Link from "next/link";
+import Footer from "@/app/_components/footer";
 
 const links = [
   {
@@ -57,15 +58,17 @@ const Hero = () => {
   return (
     <Section.RootElement>
       <Section.Container container="8xl" className="px-[14px] py-6 pt-18">
-        <Button
-          className="group ml-px flex items-center gap-2 rounded-full border text-[0.8rem]!"
-          variant="ghost"
-        >
-          <Sparkles className="group-hover:animation-duration-[6s]! group-hover:paused! fill-blue-500 stroke-blue-500 group-hover:animate-spin!" />
-          <div>
-            Inspired by <span>TailwindPlus</span>
-          </div>
-        </Button>
+        <Link href="https://tailwindcss.com/plus" target="_blank">
+          <Button
+            className="group ml-px flex items-center gap-2 rounded-full border text-[0.8rem]!"
+            variant="ghost"
+          >
+            <Sparkles className="group-hover:animation-duration-[6s]! group-hover:paused! fill-blue-500 stroke-blue-500 group-hover:animate-spin!" />
+            <div>
+              Inspired by <span>TailwindPlus</span>
+            </div>
+          </Button>
+        </Link>
         <div className="_header">
           <h2 className="max-sm:text-3xl md:max-w-[700px]">
             Beautifully Designed Open-Source UI Components and Templates.
@@ -307,24 +310,26 @@ const TemplatesGrid = () => {
 /* main component */
 export default function BlocksPage() {
   return (
-    <main className="">
-      <MainVerticalGridLines />
-      <Hero />
-      <StickySectionNav />
-      <>
-        <APPBlocksGridHeader />
-        <APPBlocksGrid />
-      </>
-      <>
-        <LayoutsGridHeader />
-        <LayoutsGrid />
-      </>
-      <>
-        <TemplatesGridHeader />
-        <TemplatesGrid />
-      </>
-
-      <div className="_bottom-hatch-lines mt-50 mb-4 h-[35px] border-y bg-[repeating-linear-gradient(315deg,var(--border)_0,var(--border)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed" />
-    </main>
+    <>
+      <main className="">
+        <MainVerticalGridLines />
+        <Hero />
+        <StickySectionNav />
+        <>
+          <APPBlocksGridHeader />
+          <APPBlocksGrid />
+        </>
+        <>
+          <LayoutsGridHeader />
+          <LayoutsGrid />
+        </>
+        <>
+          <TemplatesGridHeader />
+          <TemplatesGrid />
+        </>
+        <div className="_bottom-hatch-lines mt-50 mb-4 h-[35px] border-y bg-[repeating-linear-gradient(315deg,var(--border)_0,var(--border)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed" />
+      </main>
+      <Footer />
+    </>
   );
 }

@@ -54,7 +54,7 @@ export default async function Page(props: {
               </div>
 
               <div className="_date">
-                <p className="text-fd-muted-foreground mb-1 text-sm">At</p>
+                <p className="text-fd-muted-foreground mb-1">At</p>
                 <p className="font-medium">
                   {new Date(page.data.date).toDateString()}
                 </p>

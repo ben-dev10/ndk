@@ -1,11 +1,11 @@
 "use client";
 import LayoutDuotone from "@/icons/layout";
-import ShoppingBasketAddIcon from "@/icons/shopping-basket";
 import WindowPointer from "@/icons/window-pointer";
 import Section from "@_ndk/ui/components/_ui/section";
 import Link from "next/link";
 import { sidebarLinks } from "./sidebar-links";
 import { usePathName } from "@/registry/hooks/use-pathname";
+import Basket from "@/icons/basket";
 
 const SIDEBAR_HEIGHT =
   "h-[calc(100dvh-var(--nav-height)-var(--banner-height))]";
@@ -14,7 +14,7 @@ export const Sidebar = () => {
 
   return (
     <Section.RootElement
-      className={`_sidebar sticky top-[calc(var(--nav-height)+var(--banner-height))] text-[0.9rem] ${SIDEBAR_HEIGHT} hidden w-(--sidebar-width) border-r md:block`}
+      className={`_sidebar sticky top-[calc(var(--nav-height)+var(--banner-height))] text-[0.9rem] ${SIDEBAR_HEIGHT} hidden shrink-0 w-(--sidebar-width) border-r md:block`}
     >
       <div className="_sidebar-container text-muted-foreground flex h-full flex-col transition-colors duration-300">
         <div className="_top-half grow overflow-y-auto p-4 pt-5">
@@ -33,12 +33,7 @@ export const Sidebar = () => {
               {
                 name: "Templates",
                 url: "#",
-                icon: (
-                  <ShoppingBasketAddIcon
-                    strokeWidth={2.5}
-                    className="size-[14px]"
-                  />
-                ),
+                icon: <Basket className="size-[15px]" />,
               },
             ].map((item, index) => (
               <Link
@@ -60,10 +55,10 @@ export const Sidebar = () => {
                   {item.links.map((link, linkIndex) => (
                     <li
                       key={linkIndex}
-                      className={`border-border/0 hover:text-foreground -ml-[2px] border-l px-4 hover:border-black/90 dark:hover:border-white ${
+                      className={`border-border/0 hover:text-foreground -ml-[2px] border-l px-4 ${
                         isActive(link.url)
-                          ? "text-foreground border-black! dark:border-white"
-                          : ""
+                          ? "text-foreground border-black! dark:border-white!"
+                          : "hover:border-black/90 dark:hover:border-white"
                       } `}
                     >
                       <Link href={link.url} className="">

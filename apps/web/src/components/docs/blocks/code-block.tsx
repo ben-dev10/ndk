@@ -1,0 +1,156 @@
+"use client";
+import {
+  type HTMLAttributes,
+  type ReactNode,
+  forwardRef,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
+import { cn } from "@_ndk/ui/lib/utils";
+import {
+  ScrollArea,
+  ScrollBar,
+  ScrollViewport,
+} from "@/components/ui/scroll-area";
+import type { ScrollArea as ScrollAreaPrimitive } from "radix-ui";
+import { CopyButton } from "@/components/buttons/copy";
+
+export type CodeBlockProps = HTMLAttributes<HTMLElement> & {
+  icon?: ReactNode;
+  height?: string;
+  allowCopy?: boolean;
+  viewportProps?: ScrollAreaPrimitive.ScrollAreaViewportProps;
+  onCopy?: () => void;
+  "data-line-numbers"?: boolean;
+  "data-line-numbers-start"?: number;
+};
+
+export const Pre = forwardRef<HTMLPreElement, HTMLAttributes<HTMLPreElement>>(
+  ({ className, ...props }, ref) => {
+    return (
+      <pre
+        ref={ref}
+        className={cn("p-4 pl-0 focus-visible:outline-none", className)}
+        {...props}
+      >
+        {props.children}
+      </pre>
+    );
+  },
+);
+
+Pre.displayName = "Pre";
+
+export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
+  (
+    {
+      title,
+      height = "max-h-[355px] min-h-[355px]",
+      allowCopy = true,
+      icon,
+      viewportProps,
+      onCopy: onCopyEvent,
+      "data-line-numbers": showLineNumbers,
+      "data-line-numbers-start": lineNumbersStart,
+      ...props
+    },
+    ref,
+  ) => {
+    const [isCopied, setIsCopied] = useState(false);
+    const areaRef = useRef<HTMLDivElement>(null);
+
+    const onCopy = useCallback(() => {
+      const pre = areaRef.current?.getElementsByTagName("pre").item(0);
+
+      if (!pre) return;
+
+      const clone = pre.cloneNode(true) as HTMLElement;
+      clone.querySelectorAll(".nd-copy-ignore").forEach((node) => {
+        node.remove();
+      });
+
+      void navigator.clipboard.writeText(clone.textContent ?? "").then(() => {
+        setIsCopied(true);
+        onCopyEvent?.();
+        setTimeout(() => setIsCopied(false), 3000);
+      });
+    }, [onCopyEvent]);
+
+    return (
+      <figure
+        ref={ref}
+        {...props}
+        className={cn(
+          "not-prose group fd-codeblock [&.shiki]:bg-accent! max-xs:max-w-[312px] relative my-6 overflow-hidden rounded-lg text-[0.85rem]",
+          props.className,
+        )}
+      >
+        {title ? (
+          <div className="flex h-10 flex-row items-center gap-2 pr-4 pl-4">
+            {icon ? (
+              <div
+                className="text-muted-foreground [&_svg]:size-3.5"
+                dangerouslySetInnerHTML={
+                  typeof icon === "string" ? { __html: icon } : undefined
+                }
+              >
+                {typeof icon !== "string" ? icon : null}
+              </div>
+            ) : null}
+            <figcaption className="text-muted-foreground flex-1 truncate">
+              {title}
+            </figcaption>
+            {allowCopy ? (
+              <CopyButton
+                size="xs"
+                variant="ghost"
+                className="-me-2 bg-transparent hover:bg-black/5 dark:hover:bg-white/10"
+                onClick={onCopy}
+                isCopied={isCopied}
+              />
+            ) : null}
+          </div>
+        ) : (
+          allowCopy && (
+            <div className="bg-accent absolute top-0 right-0 z-2 rounded-bl-xl p-1.5">
+              <CopyButton
+                size="xs"
+                variant="ghost"
+                className="bg-transparent hover:bg-black/5 dark:hover:bg-white/10"
+                onClick={onCopy}
+                isCopied={isCopied}
+              />
+            </div>
+          )
+        )}
+        <div className={cn("p-1.5", title && "pt-0")}>
+          <ScrollArea ref={areaRef} dir="ltr">
+            <ScrollViewport
+              {...viewportProps}
+              data-slot="codeblock-viewport"
+              className={cn(
+                "bg-background rounded-md pl-0 leading-5 [&_code]:text-[0.85rem]! [&_code_.line]:px-0!",
+                viewportProps?.className,
+                height,
+              )}
+              style={
+                {
+                  counterSet: showLineNumbers
+                    ? `line ${Number(lineNumbersStart ?? 1) - 1}`
+                    : undefined,
+                  ...viewportProps?.style,
+                } as object
+              }
+            >
+              {props.children}
+            </ScrollViewport>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+        </div>
+      </figure>
+    );
+  },
+);
+
+CodeBlock.displayName = "CodeBlock";

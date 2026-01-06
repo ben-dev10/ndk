@@ -1,11 +1,21 @@
-import Section from "@_ndk/ui/components/_ui/section";
+import ComponentPreview from "@/components/docs/blocks/component-preview";
+import { DocHeader } from "../../doc-page";
 
-export default function HeroBlocks() {
+function SimpleCentered() {
+  return <ComponentPreview name="blocks-hero-simple-centered" />;
+}
+
+export default function NavbarBlocks() {
   return (
-    <Section.RootElement className="min-h-screen p-8 md:pt-1">
-      <Section.Container container="8xl">
-        <h2 className="mt-0">Heroes</h2>
-      </Section.Container>
-    </Section.RootElement>
+    <>
+      <DocHeader
+        heading="Heroes"
+        description="The first view that welcomes a visitor to a site, designed to captivate and convert."
+      />
+
+      <div className="_components m-8">
+        <SimpleCentered />
+      </div>
+    </>
   );
 }

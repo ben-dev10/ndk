@@ -42,7 +42,7 @@ export default function ComponentsLayout({
         <Sidebar />
         <div className="_contents grow">
           <Section.RootElement>
-            <Section.Container container="8xl">
+            <Section.Container container="7xl">
               <div className="mt-5 hidden p-8 pb-1 md:block">
                 <BlocksBreadcrumbs />
               </div>

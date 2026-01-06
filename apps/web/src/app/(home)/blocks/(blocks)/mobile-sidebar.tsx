@@ -17,6 +17,7 @@ import LayoutDuotone from "@/icons/layout";
 import ShoppingBasketAddIcon from "@/icons/shopping-basket";
 import { sidebarLinks } from "./sidebar-links";
 import Link from "next/link";
+import Basket from "@/icons/basket";
 
 export function MobileSidebar() {
   const isActive = usePathName();
@@ -85,9 +86,8 @@ export function MobileSidebar() {
                   name: "Templates",
                   url: "#",
                   icon: (
-                    <ShoppingBasketAddIcon
-                      strokeWidth={2.5}
-                      className="size-[14px]"
+                    <Basket
+                      className="size-[15px]"
                     />
                   ),
                 },
@@ -114,10 +114,10 @@ export function MobileSidebar() {
                       <li
                         onClick={handleClick}
                         key={linkIndex}
-                        className={`border-border/0 hover:text-foreground -ml-[2px] border-l px-4 hover:border-black/90 dark:hover:border-white ${
+                        className={`border-border/0 hover:text-foreground -ml-[2px] border-l px-4 ${
                           isActive(link.url)
-                            ? "text-foreground border-black! dark:border-white"
-                            : ""
+                            ? "text-foreground border-black! dark:border-white!"
+                            : "hover:border-black/90 dark:hover:border-white"
                         } `}
                       >
                         <Link href={link.url} className="block">

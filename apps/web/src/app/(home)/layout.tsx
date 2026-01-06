@@ -2,7 +2,6 @@ import "./app.module.css";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import { baseOptions } from "@/utils/lib/layout.shared";
 import { Blocks, BookMarkedIcon, TextQuoteIcon } from "lucide-react";
-import Footer from "@/app/_components/footer";
 
 export default function Layout({ children }: LayoutProps<"/">) {
   return (
@@ -30,7 +29,6 @@ export default function Layout({ children }: LayoutProps<"/">) {
       ]}
     >
       <div className="_ui">{children}</div>
-      {/* <Footer /> */}
     </HomeLayout>
   );
 }

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blocks-hero-simple-centered",
+  "type": "registry:block",
+  "title": "Simple Centered Hero",
+  "description": "A basic hero section centered in a page",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["button"],
+  "files": [
+    {
+      "path": "registry/blocks/heroes/simple-centered/index.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/blocks/hero-simple-centered.tsx"
+    }
+  ]
+}
