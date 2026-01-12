@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "registry/blocks/heroes/simple-centered/index.tsx",
-      "content": "export default function HeroSimpleCentered() {\r\n  return <div>HeroSimpleCentered</div>;\r\n}\r\n",
+      "content": "import Background from \"@/components/_ui/background\";\r\nimport NavbarStartEnd from \"@/components/navs/start-end\";\r\n\r\nexport default function HeroSimpleCentered() {\r\n  return (\r\n    <>\r\n      <NavbarStartEnd className=\"[--nav-height:50px]\" />\r\n      <section className=\"_ui grid h-[calc(100dvh-var(--nav-height)-8px)] place-items-center\">\r\n        <Background>\r\n          <Background.Gradient gradient=\"cosmicAurora\" opacity={0.2} />\r\n        </Background>\r\n\r\n        <div className=\"container-8xl relative z-1\">\r\n          <div>\r\n            <div className=\"_header max-w-lg text-center text-balance\">\r\n              <h3 className=\"text-center\">\r\n                Empowering the next generation of Engineers.\r\n              </h3>\r\n              <p className=\"text-muted-foreground\">\r\n                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit\r\n                tenetur nostrum et deserunt, omnis praesentium\r\n              </p>\r\n            </div>\r\n            <div className=\"_btns\"></div>\r\n          </div>\r\n        </div>\r\n      </section>\r\n    </>\r\n  );\r\n}\r\n",
       "type": "registry:ui",
       "target": "components/ndk/blocks/hero-simple-centered.tsx"
     }

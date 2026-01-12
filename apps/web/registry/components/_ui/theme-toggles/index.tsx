@@ -120,7 +120,7 @@ export function ButtonGroupThemeToggle({
   return (
     <div
       className={cn(
-        "bg-secondary/40 text-foreground/50 flex max-w-max rounded-full border p-1",
+        "bg-secondary/40 text-foreground/50 flex max-w-max rounded-full border p-0.5",
         className,
       )}
     >
@@ -128,7 +128,7 @@ export function ButtonGroupThemeToggle({
         <button
           key={value}
           onClick={() => setTheme(value)}
-          className={`flex items-center gap-2 rounded-full p-2 text-sm font-medium transition-colors duration-200 ${
+          className={`flex items-center gap-2 rounded-full p-1.5 text-sm font-medium transition-colors duration-200 ${
             theme === value
               ? "dark:bg-primary/15 bg-primary/5 text-foreground/100" // active state
               : "hover:text-foreground/100" // default state

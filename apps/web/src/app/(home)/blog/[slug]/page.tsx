@@ -32,18 +32,18 @@ export default async function Page(props: {
     <>
       <Section.RootElement>
         <Section.Container container="8xl" className="px-(--gutter-x)">
-          <div className="_page-header mt-8 mb-4 border-b pb-4">
+          <div className="_page-header mt-8 mb-4 pb-4">
             <Link
               href="/blog"
-              className="_back-btn text-muted-foreground mt-5 mb-4 flex items-center gap-1"
+              className="_back-btn text-muted-foreground mt-5 mb-6 flex items-center gap-1 hover:opacity-80"
             >
               <ArrowLeft size={15} /> <span>Back</span>
             </Link>
 
-            <h1 className="_blog-title mb-2 text-3xl font-bold">
+            <h1 className="_blog-title mb-3 text-3xl font-bold">
               {page.data.title}
             </h1>
-            <p className="_blog-description text-fd-muted-foreground mb-18">
+            <p className="_blog-description text-fd-muted-foreground mb-18 sm:max-w-xl">
               {page.data.description}
             </p>
 
@@ -65,7 +65,7 @@ export default async function Page(props: {
           <article className="_article-body flex min-h-[80dvh] flex-col pb-20">
             <div className="_article-wrapper prose min-w-0">
               <InlineTOC
-                className={`sticky ${TOC_OFFSET} mb-10`}
+                className={`sticky ${TOC_OFFSET} mb-10 text-[0.9rem]`}
                 items={page.data.toc}
               />
               <Mdx components={defaultMdxComponents} />

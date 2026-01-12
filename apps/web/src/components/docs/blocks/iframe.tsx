@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 export default function Iframe({
   name,
   bigScreen = false,
+  height = "h-[380px]",
 }: {
   name: string;
+  height?: string;
   bigScreen?: boolean;
 }) {
   const [iframeUrl, setIframeUrl] = useState<string | null>(null);
@@ -24,10 +26,7 @@ export default function Iframe({
       <div className="_iframe-wrapper rounded-lg">
         <iframe
           src={iframeUrl}
-          className={cn(
-            "h-[380px] w-full rounded-md",
-            bigScreen && "w-[600px]",
-          )}
+          className={cn("w-full rounded-md", height, bigScreen && "w-[600px]")}
         />
       </div>
     </>

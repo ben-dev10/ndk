@@ -45,11 +45,15 @@ function unwrapValues(obj: Record<string, any>): Record<string, any> {
 export default function ComponentPreview({
   name,
   title,
+  height,
+  componentTitle,
   iframe = false,
   bigScreen = false,
 }: {
   name: string;
   title?: string;
+  height?: string;
+  componentTitle?: string;
   iframe?: boolean;
   bigScreen?: boolean;
 }) {
@@ -95,6 +99,9 @@ export default function ComponentPreview({
 
   return (
     <section className="_component-preview">
+      <div>
+        <h4 className="mb-3">{componentTitle}</h4>
+      </div>
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
         <div
           className="flex items-center justify-between pb-2"
@@ -107,7 +114,7 @@ export default function ComponentPreview({
             </TabsList>
 
             <div className="_theme-toggle mr-2 flex items-center gap-3">
-              <ButtonGroupThemeToggle size={10} />
+              <ButtonGroupThemeToggle size={14} />
 
               <div className="">
                 <PopoverUI
@@ -137,7 +144,12 @@ export default function ComponentPreview({
           </div>
         </div>
         <TabsContent value="preview">
-          <ComponentWrapper name={name} iframe={iframe} bigScreen={bigScreen}>
+          <ComponentWrapper
+            height={height}
+            name={name}
+            iframe={iframe}
+            bigScreen={bigScreen}
+          >
             <Suspense fallback={<Loader />}>{preview}</Suspense>
           </ComponentWrapper>
         </TabsContent>

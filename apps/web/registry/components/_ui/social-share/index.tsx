@@ -1,5 +1,6 @@
 "use client";
 import React, { createContext, useEffect, useMemo, useState } from "react";
+import { useCopyToClipboard } from "@/registry/hooks/use-clipboard";
 
 type SocialShareContextType = {
   encodedUrl: string;
@@ -183,4 +184,28 @@ export function SocialShareEmail({ ...props }: SocialShareEmailProps) {
       )}
     </SocialShareContext.Consumer>
   );
+}
+
+export type SocialShareLinkProps = React.ComponentProps<"button"> & {
+  timeout?: number | undefined;
+  onCopiedChange?: (isCopied: boolean) => void;
+};
+
+export function SocialShareLink({
+  timeout = 100,
+  onCopiedChange,
+  ...props
+}: SocialShareLinkProps) {
+  const [url, setURL] = useState("");
+  const { isCopied, copyToClipboard } = useCopyToClipboard({
+    timeout: timeout,
+  });
+
+  useEffect(() => {
+    setURL(window.location.href);
+
+    onCopiedChange?.(isCopied);
+  }, [isCopied, onCopiedChange]);
+
+  return <button {...props} onClick={() => copyToClipboard(url)} />;
 }

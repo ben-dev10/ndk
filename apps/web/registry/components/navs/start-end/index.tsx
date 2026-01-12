@@ -7,6 +7,7 @@ import Section from "@_ndk/ui/components/_ui/section";
 import { BasicSheet } from "@/registry/components/sheets/basic-sheet";
 import Link from "next/link";
 import { Building2, Component, ShoppingBag, ToolCase } from "lucide-react";
+import { cn } from "@_ndk/ui/utils";
 
 export const NavLinks = [
   {
@@ -31,11 +32,14 @@ export const NavLinks = [
   },
 ];
 
-export default function NavbarStartEnd() {
+export default function NavbarStartEnd({ className }: { className?: string }) {
   return (
     <Section.RootElement
       as="header"
-      className="_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]"
+      className={cn(
+        "_navbar bg-background sticky top-0 z-2 flex h-(--nav-height) items-center border-b px-5 text-[0.95rem]",
+        className,
+      )}
     >
       <Background>
         <Background.Gradient

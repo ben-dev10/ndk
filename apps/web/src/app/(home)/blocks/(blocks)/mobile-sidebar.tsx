@@ -14,7 +14,6 @@ import { useOpen } from "@/registry/hooks/use-open";
 import { useEffect } from "react";
 import WindowPointer from "@/icons/window-pointer";
 import LayoutDuotone from "@/icons/layout";
-import ShoppingBasketAddIcon from "@/icons/shopping-basket";
 import { sidebarLinks } from "./sidebar-links";
 import Link from "next/link";
 import Basket from "@/icons/basket";
@@ -85,11 +84,7 @@ export function MobileSidebar() {
                 {
                   name: "Templates",
                   url: "#",
-                  icon: (
-                    <Basket
-                      className="size-[15px]"
-                    />
-                  ),
+                  icon: <Basket className="size-[15px]" />,
                 },
               ].map((item, index) => (
                 <Link
@@ -114,7 +109,7 @@ export function MobileSidebar() {
                       <li
                         onClick={handleClick}
                         key={linkIndex}
-                        className={`border-border/0 hover:text-foreground -ml-[2px] border-l px-4 ${
+                        className={`border-border/0 hover:text-foreground -ml-[1.2px] border-l px-4 md:-ml-[2px] ${
                           isActive(link.url)
                             ? "text-foreground border-black! dark:border-white!"
                             : "hover:border-black/90 dark:hover:border-white"

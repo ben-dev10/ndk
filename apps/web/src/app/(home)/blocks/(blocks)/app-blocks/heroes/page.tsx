@@ -2,10 +2,17 @@ import ComponentPreview from "@/components/docs/blocks/component-preview";
 import { DocHeader } from "../../doc-page";
 
 function SimpleCentered() {
-  return <ComponentPreview name="blocks-hero-simple-centered" />;
+  return (
+    <ComponentPreview
+      height="h-[450px] sm:h-[600px]"
+      iframe
+      componentTitle="Simple Centered"
+      name="blocks-hero-simple-centered"
+    />
+  );
 }
 
-export default function NavbarBlocks() {
+export default function HeroesBlocks() {
   return (
     <>
       <DocHeader

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hooks-use-clipboard",
+  "type": "registry:hook",
+  "title": "useClipboard",
+  "description": "Copies a resource to clipboard",
+  "files": [
+    {
+      "path": "registry/hooks/use-clipboard/index.ts",
+      "type": "registry:hook",
+      "target": "hooks/use-clipboard.ts"
+    }
+  ]
+}

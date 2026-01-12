@@ -1,19 +1,26 @@
 import Section from "@_ndk/ui/components/_ui/section";
 import { Button } from "@_ndk/ui/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import heroLight from "./_assets/hero.png";
-import heroDark from "./_assets/hero-dark.png";
 import ThemeImage from "@/registry/components/_ui/theme-img";
 import Link from "next/link";
 import Footer from "@/app/_components/footer";
+
+import heroLight from "./_assets/hero.png";
+import heroDark from "./_assets/hero-dark.png";
+import footersLight from "./_assets/footers.png";
+import footersDark from "./_assets/footers-dark.png";
+import navbarsLight from "./_assets/navbars.png";
+import navbarsDark from "./_assets/navbars-dark.png";
+import sheetsLight from "./_assets/sheets.png";
+import sheetsDark from "./_assets/sheets-dark.png";
 
 const links = [
   {
     name: "Navbars",
     url: "/blocks/app-blocks/navbars",
     img: {
-      srcLight: heroLight.src,
-      srcDark: heroDark.src,
+      srcLight: navbarsLight.src,
+      srcDark: navbarsDark.src,
     },
     components: "2 components",
   },
@@ -27,20 +34,20 @@ const links = [
     components: "1 component",
   },
   {
-    name: "Navbars",
+    name: "Footers",
     url: "#",
     img: {
-      srcLight: heroLight.src,
-      srcDark: heroDark.src,
+      srcLight: footersLight.src,
+      srcDark: footersDark.src,
     },
     components: "1 component",
   },
   {
-    name: "Navbars",
+    name: "Sheets",
     url: "#",
     img: {
-      srcLight: heroLight.src,
-      srcDark: heroDark.src,
+      srcLight: sheetsLight.src,
+      srcDark: sheetsDark.src,
     },
     components: "1 component",
   },

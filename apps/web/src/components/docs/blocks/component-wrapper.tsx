@@ -14,9 +14,9 @@ import {
 import useMounted from "@/hooks/use-mounted";
 import { Loader } from "@/components/_ui/loader";
 
-const WRAPPER_HEIGHT = "max-h-[380px] min-h-[380px]";
 interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
+  height?: string;
   iframe?: boolean;
   bigScreen?: boolean;
 }
@@ -24,6 +24,7 @@ interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 export const ComponentWrapper = ({
   className,
   children,
+  height = "max-h-[380px] min-h-[380px]",
   name,
   iframe = false,
   bigScreen = false,
@@ -79,11 +80,11 @@ export const ComponentWrapper = ({
           </div>
 
           {iframe ? (
-            <div className={`_iframe-wrapper rounded-lg`}>
+            <div className={`_iframe-wrapper rounded-lg ${height}`}>
               {!mounted && (
                 <div className="h-full w-full rounded-xl">
                   <Loader
-                    className={`grid h-full place-items-center ${WRAPPER_HEIGHT}`}
+                    className={`grid h-full place-items-center ${height}`}
                   />
                 </div>
               )}
@@ -93,7 +94,12 @@ export const ComponentWrapper = ({
                   className="min-h-[350px] rounded-lg"
                 >
                   <ResizablePanel defaultSize={100} minSize={45}>
-                    <Iframe key={key} name={name} bigScreen={bigScreen} />
+                    <Iframe
+                      height={height}
+                      key={key}
+                      name={name}
+                      bigScreen={bigScreen}
+                    />
                   </ResizablePanel>
                   <ResizableHandle withHandle className="hidden w-px md:flex" />
 
@@ -106,7 +112,7 @@ export const ComponentWrapper = ({
           ) : (
             <div
               key={key}
-              className={`_normal-preview-wrapper ${WRAPPER_HEIGHT} grid w-full place-items-center`}
+              className={`_normal-preview-wrapper ${height} grid w-full place-items-center`}
             >
               {!mounted && <Loader className="" />}
               {mounted && <>{children}</>}
