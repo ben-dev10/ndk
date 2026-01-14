@@ -155,6 +155,7 @@ export default function ComponentPreview({
         </TabsContent>
         <TabsContent value="code" className="rounded-lg">
           <DynamicCodeBlock
+            height={height}
             code={code}
             lang="tsx"
             title={title}

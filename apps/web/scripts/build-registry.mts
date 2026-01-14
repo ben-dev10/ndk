@@ -25,6 +25,9 @@ function replaceRegistryPaths(inputStr: string): string {
       if (rest.startsWith("hooks/")) {
         return `${quote}@/${rest}${quote}`;
       }
+      if (rest.startsWith("assets/")) {
+        return `${quote}@/${rest}${quote}`;
+      }
       if (rest.startsWith("components/")) {
         return `${quote}@/${rest}${quote}`;
       }

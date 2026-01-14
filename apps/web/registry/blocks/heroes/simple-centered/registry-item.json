@@ -5,12 +5,22 @@
   "title": "Simple Centered Hero",
   "description": "A basic hero section centered in a page",
   "dependencies": ["lucide-react"],
-  "registryDependencies": ["button"],
+  "registryDependencies": [
+    "button",
+    "@ndk/components-background",
+    "@ndk/start-end",
+    "@ndk/section"
+  ],
   "files": [
     {
       "path": "registry/blocks/heroes/simple-centered/index.tsx",
       "type": "registry:ui",
       "target": "components/ndk/blocks/hero-simple-centered.tsx"
+    },
+    {
+      "path": "registry/assets/imgs/gradient-img.png",
+      "type": "registry:file",
+      "target": "assets/imgs/gradient-img.png"
     }
   ]
 }

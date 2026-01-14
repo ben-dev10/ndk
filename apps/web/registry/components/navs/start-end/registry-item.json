@@ -11,7 +11,8 @@
     "@ndk/components-background",
     "@ndk/components-section",
     "@ndk/components-basic-sheet",
-    "@ndk/icons-acme-logo"
+    "@ndk/icons-acme-logo",
+    "@ndk/hooks-use-open"
   ],
   "files": [
     {

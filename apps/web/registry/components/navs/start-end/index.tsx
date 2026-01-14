@@ -1,3 +1,4 @@
+"use client";
 import { AcmeLogoSimple } from "@/components/_ui/acme-logo";
 import { Button } from "@_ndk/ui/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
@@ -8,6 +9,7 @@ import { BasicSheet } from "@/registry/components/sheets/basic-sheet";
 import Link from "next/link";
 import { Building2, Component, ShoppingBag, ToolCase } from "lucide-react";
 import { cn } from "@_ndk/ui/utils";
+import { usePathName } from "@/registry/hooks/use-pathname";
 
 export const NavLinks = [
   {
@@ -22,7 +24,7 @@ export const NavLinks = [
   },
   {
     name: "Blocks",
-    url: "/blocks",
+    url: "/examples/",
     icon: <Building2 size={16} />,
   },
   {
@@ -32,7 +34,15 @@ export const NavLinks = [
   },
 ];
 
-export default function NavbarStartEnd({ className }: { className?: string }) {
+export default function NavbarStartEnd({
+  className,
+  gradient,
+}: {
+  className?: string;
+  gradient?: boolean;
+}) {
+  const isActive = usePathName();
+
   return (
     <Section.RootElement
       as="header"
@@ -41,12 +51,14 @@ export default function NavbarStartEnd({ className }: { className?: string }) {
         className,
       )}
     >
-      <Background>
-        <Background.Gradient
-          gradient="dreamyPink"
-          className="w-[150px] mask-r-from-10% opacity-100! dark:opacity-50!"
-        />
-      </Background>
+      {gradient && (
+        <Background>
+          <Background.Gradient
+            gradient="dreamyPink"
+            className="w-[150px] mask-r-from-10% opacity-100! dark:opacity-50!"
+          />
+        </Background>
+      )}
 
       <Section.Container
         container="8xl"
@@ -61,7 +73,7 @@ export default function NavbarStartEnd({ className }: { className?: string }) {
             <Link
               href={link.url}
               key={link.name}
-              className="hover:text-primary"
+              className={`text-muted-foreground hover:text-foreground ${isActive(link.url) ? "text-foreground!" : ""}`}
             >
               {link.name}
             </Link>
