@@ -1,0 +1,61 @@
+/* Modern browsers (Chrome, Edge, Safari) */
+* {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+/* Light mode colors (default) */
+:root {
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.35);
+  --scrollbar-thumb-active: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode colors - Tailwind class-based */
+.dark * {
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.dark {
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.35);
+  --scrollbar-thumb-active: rgba(255, 255, 255, 0.5);
+}
+
+/* Fallback for system preference (if not using class strategy) */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) * {
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  }
+  :root:not(.light) {
+    --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+    --scrollbar-thumb-hover: rgba(255, 255, 255, 0.35);
+    --scrollbar-thumb-active: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Webkit browsers (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-thumb-active);
+}
+
+/* corner where vertical and horizontal scrollbars meet */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

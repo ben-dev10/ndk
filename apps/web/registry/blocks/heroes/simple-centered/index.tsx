@@ -4,10 +4,7 @@ import NavbarStartEnd from "@/registry/components/navs/start-end";
 import gradientImg from "@/registry/assets/imgs/gradient-img.png";
 import { Button } from "@_ndk/ui/components/ui/button";
 
-const imgUrl = `bg-[url(${gradientImg.src})]`;
-
 export default function HeroSimpleCentered() {
-  console.log(imgUrl);
   return (
     <>
       <NavbarStartEnd gradient={false} className="[--nav-height:50px]" />

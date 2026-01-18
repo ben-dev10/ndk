@@ -18,6 +18,7 @@
     "@_ndk/ui": "*",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/mdx": "^2.0.13",
+    "@vercel/analytics": "^1.6.1",
     "front-matter": "^4.0.2",
     "fumadocs-core": "^16.4.2",
     "fumadocs-mdx": "^14.2.4",

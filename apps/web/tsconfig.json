@@ -24,10 +24,7 @@
     "**/*.tsx",
     "next-env.d.ts",
     "next.config.js",
-    ".next/types/**/*.ts",
-    "tailwind.config.js",
-    "../../archive/tailwind.config.ts",
-    "../../archive/_store/index.tsx"
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules", "archive"]
 }

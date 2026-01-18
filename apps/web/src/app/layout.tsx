@@ -5,6 +5,8 @@ import { RootProvider } from "fumadocs-ui/provider/next";
 import Banner from "./_components/banner";
 import { metadata as baseMetadata, metadataKeywords } from "./metadata";
 import { siteConfig } from "@/lib/site";
+import { ScrollHandler } from "./scroll-handler";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -27,8 +29,10 @@ export default function RootLayout({
       <body className={`font-Lexend`}>
         <ThemeProvider>
           <RootProvider>
+            <ScrollHandler />
             <Banner />
             {children}
+            <Analytics />
           </RootProvider>
         </ThemeProvider>
       </body>

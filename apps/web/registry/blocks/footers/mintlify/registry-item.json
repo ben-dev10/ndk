@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blocks-footer-mintlify",
+  "type": "registry:block",
+  "title": "Mintlify Footer",
+  "description": "Mintlify's 2025 Footer",
+  "dependencies": ["lucide-react"],
+  "registryDependencies": [
+    "button",
+    "@ndk/components-section",
+    "@ndk/components-social-icons",
+    "@ndk/icons-acme-logo",
+    "@ndk/components-theme-toggles"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/footers/mintlify/index.tsx",
+      "type": "registry:ui",
+      "target": "components/ndk/blocks/mintlify-footer.tsx"
+    },
+    {
+      "path": "registry/blocks/footers/mintlify/data.tsx",
+      "type": "registry:component",
+      "target": "components/ndk/blocks/data.tsx"
+    }
+  ]
+}

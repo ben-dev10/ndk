@@ -8,8 +8,8 @@
   "registryDependencies": [
     "button",
     "@ndk/components-background",
-    "@ndk/start-end",
-    "@ndk/section"
+    "@ndk/components-start-end",
+    "@ndk/components-section"
   ],
   "files": [
     {

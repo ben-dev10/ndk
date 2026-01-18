@@ -15,6 +15,7 @@ import { ButtonGroupThemeToggle } from "@/registry/components/_ui/theme-toggles"
 import PopoverUI from "@/registry/components/_ui/popover-ui";
 import { Info } from "lucide-react";
 import Link from "next/link";
+import { ComponentInstallation } from "./component-installation";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function flattenFirstLevel<T>(input: Record<string, any>): T {
@@ -163,6 +164,10 @@ export default function ComponentPreview({
           />
         </TabsContent>
       </Tabs>
+
+      <div className="_cli-installation">
+        <ComponentInstallation name={name} />
+      </div>
     </section>
   );
 }

@@ -64,8 +64,9 @@ export default function NavbarStartEnd({
         container="8xl"
         className={`_navbar-wrapper relative z-1 flex w-full items-center gap-2`}
       >
-        <div className="_logo mr-3 max-md:mr-auto">
-          <AcmeLogoSimple className="size-6" />
+        <div className="_logo mr-5 flex items-center gap-2 max-md:mr-auto">
+          <AcmeLogoSimple className="size-5" />
+          <p className="text-[1.1rem]">ACME</p>
         </div>
 
         <div className="_menu-links mr-auto hidden items-center gap-3 md:flex">

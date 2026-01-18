@@ -35,7 +35,7 @@ const links = [
   },
   {
     name: "Footers",
-    url: "#",
+    url: "/blocks/app-blocks/footers",
     img: {
       srcLight: footersLight.src,
       srcDark: footersDark.src,
@@ -165,9 +165,10 @@ const APPBlocksGrid = () => {
 
           {links.map((item, index) => (
             <Link
+              scroll={true}
               href={item.url}
               key={index}
-              className="block last:border-b-0 max-sm:border-b"
+              className="hover:bg-primary/3 block transition-colors duration-150 last:border-b-0 max-sm:border-b"
             >
               <div className="p-2 pb-0">
                 <ThemeImage
@@ -229,7 +230,7 @@ const LayoutsGrid = () => {
             <Link
               href={item.url}
               key={index}
-              className="block last:border-b-0 max-sm:border-b"
+              className="hover:bg-primary/3 block transition-colors duration-150 last:border-b-0 max-sm:border-b"
             >
               <div className="p-2 pb-0">
                 <ThemeImage
@@ -291,7 +292,7 @@ const TemplatesGrid = () => {
             <Link
               href={item.url}
               key={index}
-              className="block last:border-b-0 max-sm:border-b"
+              className="hover:bg-primary/3 block transition-colors duration-150 last:border-b-0 max-sm:border-b"
             >
               <div className="p-2 pb-0">
                 <ThemeImage
@@ -334,7 +335,7 @@ export default function BlocksPage() {
           <TemplatesGridHeader />
           <TemplatesGrid />
         </>
-        <div className="_bottom-hatch-lines mt-50 mb-4 h-[35px] border-y bg-[repeating-linear-gradient(315deg,var(--border)_0,var(--border)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed" />
+        <div className="_bottom-hatch-lines mt-50 mb-4 h-[25px] border-y bg-[repeating-linear-gradient(315deg,var(--border)_0,var(--border)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed" />
       </main>
       <Footer />
     </>

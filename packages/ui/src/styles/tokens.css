@@ -89,10 +89,6 @@
   button {
     cursor: pointer;
   }
-s
-  html {
-    scroll-behavior: smooth;
-  }
 }
 
 @layer utilities {

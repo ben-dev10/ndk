@@ -1,3 +1,4 @@
+// "use client";
 import Section from "@_ndk/ui/components/_ui/section";
 import { Sidebar } from "./sidebar";
 import { MobileSidebar } from "./mobile-sidebar";
@@ -40,7 +41,7 @@ export default function ComponentsLayout({
       <SecondaryNav />
       <div className="flex">
         <Sidebar />
-        <div className="_contents w-[100] grow  overflow-x-hidden">
+        <div className="_contents w-[100] grow overflow-x-hidden">
           <Section.RootElement className="">
             <Section.Container container="7xl">
               <div className="mt-5 hidden p-8 pb-1 md:block">

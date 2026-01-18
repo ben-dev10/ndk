@@ -14,7 +14,7 @@ export const Sidebar = () => {
 
   return (
     <Section.RootElement
-      className={`_sidebar sticky top-[calc(var(--nav-height)+var(--banner-height))] text-[0.9rem] ${SIDEBAR_HEIGHT} hidden shrink-0 w-(--sidebar-width) border-r md:block`}
+      className={`_sidebar sticky top-[calc(var(--nav-height)+var(--banner-height))] text-[0.9rem] ${SIDEBAR_HEIGHT} hidden w-(--sidebar-width) shrink-0 border-r md:block`}
     >
       <div className="_sidebar-container text-muted-foreground flex h-full flex-col transition-colors duration-300">
         <div className="_top-half grow overflow-y-auto p-4 pt-5">
@@ -72,7 +72,12 @@ export const Sidebar = () => {
           </nav>
         </div>
 
-        <div className="_bottom-half h-[200px] border-t p-2">bottom</div>
+        <div className="_bottom-half h-[300px] border-t">
+          <div className="h-[200px]">
+            {/*eslint-disable-next-line @next/next/no-img-element  */}
+            <img src="/imgs/iso-ndk.png" alt="" className="h-[299px]" />
+          </div>
+        </div>
       </div>
     </Section.RootElement>
   );

@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "../utils/styles/code-scrollbars.css";
 
 @import "@_ndk/ui/tokens";
 @import "@_ndk/ui/fonts";
@@ -23,14 +22,14 @@ header#nd-nav {
   top: var(--banner-height) !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   p > code,
   li > code {
     @apply text-[0.86rem]!;
-
-    html {
-      scroll-behavior: smooth;
-    }
   }
 
   /* code-block */

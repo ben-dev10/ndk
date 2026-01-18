@@ -10,9 +10,10 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@_ndk/ui/components/ui/resizable";
+} from "./resizable";
 import useMounted from "@/hooks/use-mounted";
 import { Loader } from "@/components/_ui/loader";
+import { useIsMobile } from "@_ndk/ui/hooks/use-mobile";
 
 interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -31,6 +32,7 @@ export const ComponentWrapper = ({
 }: ComponentWrapperProps) => {
   const [key, setKey] = useState(0);
   const mounted = useMounted();
+  const isMobile = useIsMobile();
 
   return (
     <div className="bg-accent overflow-hidden rounded-lg p-1.5">
@@ -93,7 +95,10 @@ export const ComponentWrapper = ({
                   direction="horizontal"
                   className="min-h-[350px] rounded-lg"
                 >
-                  <ResizablePanel defaultSize={100} minSize={45}>
+                  <ResizablePanel
+                    defaultSize={100}
+                    minSize={isMobile ? 100 : 55}
+                  >
                     <Iframe
                       height={height}
                       key={key}

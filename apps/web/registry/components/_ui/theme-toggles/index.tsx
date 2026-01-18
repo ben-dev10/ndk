@@ -120,7 +120,7 @@ export function ButtonGroupThemeToggle({
   return (
     <div
       className={cn(
-        "bg-secondary/40 text-foreground/50 flex max-w-max rounded-full border p-0.5",
+        "_wrapper bg-secondary/40 text-foreground/50 flex max-w-max rounded-full border p-0.5",
         className,
       )}
     >

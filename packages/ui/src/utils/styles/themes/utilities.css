@@ -12,10 +12,6 @@
       "calt" 1;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   button {
     cursor: pointer;
   }

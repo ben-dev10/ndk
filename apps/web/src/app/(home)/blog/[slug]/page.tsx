@@ -5,6 +5,7 @@ import defaultMdxComponents from "fumadocs-ui/mdx";
 import { blog } from "@/lib/source";
 import { ArrowLeft } from "lucide-react";
 import Section from "@_ndk/ui/components/_ui/section";
+import Image from "next/image";
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
@@ -30,46 +31,50 @@ export default async function Page(props: {
 
   return (
     <>
-      <Section.RootElement>
-        <Section.Container container="8xl" className="px-(--gutter-x)">
-          <div className="_page-header mt-8 mb-4 pb-4">
+      <Section.RootElement className="_ui">
+        <Section.Container container="7xl" className="px-(--gutter-x)">
+          <div className="_page-header mt-8 mb-6 pb-4">
             <Link
               href="/blog"
-              className="_back-btn text-muted-foreground mt-5 mb-6 flex items-center gap-1 hover:opacity-80"
+              className="_back-btn hover:bg-secondary text-muted-foreground mt-5 mb-6 -ml-3 flex max-w-max items-center gap-1 rounded-full p-1 px-3 text-[0.9rem] hover:opacity-80"
             >
               <ArrowLeft size={15} /> <span>Back</span>
             </Link>
 
-            <h1 className="_blog-title mb-3 text-3xl font-bold">
-              {page.data.title}
-            </h1>
-            <p className="_blog-description text-fd-muted-foreground mb-18 sm:max-w-xl">
+            <h1 className="_blog-title font-InterV">{page.data.title}</h1>
+            <h5 className="_blog-description text-fd-muted-foreground sm:max-w-xl">
               {page.data.description}
-            </p>
-
-            <div className="_data mt-5 flex gap-4 text-sm">
-              <div className="_written-by">
-                <p className="text-fd-muted-foreground mb-1">Written by</p>
-                <p className="font-medium">{page.data.author}</p>
-              </div>
-
-              <div className="_date">
-                <p className="text-fd-muted-foreground mb-1">At</p>
-                <p className="font-medium">
-                  {new Date(page.data.date).toDateString()}
-                </p>
-              </div>
-            </div>
+            </h5>
           </div>
 
-          <article className="_article-body flex min-h-[80dvh] flex-col pb-20">
-            <div className="_article-wrapper prose min-w-0">
+          <article className="_article-body prose mb-20 flex min-h-[80dvh] min-w-0">
+            <div className="_mdx-content grow">
               <InlineTOC
-                className={`sticky ${TOC_OFFSET} mb-10 text-[0.9rem]`}
+                className={`sticky ${TOC_OFFSET} bg-background z-3 mb-8 text-[0.8rem]`}
                 items={page.data.toc}
               />
               <Mdx components={defaultMdxComponents} />
             </div>
+
+            <aside className="_aside hidden w-[250px] shrink-0 px-5 pl-12 md:block">
+              <div className="_author flex items-center gap-3">
+                <div className="">
+                  <Image
+                    alt=""
+                    width={2448}
+                    height={2448}
+                    src="/authors/nard.webp"
+                    className="my-0! size-12 rounded-full grayscale"
+                  />
+                </div>
+                <div className="-mt-3">
+                  <p className="mb-0 text-[1.1rem]">{page.data.author}</p>
+                  <span className="text-muted-foreground">
+                    Software Developer
+                  </span>
+                </div>
+              </div>
+            </aside>
           </article>
         </Section.Container>
       </Section.RootElement>

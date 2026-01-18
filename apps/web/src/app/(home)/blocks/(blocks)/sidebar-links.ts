@@ -16,12 +16,12 @@ export const sidebarLinks: SidebarLinksProps[] = [
       },
       {
         name: "Footers",
-        url: "#",
+        url: "/blocks/app-blocks/footers",
       },
-      {
-        name: "Dividers",
-        url: "#",
-      },
+      // {
+      //   name: "Dividers",
+      //   url: "#",
+      // },
     ],
   },
   {
@@ -31,19 +31,19 @@ export const sidebarLinks: SidebarLinksProps[] = [
         name: "Heroes",
         url: "/blocks/app-blocks/heroes",
       },
-      {
-        name: "CTA",
-        url: "#",
-      },
+      // {
+      //   name: "CTA",
+      //   url: "#",
+      // },
     ],
   },
-  {
-    category: "Pages",
-    links: [
-      {
-        name: "UI Blocks",
-        url: "#",
-      },
-    ],
-  },
+  // {
+  //   category: "Pages",
+  //   links: [
+  //     {
+  //       name: "UI Blocks",
+  //       url: "#",
+  //     },
+  //   ],
+  // },
 ];
